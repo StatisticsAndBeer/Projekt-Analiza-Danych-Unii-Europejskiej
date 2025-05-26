@@ -18,7 +18,7 @@ CNTR_eu<-unlist(eu_countries %>%
   select(geo))
 YEARS=2019:2023
 
-project_path <- "C:/Users/miesz/Desktop/Projekt ADS UE"
+project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
 setwd(project_path)
 
 #Usunięcie z mapy regionów poza kontynentem europejskim
@@ -117,6 +117,11 @@ data <- data %>%
     geo %in% eu_south ~ "South",
     geo %in% eu_east  ~ "East",
     geo %in% eu_west  ~ "West"))
+
+rm(eu_east, eu_south, eu_north, eu_west)
+
+data$time <- as.factor(data$time)
+data$geo <- as.factor(data$geo)
 
 
 
