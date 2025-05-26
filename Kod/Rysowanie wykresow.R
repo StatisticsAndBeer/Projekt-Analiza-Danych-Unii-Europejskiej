@@ -37,7 +37,8 @@ var_names <- list(geo = "Kraj",
 #   scale_y_continuous(n.breaks = 8) + 
 #   main_plot_theme
 
-
+#Rysowanie----------------------------------------------------------------------
+#Boxploty - wstępna analiza.....................................................
 setwd(paste(project_path, "/Wykresy/Boxploty", sep=""))
 
 for(i in vars){
@@ -45,9 +46,10 @@ for(i in vars){
   
   file_name <- paste(var_names[[i]], ".png", sep="")
   
-  p <- ggplot(data, aes(x = factor(time), y = unlist(data[i]))) +
+  p <- ggplot(data, aes(x = time, y = unlist(data[i]))) +
     geom_boxplot(outlier.shape = NA, fill = alpha("blue", 0.1)) + 
-    geom_point(position = jitter, size=2, aes(x = factor(time), y = unlist(data[i]), color = geo)) + 
+    geom_point(position = jitter, size=2, 
+               aes(x = time, y = unlist(data[i]), color = geo)) + 
     geom_text_repel(mapping = aes(label=  geo), color = "black",  size = 2, 
                     max.overlaps = 20, position = jitter, min.segment.length = 0) +
     scale_y_continuous(n.breaks = 8) + 
@@ -58,4 +60,35 @@ for(i in vars){
   
     ggsave(filename = file_name, plot = p, height = 1600, width = 2400, units = "px")
 }
+
+rm(i, p, file_name, title)
+
+#Histogramy - wstępna analiza...................................................
+setwd(paste(project_path, "/Wykresy/Gęstość", sep=""))
+
+
+for(i in vars){
+  title <- var_names[[i]]
+  
+  file_name <- paste(var_names[[i]], " gestosc.png", sep="")
+  
+  p <- ggplot(data, aes(x = unlist(data[i]))) +
+    geom_density(fill = "blue", alpha =0.1) +
+    facet_wrap(~time, nrow = 1) +
+    scale_y_continuous(n.breaks = 8) + 
+    scale_x_continuous(n.breaks = 5) +
+    ylab("Częstotliwość") + 
+    xlab("Wartość zmiennej") +
+    ggtitle(title) +
+    main_plot_theme +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+  ggsave(filename = file_name, plot = p, height = 1600, width = 2400, units = "px")
+}
+
+rm(i, p, file_name, title)
+
+setwd(project_path)
+
+
 
