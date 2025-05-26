@@ -1,0 +1,40 @@
+Zmienne:
+1. Real GDP:
+	-Baza: tipsna40
+	-Lata: 1995-2024
+
+2. GDP per capita
+	-Baza: tipsna40
+	-Lata: 1995-2024
+
+3. Uneployment Rate
+	-Baza: tps00203
+	-Lata: 2013-2024
+
+4. HICP - inflation rate
+	-Baza: tec00118
+	-Lata: 2013-2024
+
+5. Governemntal consumption expenditure:
+	-Baza: tec00010
+	-Lata: 2013-2024
+
+6. General government gross debt - Percentage of gross domestic product (GDP)
+	-Baza: sdg_17_40
+	-Lata: 2000-2024
+
+7. Adjusted gross disposable income of households per capita in PPS
+	-Baza: tec00113
+	-Lata: 2012-2023
+
+8. Export of goods in % of GDP
+	-Baza: tet00003
+	-Lata: 2013-2024
+
+9. Export of services in % of GDP
+	-Baza: tet00003
+	-Lata: 2013-2024
+
+
+
+
