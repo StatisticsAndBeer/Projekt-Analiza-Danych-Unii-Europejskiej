@@ -29,14 +29,6 @@ var_names <- list(geo = "Kraj",
                   UNEMP = "Stopa bezrobocia [%]",
                   region = "Strefa")
 
-# ggplot(data, aes(x = time, y = GDP_pc, color = geo)) +
-#   geom_point(position = jitter, size=2) + 
-#   geom_text_repel(mapping = aes(label=  geo), color = "black",  size = 2, 
-#                   max.overlaps = 20, position = jitter, min.segment.length = 0)+
-#   geom_vline(xintercept = seq(2019.5, 2022.5, b=1), linetype = "dashed") +
-#   scale_y_continuous(n.breaks = 8) + 
-#   main_plot_theme
-
 #Rysowanie----------------------------------------------------------------------
 #Boxploty - wstępna analiza.....................................................
 setwd(paste(project_path, "/Wykresy/Boxploty", sep=""))
@@ -90,5 +82,33 @@ rm(i, p, file_name, title)
 
 setwd(project_path)
 
+#qq-plot - wstępna analiza......................................................
+library(reshape2)
+library(stringr)
+setwd(paste(project_path, "/Wykresy/q-q", sep=""))
 
+q_q_data <- melt(data=data, id.vars = c("time", "geo", "region"), 
+                 variable.name = "zmienna", value.name = "wartosc")
+
+file_name <- paste("Wykres q-q.png")
+title <- str_wrap("Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat",
+                  width = 50)
+  
+p <- ggplot(q_q_data, aes(sample = wartosc)) +
+  geom_qq_line() +
+  geom_qq()+
+  facet_grid(rows = vars(zmienna), cols = vars(time), scales = "free") +
+  scale_y_continuous(n.breaks = 4) +
+  ylab("Wartości rzeczywste zmiennych") +
+  xlab("Teoretyczne wartości rozkładu normalnego") +
+  ggtitle(title) +
+  main_plot_theme +
+  theme(panel.grid.major.x = element_line(colour = alpha("gray", 0.4)))
+  
+ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px")
+
+
+rm(p, file_name)
+
+setwd(project_path)
 
