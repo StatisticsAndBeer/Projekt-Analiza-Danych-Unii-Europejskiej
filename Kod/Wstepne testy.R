@@ -151,7 +151,8 @@ for(i in vars){
     #i domyślnie parowane względem kraju
     test_formula <- as.formula(paste(i, " ~ time", sep = ""))
     results <- wilcox.test(formula = test_formula, data = test_data,
-                           paired = TRUE, alternative = test_alt, conf.int = TRUE)
+                           paired = TRUE, alternative = test_alt,
+                           conf.int = TRUE, exact = FALSE)
     conf_int <- round(results$conf.int, 4)
     
     print(time_step)
