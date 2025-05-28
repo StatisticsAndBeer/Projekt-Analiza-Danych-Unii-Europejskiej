@@ -154,6 +154,8 @@ predicted
 
 data$DISP_INC_hh[danee$geo == "BG" & is.na(danee$DISP_INC_hh)] <- predicted
 
+rm(danee, missing_rows, model, model_data, predicted)
+
 
 
 

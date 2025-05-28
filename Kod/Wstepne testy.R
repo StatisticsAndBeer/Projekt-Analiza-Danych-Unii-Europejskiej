@@ -98,10 +98,7 @@ for(i in vars){
   #i parowane względem kraju (geo)
   test_formula <- as.formula(paste(i, " ~ time | geo"))
   
-  result <- friedman.test(formula = test_formula, 
-                          data = data %>%
-                            filter(!geo %in% geo[is.na(data[[i]])]) %>%
-                            mutate(geo = factor(as.character(geo))))
+  result <- friedman.test(formula = test_formula, data = data %>% arrange(time, geo))
   print(result)
   friedman_res[i] <- round(result$p.value, 10)
 }
@@ -119,6 +116,8 @@ wilcoxon_mat <- test_mat
 start_years <- c(2019:2022, 2019)
 end_years <- c(2020:2023, 2023)
 rownames(wilcoxon_mat) <- paste(start_years, end_years, sep = "=>")
+
+wilcoxon_conf_int <- wilcoxon_mat
 
 #Wyjaśnienie kodu:
 #Aby sprawdzić czy wartość danej zmiennej w populacji zmieniła się z roku na rok
@@ -139,26 +138,26 @@ for(i in vars){
     median_start <- median(unlist(data[data$time==start_years[j], i]), na.rm = TRUE)
     median_end <- median(unlist(data[data$time==end_years[j], i]), na.rm = TRUE)
     
-    test_alt <- ifelse(median_end > median_start, "less", "greater")
+    test_alt <- ifelse(median_end - median_start < 0, "greater", "less")
     
     #Wybranie z zestawu danych jedynie obserwacji dla dwóch testowanych lat
     #(konieczne do działania testu)
     test_data <- data %>%
-      filter(!geo %in% geo[is.na(data[[i]])]) %>%
-      mutate(geo = factor(as.character(geo))) %>% #Zabezpieczenie przed wartościami na, liczba poziomów factora musi się zgadzać
       filter(time %in% c(start_years[j], end_years[j])) %>%
-      arrange(geo)
+      arrange(time, geo)
       
     #Wypisanie formuły testu  
     #Obserwacje i odpowiadające im awrtości zmiennej są grupowane względem roku (time)
     #i domyślnie parowane względem kraju
     test_formula <- as.formula(paste(i, " ~ time", sep = ""))
     results <- wilcox.test(formula = test_formula, data = test_data,
-                           paired = TRUE, alternative = test_alt,
-                           na.action = na.omit)
+                           paired = TRUE, alternative = test_alt, conf.int = TRUE)
+    conf_int <- round(results$conf.int, 4)
+    
     print(time_step)
     print(results)
     wilcoxon_mat[time_step, i] <- round(results$p.value, 5)
+    wilcoxon_conf_int[time_step, i ] <- paste(conf_int[1], conf_int[2], sep = "; ")
   }
 }
 
@@ -166,6 +165,7 @@ rm(i, j, results, test_formula, median_start, median_end, time_step, test_alt,
    test_data, start_years, end_years)
 
 wilcoxon_mat
+wilcoxon_conf_int
 
 #Wnioski:
 #Co do zasady, wartości zmiennych zmieniały się na przestrzeni lat. Można jednak
