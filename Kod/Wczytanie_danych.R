@@ -18,7 +18,10 @@ CNTR_eu<-unlist(eu_countries %>%
   select(geo))
 YEARS=2019:2023
 
+
 project_path <- "C:\\Users\\dagma\\OneDrive\\Pulpit\\PROJEKT_EMOS\\PROJEKT"
+project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+
 setwd(project_path)
 
 #Usunięcie z mapy regionów poza kontynentem europejskim
@@ -150,9 +153,6 @@ predicted
 #15832
 
 data$DISP_INC_hh[danee$geo == "BG" & is.na(danee$DISP_INC_hh)] <- predicted
-
-
-
 
 
 
