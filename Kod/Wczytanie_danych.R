@@ -1,5 +1,4 @@
-p<-c("eurostat", "ggplot2", "tidyr", "knitr", "tmap",
-     "sf", "dplyr", "xlsx", "stringr", "purrr", "ggrepel")
+p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -51,14 +50,19 @@ rm(CNTR)
 # Real GDP per capita ####
 #ewentualnie "sdg_08_10" bo jako base year używa 2020, a nie 2015
 GDP_pc<- get_eurostat(id = "tipsna40", time_format = "num",
-                      filters = list(time = YEARS, freq = "A", geo=CNTR_eu)) %>%
+                      filters = list(time = YEARS, 
+                                     freq = "A", 
+                                     geo = CNTR_eu)) %>%
   select(geo, time, values) %>%
   rename(GDP_pc = values)
 
 
 # Uneployment Rate ####
 UNEMP <- get_eurostat(id = "tps00203", time_format = "num",
-                      filters = list(time = YEARS, freq = "A", geo=CNTR_eu, unit = "PC_ACT")) %>%
+                      filters = list(time = YEARS, 
+                                     freq = "A", 
+                                     geo = CNTR_eu, 
+                                     unit = "PC_ACT")) %>%
   select(geo, time, values) %>%
   rename(UNEMP = values)
 
@@ -66,14 +70,19 @@ UNEMP <- get_eurostat(id = "tps00203", time_format = "num",
 
 # HICP - inflation rate
 HICP <- get_eurostat(id = "tec00118", time_format = "num",
-                     filters = list(time = YEARS, freq = "A", geo=CNTR_eu)) %>%
+                     filters = list(time = YEARS, 
+                                    freq = "A", 
+                                    geo = CNTR_eu)) %>%
   select(geo, time, values) %>%
   rename(HICP = values)
 
 
 # Governemntal consumption expenditure (Percentage of GDP) ####
 G_CONS <- get_eurostat(id = "tec00010", time_format = "num",
-                       filters = list(time = YEARS, freq = "A", geo=CNTR_eu, unit = "PC_GDP")) %>%
+                       filters = list(time = YEARS, 
+                                      freq = "A", 
+                                      geo = CNTR_eu, 
+                                      unit = "CP_MEUR")) %>%
   select(geo, time, values) %>%
   rename(G_CONS = values)
 
@@ -81,22 +90,30 @@ G_CONS <- get_eurostat(id = "tec00010", time_format = "num",
 
 # General government gross debt - Percentage of gross domestic product (GDP) ####
 G_DEBT <- get_eurostat(id = "sdg_17_40", time_format = "num",
-                       filters = list(time = YEARS, freq = "A", geo=CNTR_eu, unit = "PC_GDP")) %>%
+                       filters = list(time = YEARS, 
+                                      freq = "A", 
+                                      geo = CNTR_eu, 
+                                      unit = "PC_GDP")) %>%
   select(geo, time, values) %>%
   rename(G_DEBT = values)
 
 
 # Adjusted gross disposable income of households per capita in PPS ####
 DISP_INC_hh <- get_eurostat(id = "tec00113", time_format = "num",
-                            filters = list(time = YEARS, freq = "A", geo=CNTR_eu)) %>%
+                            filters = list(time = YEARS, 
+                                           freq = "A", 
+                                           geo = CNTR_eu)) %>%
   select(geo, time, values) %>%
   rename(DISP_INC_hh = values)
 
 
 # Export of goods and servieces in % of GDP ####
-EXP <- get_eurostat(id = "tet00003", time_format = "num",
-                    filters = list(time = YEARS, freq = "A", geo=CNTR_eu,
-                                   na_item="P6")) %>%
+EXP <- get_eurostat(id = "nama_10_gdp", time_format = "num",
+                    filters = list(time = YEARS, 
+                                   freq = "A", 
+                                   geo = CNTR_eu,
+                                   na_item = "P6",
+                                   unit = "CP_MEUR")) %>%
   select(geo, time, values) %>%
   rename(EXP = values)
 
