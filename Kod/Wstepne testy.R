@@ -5,13 +5,14 @@ vars <- c("DISP_INC_hh", "EXP", "G_CONS", "G_DEBT", "GDP_pc", "HICP", "UNEMP")
 var_names <- list(geo = "Kraj",
                   time = "Rok",
                   DISP_INC_hh = "Skorygowany dochód rozporządzalny brutto gospodarstw domowych (moc nabywcza)",
-                  EXP = "Eksport towarów i usług [% PKB]",
-                  G_CONS = "Rządowe wydatki na konsumpcję [% PKB]",
+                  EXP = "Eksport towarów i usług [mln EUR (bieżące ceny)]",
+                  G_CONS = "Rządowe wydatki na konsumpcję [mln EUR (bieżące ceny)]",
                   G_DEBT = "Zadłużenie rządowe [%PKB]",
-                  GDP_pc = "Przychód krajowy brutto na mieszkańca [EUR]",
+                  GDP_pc = "Przychód krajowy brutto na mieszkańca [EUR (bieżące ceny)]",
                   HICP = "Wskaźniki cen towarów i usług konsumpcyjnych",
                   UNEMP = "Stopa bezrobocia [%]",
                   region = "Strefa")
+
 
 #Templatka macierzy przechowującej wyniki testów statystycznych i statystyk
 #Kolumny to zmienne, rzędy to lata
@@ -171,7 +172,7 @@ wilcoxon_conf_int
 #Wnioski:
 #Co do zasady, wartości zmiennych zmieniały się na przestrzeni lat. Można jednak
 #Wyróżnic poszczególne sytuacje, gdy pozostały one takie same na początku i końcu
-#okresu, co oznacza stabilizację po pandemii i wojnie
+#okresu, co oznacza stabilizację po pandemii i wojnieg
 
 
 
