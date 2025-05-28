@@ -18,7 +18,10 @@ CNTR_eu<-unlist(eu_countries %>%
   select(geo))
 YEARS=2019:2023
 
+
+project_path <- "C:\\Users\\dagma\\OneDrive\\Pulpit\\PROJEKT_EMOS\\PROJEKT"
 project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+
 setwd(project_path)
 
 #Usunięcie z mapy regionów poza kontynentem europejskim
@@ -122,6 +125,34 @@ rm(eu_east, eu_south, eu_north, eu_west)
 
 data$time <- as.factor(data$time)
 data$geo <- as.factor(data$geo)
+
+
+
+# Obliczanie NA dla Bułgari w DISP_INC_hh
+# Microeconometrics (Methods and Applications) || Missing Data and Imputation 🔍
+# Cambridge University Press, 2005 may 09
+# Cameron, A. Colin; Trivedi, Pravin K
+#930-932
+
+#uzupełnianie brakującej danej
+# MODEL Z CZASEM 
+danee<-data
+danee$time <- as.numeric(as.character(danee$time))
+model_data <- danee[danee$geo == "BG", ] %>% filter(!is.na(DISP_INC_hh)) 
+
+#model dla bułgarii
+model <- lm(DISP_INC_hh ~ time, data = model_data)
+
+
+missing_rows <- danee %>%
+  filter(is.na(DISP_INC_hh) & geo == "BG") %>%
+  select(time, DISP_INC_hh)
+
+predicted <- predict(model, newdata = missing_rows)
+predicted
+#15832
+
+data$DISP_INC_hh[danee$geo == "BG" & is.na(danee$DISP_INC_hh)] <- predicted
 
 
 
