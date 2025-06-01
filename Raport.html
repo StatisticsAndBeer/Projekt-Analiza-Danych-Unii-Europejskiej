@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -141,10 +107,10 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <p>Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej</p>
 <table class="table">
 <colgroup>
+<col style="width: 8%">
+<col style="width: 57%">
 <col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 26%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -239,7 +205,7 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <section id="analiza-wizualna" class="level3">
 <h3 class="anchored" data-anchor-id="analiza-wizualna">Analiza wizualna</h3>
 <p>W celu wizualnej ocny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz’a dla poszczególnych zmiennych w poszczecgólnych latach.</p>
-<p><img src="Wykresy/Lorenz/Krzywe%20Lorenza.png" class="img-fluid" alt="Krzywa Lorenz’a"> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</p>
+<p><img src="Wykresy/Lorenz/Krzywe%20Lorenza.png" class="img-fluid" alt="Krzywa Lorenz'a"> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</p>
 <p>Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.</p>
 <p>Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.</p>
 </section>
@@ -250,37 +216,23 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <p>Indeks nierówności Gini’ego</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc   HICP  UNEMP
-2019      0.1361 0.5883 0.6746 0.3186 0.3347 0.3133 0.2478
-2020      0.1351 0.5875 0.6740 0.3071 0.3429 0.9905 0.2189
-2021      0.1274 0.5825 0.6722 0.2992 0.3422 0.2286 0.2176
-2022      0.1269 0.5744 0.6696 0.2943 0.3371 0.1818 0.2225
-2023      0.1218 0.5732 0.6618 0.2866 0.3289 0.2570 0.2054</code></pre>
+<pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc  UNEMP
+2019      0.1361 0.5883 0.6746 0.3186 0.3347 0.2478
+2020      0.1351 0.5875 0.6740 0.3071 0.3429 0.2189
+2021      0.1274 0.5825 0.6722 0.2992 0.3422 0.2176
+2022      0.1269 0.5744 0.6696 0.2943 0.3371 0.2225
+2023      0.1218 0.5732 0.6618 0.2866 0.3289 0.2054</code></pre>
 </div>
 </div>
 <p>Indeks nierówności Kukuły:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>kuk_mat<span class="ot">&lt;-</span>wsk_mat</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> (<span class="dv">27</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">27</span>))<span class="sc">/</span>(<span class="dv">27-1</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    f<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="fu">apply</span>(<span class="at">X=</span>data[data<span class="sc">$</span>time<span class="sc">==</span>j, i], <span class="at">MARGIN =</span> <span class="dv">1</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">FUN =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span>(<span class="fu">sum</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i])<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    kuk_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>((a<span class="sc">*</span>(f<span class="dv">-1</span>)) <span class="sc">+</span> <span class="dv">1</span> ,<span class="dv">4</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a, i, j, f)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(kuk_mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc   HICP  UNEMP
-2019      0.0069 0.1484 0.2094 0.0397 0.0464 0.0342 0.0308
-2020      0.0068 0.1468 0.2112 0.0369 0.0498 0.2586 0.0231
-2021      0.0060 0.1434 0.2101 0.0351 0.0503 0.0196 0.0209
-2022      0.0060 0.1367 0.2089 0.0335 0.0484 0.0133 0.0211
-2023      0.0054 0.1361 0.2032 0.0314 0.0452 0.0253 0.0170</code></pre>
+<pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc  UNEMP
+2019      0.0069 0.1484 0.2094 0.0397 0.0464 0.0308
+2020      0.0068 0.1468 0.2112 0.0369 0.0498 0.0231
+2021      0.0060 0.1434 0.2101 0.0351 0.0503 0.0209
+2022      0.0060 0.1367 0.2089 0.0335 0.0484 0.0211
+2023      0.0054 0.1361 0.2032 0.0314 0.0452 0.0170</code></pre>
 </div>
 </div>
 <p>Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini’ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.</p>
