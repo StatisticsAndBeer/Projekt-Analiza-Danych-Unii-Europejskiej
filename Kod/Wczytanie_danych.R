@@ -1,4 +1,5 @@
-p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr")
+p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
+     "ggplot2", "reshape2", "ineq")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -113,7 +114,7 @@ EXP <- get_eurostat(id = "nama_10_gdp", time_format = "num",
                                    freq = "A", 
                                    geo = CNTR_eu,
                                    na_item = "P6",
-                                   unit = "CP_MEUR")) %>%
+                                   unit = "CLV15_MEUR")) %>%
   select(geo, time, values) %>%
   rename(EXP = values)
 

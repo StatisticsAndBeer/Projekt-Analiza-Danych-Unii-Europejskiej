@@ -31,11 +31,11 @@ main_plot_theme <- theme(legend.position = "none", #brak legendy
 vars <- c("DISP_INC_hh", "EXP", "G_CONS", "G_DEBT", "GDP_pc", "HICP", "UNEMP")
 var_names <- list(geo = "Kraj",
                   time = "Rok",
-                  DISP_INC_hh = "Skorygowany dochód brutto gospodarstw domowych do dyspozycji (moc nabywcza)",
-                  EXP = "Eksport towarów i usług [mln EUR (bieżące ceny)]",
-                  G_CONS = "Rządowe wydatki na konsumpcję [mln EUR (bieżące ceny)]",
-                  G_DEBT = "Zadłużenie rządowe [%PKB]",
-                  GDP_pc = "Przychód krajowy brutto na mieszkańca [EUR (bieżące ceny)]",
+                  DISP_INC_hh = "Skorygowany dochód brutto gospodarstw domowych do dyspozycji [standard mocy nabywzcej, (PPS 2020)]",
+                  EXP = "Eksport towarów i usług [wolumeny łańcuchowo powiązane (2015), milion euro]",
+                  G_CONS = "Rządowe wydatki na konsumpcję [milion euro, bieżące ceny]",
+                  G_DEBT = "Zadłużenie rządowe [% PKB]",
+                  GDP_pc = "Przychód krajowy brutto na mieszkańca [wolumeny łańcuchowo powiązane (2015), euro na mieszkańca]",
                   HICP = "Wskaźniki cen towarów i usług konsumpcyjnych",
                   UNEMP = "Stopa bezrobocia [%]",
                   region = "Strefa")
@@ -45,9 +45,9 @@ var_names <- list(geo = "Kraj",
 setwd(paste(project_path, "/Wykresy/Boxploty", sep=""))
 
 for(i in vars){
-  title <- var_names[[i]]
+  title <- str_wrap(var_names[[i]], width = 70)
   
-  file_name <- paste(var_names[[i]], ".png", sep="")
+  file_name <- paste(i, ".png", sep="")
   
   p <- ggplot(data, aes(x = time, y = unlist(data[i]))) +
     geom_boxplot(outlier.shape = NA, fill = alpha("blue", 0.1)) + 
@@ -71,9 +71,9 @@ setwd(paste(project_path, "/Wykresy/Gęstość", sep=""))
 
 
 for(i in vars){
-  title <- var_names[[i]]
+  title <- str_wrap(var_names[[i]], width = 70)
   
-  file_name <- paste(var_names[[i]], " gestosc.png", sep="")
+  file_name <- paste(i, " gestosc.png", sep="")
   
   p <- ggplot(data, aes(x = unlist(data[i]))) +
     geom_density(fill = "blue", alpha =0.1) +
@@ -105,7 +105,7 @@ q_q_data <- melt(data=data, id.vars = c("time", "geo", "region"),
 
 file_name <- paste("Wykres q-q.png")
 title <- str_wrap("Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat",
-                  width = 50)
+                  width = 70)
   
 p <- ggplot(q_q_data, aes(sample = value)) +
   geom_qq_line() +

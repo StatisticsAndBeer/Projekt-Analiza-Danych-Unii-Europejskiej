@@ -107,10 +107,10 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <p>Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej</p>
 <table class="table">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 57%">
 <col style="width: 24%">
-<col style="width: 8%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -123,13 +123,13 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">GDP_pc</td>
-<td style="text-align: left;">Przychód krajowy brutto na jednego miszkańca</td>
-<td style="text-align: left;">EUR, ceny bieżące</td>
+<td style="text-align: left;">Przychód krajowy brutto na miszkańca</td>
+<td style="text-align: left;">wolumeny łańcuchowo powiązane (2015), euro na mieszkańca</td>
 <td style="text-align: left;">tipsna40</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">UNEMP</td>
-<td style="text-align: left;">Stoba bezrobocia</td>
+<td style="text-align: left;">Stopa bezrobocia</td>
 <td style="text-align: left;">%</td>
 <td style="text-align: left;">tps00203</td>
 </tr>
@@ -142,7 +142,7 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <tr class="even">
 <td style="text-align: left;">G_CONS</td>
 <td style="text-align: left;">Wydatki rządowe na konsumpcję</td>
-<td style="text-align: left;">mln EUR, ceny bieżące</td>
+<td style="text-align: left;">milion euro, ceny bieżące</td>
 <td style="text-align: left;">tec00010</td>
 </tr>
 <tr class="odd">
@@ -154,13 +154,13 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <tr class="even">
 <td style="text-align: left;">DISP_INC_hh</td>
 <td style="text-align: left;">Skorygowany dochód rozporządzany dochód gospodarstw domowych na jednego mieszkańca</td>
-<td style="text-align: left;">Standard siły nabywczej (PPS 2020)</td>
+<td style="text-align: left;">standard siły nabywczej (PPS 2020)</td>
 <td style="text-align: left;">tec00113</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">EXP</td>
 <td style="text-align: left;">Eksport towarów i usług</td>
-<td style="text-align: left;">mln EUR, ceny bieżące</td>
+<td style="text-align: left;">wolumeny łańcuchowo powiązane (2015), milion euro</td>
 <td style="text-align: left;">nama_10_gdp</td>
 </tr>
 </tbody>
@@ -205,7 +205,7 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <section id="analiza-wizualna" class="level3">
 <h3 class="anchored" data-anchor-id="analiza-wizualna">Analiza wizualna</h3>
 <p>W celu wizualnej ocny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz’a dla poszczególnych zmiennych w poszczecgólnych latach.</p>
-<p><img src="Wykresy/Lorenz/Krzywe%20Lorenza.png" class="img-fluid" alt="Krzywa Lorenz'a"> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</p>
+<p><img src="Wykresy/Lorenz/Krzywe%20Lorenza.png" class="img-fluid" alt="Krzywa Lorenz’a"> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</p>
 <p>Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.</p>
 <p>Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.</p>
 </section>
@@ -217,22 +217,22 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc  UNEMP
-2019      0.1361 0.5883 0.6746 0.3186 0.3347 0.2478
-2020      0.1351 0.5875 0.6740 0.3071 0.3429 0.2189
-2021      0.1274 0.5825 0.6722 0.2992 0.3422 0.2176
-2022      0.1269 0.5744 0.6696 0.2943 0.3371 0.2225
-2023      0.1218 0.5732 0.6618 0.2866 0.3289 0.2054</code></pre>
+2019      0.1361 0.5900 0.6746 0.3186 0.3347 0.2478
+2020      0.1351 0.5878 0.6740 0.3071 0.3429 0.2189
+2021      0.1274 0.5847 0.6722 0.2992 0.3422 0.2176
+2022      0.1269 0.5793 0.6696 0.2943 0.3371 0.2225
+2023      0.1218 0.5778 0.6618 0.2866 0.3289 0.2054</code></pre>
 </div>
 </div>
 <p>Indeks nierówności Kukuły:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc  UNEMP
-2019      0.0069 0.1484 0.2094 0.0397 0.0464 0.0308
-2020      0.0068 0.1468 0.2112 0.0369 0.0498 0.0231
-2021      0.0060 0.1434 0.2101 0.0351 0.0503 0.0209
-2022      0.0060 0.1367 0.2089 0.0335 0.0484 0.0211
-2023      0.0054 0.1361 0.2032 0.0314 0.0452 0.0170</code></pre>
+2019      0.0069 0.1488 0.2094 0.0397 0.0464 0.0308
+2020      0.0068 0.1460 0.2112 0.0369 0.0498 0.0231
+2021      0.0060 0.1438 0.2101 0.0351 0.0503 0.0209
+2022      0.0060 0.1385 0.2089 0.0335 0.0484 0.0211
+2023      0.0054 0.1374 0.2032 0.0314 0.0452 0.0170</code></pre>
 </div>
 </div>
 <p>Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini’ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.</p>
@@ -261,7 +261,6 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 </section>
 <section id="podsumowanie" class="level2">
 <h2 class="anchored" data-anchor-id="podsumowanie">Podsumowanie</h2>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
 </section>
 </section>
 

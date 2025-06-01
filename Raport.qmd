@@ -36,7 +36,7 @@ Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukr
 #| warning: false
 #| message: false
 p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
-     "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq")
+     "ggplot2", "reshape2", "ineq")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -47,12 +47,19 @@ for (i in p){
 }
 rm(p, i)
 
+
+
 #Wczytanie kodów państw UE
 CNTR_eu<-unlist(eu_countries %>%
   mutate(geo=code) %>%
   select(geo))
 YEARS=2019:2023
 
+
+project_path <- "C:\\Users\\dagma\\OneDrive\\Pulpit\\PROJEKT_EMOS\\PROJEKT"
+project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+
+setwd(project_path)
 # WCZYTANIE DANYCH Z EUROSTATU ####
 # Real GDP per capita ####
 #ewentualnie "sdg_08_10" bo jako base year używa 2020, a nie 2015
@@ -120,7 +127,7 @@ EXP <- get_eurostat(id = "nama_10_gdp", time_format = "num",
                                    freq = "A", 
                                    geo = CNTR_eu,
                                    na_item = "P6",
-                                   unit = "CP_MEUR")) %>%
+                                   unit = "CLV15_MEUR")) %>%
   select(geo, time, values) %>%
   rename(EXP = values)
 
@@ -156,6 +163,7 @@ data$geo <- as.factor(data$geo)
 # Microeconometrics (Methods and Applications) || Missing Data and Imputation 🔍
 # Cambridge University Press, 2005 may 09
 # Cameron, A. Colin; Trivedi, Pravin K
+#930-932
 
 #uzupełnianie brakującej danej
 # MODEL Z CZASEM 
@@ -187,15 +195,15 @@ Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegó�
 
 Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej
 
-| Nazwa       | Opis                                                                               | Jednostka                          | Baza Danych |
-|:------------|:-----------------------------------------------------------------------------------|:-----------------------------------|:------------|
-| GDP_pc      | Przychód krajowy brutto na jednego miszkańca                                       | EUR, ceny bieżące                  | tipsna40    |
-| UNEMP       | Stoba bezrobocia                                                                   | \%                                 | tps00203    |
-| HICP        | Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)                       | \-                                 | tec00118    |
-| G_CONS      | Wydatki rządowe na konsumpcję                                                      | mln EUR, ceny bieżące              | tec00010    |
-| G_DEBT      | Zadłużenie rządowe brutto                                                          | \% PKB                             | sdg_17_40   |
-| DISP_INC_hh | Skorygowany dochód rozporządzany dochód gospodarstw domowych na jednego mieszkańca | Standard siły nabywczej (PPS 2020) | tec00113    |
-| EXP         | Eksport towarów i usług                                                            | mln EUR, ceny bieżące              | nama_10_gdp |
+| Nazwa       | Opis                                                                               | Jednostka                                                | Baza Danych |
+|:-----------------|:-----------------|:-----------------|:------------------|
+| GDP_pc      | Przychód krajowy brutto na miszkańca                                               | wolumeny łańcuchowo powiązane (2015), euro na mieszkańca | tipsna40    |
+| UNEMP       | Stopa bezrobocia                                                                   | \%                                                       | tps00203    |
+| HICP        | Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)                       | \-                                                       | tec00118    |
+| G_CONS      | Wydatki rządowe na konsumpcję                                                      | milion euro, ceny bieżące                                | tec00010    |
+| G_DEBT      | Zadłużenie rządowe brutto                                                          | \% PKB                                                   | sdg_17_40   |
+| DISP_INC_hh | Skorygowany dochód rozporządzany dochód gospodarstw domowych na jednego mieszkańca | standard siły nabywczej (PPS 2020)                       | tec00113    |
+| EXP         | Eksport towarów i usług                                                            | wolumeny łańcuchowo powiązane (2015), milion euro        | nama_10_gdp |
 
 ### Statystyki opisowe
 
@@ -348,7 +356,7 @@ ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px"
 rm(file_name, p, lorenz_data, title)
 ```
 
-![Krzywa Lorenz\'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
+![Krzywa Lorenz'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
 
 Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.
 
@@ -413,7 +421,7 @@ rm(a, i, j, f)
 as.data.frame(kuk_mat)
 ```
 
-Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.
+Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.58-0.59 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.14-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.
 
 Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini'ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.
 
@@ -438,5 +446,3 @@ Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w 
 ### Wnioski
 
 ## Podsumowanie
-
-The `echo: false` option disables the printing of code (only output is displayed).
