@@ -4,6 +4,8 @@ library(ineq)
 #WSPÓŁCZYNNIK KONCENTRACJI K JAKO MIARA ZRÓŻNICOWANIA DOCHODÓW I INWESTYCJI GMIN 
 # Jan Czempas 2012
 
+# Wybrane koncepcje pomiaru nierówności dochodowych
+# dr hab. Grzegorz Przekota 2021
 
 var_names <- list(geo = "Kraj",
                   time = "Rok",
