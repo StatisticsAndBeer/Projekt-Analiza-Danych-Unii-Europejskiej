@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -40,15 +74,52 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#analiza-wybranych-wzkaźników-makroekonomicznych-w-krajach-unii-europejskiej-w-latach-2019-2025" id="toc-analiza-wybranych-wzkaźników-makroekonomicznych-w-krajach-unii-europejskiej-w-latach-2019-2025" class="nav-link active" data-scroll-target="#analiza-wybranych-wzkaźników-makroekonomicznych-w-krajach-unii-europejskiej-w-latach-2019-2025">Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025</a>
+  <ul class="collapse">
+  <li><a href="#wprowadzenie" id="toc-wprowadzenie" class="nav-link" data-scroll-target="#wprowadzenie">Wprowadzenie</a>
+  <ul class="collapse">
+  <li><a href="#streszczenie" id="toc-streszczenie" class="nav-link" data-scroll-target="#streszczenie">Streszczenie</a></li>
+  <li><a href="#słowa-kluczowe" id="toc-słowa-kluczowe" class="nav-link" data-scroll-target="#słowa-kluczowe">Słowa kluczowe</a></li>
+  <li><a href="#cele-i-hipotezy" id="toc-cele-i-hipotezy" class="nav-link" data-scroll-target="#cele-i-hipotezy">Cele i hipotezy</a></li>
+  <li><a href="#przegląd-literatury" id="toc-przegląd-literatury" class="nav-link" data-scroll-target="#przegląd-literatury">Przegląd literatury</a></li>
+  </ul></li>
+  <li><a href="#dane" id="toc-dane" class="nav-link" data-scroll-target="#dane">Dane</a>
+  <ul class="collapse">
+  <li><a href="#źródło-i-zakres-danych" id="toc-źródło-i-zakres-danych" class="nav-link" data-scroll-target="#źródło-i-zakres-danych">Źródło i zakres danych</a></li>
+  <li><a href="#opis-zmiennych" id="toc-opis-zmiennych" class="nav-link" data-scroll-target="#opis-zmiennych">Opis zmiennych</a></li>
+  <li><a href="#statystyki-opisowe" id="toc-statystyki-opisowe" class="nav-link" data-scroll-target="#statystyki-opisowe">Statystyki opisowe</a></li>
+  <li><a href="#badanie-normalności-rozkładu" id="toc-badanie-normalności-rozkładu" class="nav-link" data-scroll-target="#badanie-normalności-rozkładu">Badanie normalności rozkładu</a></li>
+  </ul></li>
+  <li><a href="#badanie-nierówności" id="toc-badanie-nierówności" class="nav-link" data-scroll-target="#badanie-nierówności">Badanie nierówności</a>
+  <ul class="collapse">
+  <li><a href="#analiza-wizualna" id="toc-analiza-wizualna" class="nav-link" data-scroll-target="#analiza-wizualna">Analiza wizualna</a></li>
+  <li><a href="#indeksy-nierówności" id="toc-indeksy-nierówności" class="nav-link" data-scroll-target="#indeksy-nierówności">Indeksy nierówności</a></li>
+  <li><a href="#wnioski" id="toc-wnioski" class="nav-link" data-scroll-target="#wnioski">Wnioski</a></li>
+  </ul></li>
+  <li><a href="#analiza-zmian-wskaźników-w-czasie" id="toc-analiza-zmian-wskaźników-w-czasie" class="nav-link" data-scroll-target="#analiza-zmian-wskaźników-w-czasie">Analiza zmian wskaźników w czasie</a>
+  <ul class="collapse">
+  <li><a href="#analiza-wizualna-1" id="toc-analiza-wizualna-1" class="nav-link" data-scroll-target="#analiza-wizualna-1">Analiza wizualna</a></li>
+  <li><a href="#testy-statystyczne" id="toc-testy-statystyczne" class="nav-link" data-scroll-target="#testy-statystyczne">Testy statystyczne</a></li>
+  <li><a href="#wnioski-1" id="toc-wnioski-1" class="nav-link" data-scroll-target="#wnioski-1">Wnioski</a></li>
+  </ul></li>
+  <li><a href="#podsumowanie" id="toc-podsumowanie" class="nav-link" data-scroll-target="#podsumowanie">Podsumowanie</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Raport</h1>
+<div class="quarto-title-block"><div><h1 class="title">Raport</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -107,10 +178,10 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <p>Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej</p>
 <table class="table">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 57%">
-<col style="width: 24%">
-<col style="width: 8%">
+<col style="width: 19%">
+<col style="width: 40%">
+<col style="width: 19%">
+<col style="width: 19%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -168,6 +239,653 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 </section>
 <section id="statystyki-opisowe" class="level3">
 <h3 class="anchored" data-anchor-id="statystyki-opisowe">Statystyki opisowe</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Statystyki dla roku 2019</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">DISP_INC_hh</th>
+<th style="text-align: right;">EXP</th>
+<th style="text-align: right;">G_CONS</th>
+<th style="text-align: right;">G_DEBT</th>
+<th style="text-align: right;">GDP_pc</th>
+<th style="text-align: right;">HICP</th>
+<th style="text-align: right;">UNEMP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Minimum</td>
+<td style="text-align: right;">12326.00</td>
+<td style="text-align: right;">17728.20</td>
+<td style="text-align: right;">2465.00</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">7800.00</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 1</td>
+<td style="text-align: right;">16682.50</td>
+<td style="text-align: right;">39986.20</td>
+<td style="text-align: right;">10513.05</td>
+<td style="text-align: right;">36.80</td>
+<td style="text-align: right;">16080.00</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">4.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Średnia</td>
+<td style="text-align: right;">20952.33</td>
+<td style="text-align: right;">253741.16</td>
+<td style="text-align: right;">108044.97</td>
+<td style="text-align: right;">63.54</td>
+<td style="text-align: right;">30095.56</td>
+<td style="text-align: right;">1.68</td>
+<td style="text-align: right;">6.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mediana</td>
+<td style="text-align: right;">20466.00</td>
+<td style="text-align: right;">119469.10</td>
+<td style="text-align: right;">39473.40</td>
+<td style="text-align: right;">55.90</td>
+<td style="text-align: right;">25390.00</td>
+<td style="text-align: right;">1.50</td>
+<td style="text-align: right;">5.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Odchylenie standardowe</td>
+<td style="text-align: right;">5173.47</td>
+<td style="text-align: right;">330500.27</td>
+<td style="text-align: right;">175119.41</td>
+<td style="text-align: right;">38.92</td>
+<td style="text-align: right;">20051.95</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">3.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 3</td>
+<td style="text-align: right;">24654.00</td>
+<td style="text-align: right;">340531.65</td>
+<td style="text-align: right;">103000.30</td>
+<td style="text-align: right;">81.65</td>
+<td style="text-align: right;">40605.00</td>
+<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">6.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maksimum</td>
+<td style="text-align: right;">34027.00</td>
+<td style="text-align: right;">1498305.00</td>
+<td style="text-align: right;">717506.00</td>
+<td style="text-align: right;">183.20</td>
+<td style="text-align: right;">96730.00</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">17.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skośność</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">2.29</td>
+<td style="text-align: right;">2.40</td>
+<td style="text-align: right;">1.24</td>
+<td style="text-align: right;">1.60</td>
+<td style="text-align: right;">0.51</td>
+<td style="text-align: right;">2.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kurtoza</td>
+<td style="text-align: right;">2.81</td>
+<td style="text-align: right;">8.60</td>
+<td style="text-align: right;">8.01</td>
+<td style="text-align: right;">4.56</td>
+<td style="text-align: right;">5.75</td>
+<td style="text-align: right;">2.46</td>
+<td style="text-align: right;">7.66</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Współczynnik zmienności</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">1.62</td>
+<td style="text-align: right;">0.61</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.54</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Statystyki dla roku 2020</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">DISP_INC_hh</th>
+<th style="text-align: right;">EXP</th>
+<th style="text-align: right;">G_CONS</th>
+<th style="text-align: right;">G_DEBT</th>
+<th style="text-align: right;">GDP_pc</th>
+<th style="text-align: right;">HICP</th>
+<th style="text-align: right;">UNEMP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Minimum</td>
+<td style="text-align: right;">12121.00</td>
+<td style="text-align: right;">17820.00</td>
+<td style="text-align: right;">2828.20</td>
+<td style="text-align: right;">19.10</td>
+<td style="text-align: right;">7620.00</td>
+<td style="text-align: right;">-1.30</td>
+<td style="text-align: right;">2.60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 1</td>
+<td style="text-align: right;">17054.00</td>
+<td style="text-align: right;">36496.10</td>
+<td style="text-align: right;">11920.20</td>
+<td style="text-align: right;">46.10</td>
+<td style="text-align: right;">15740.00</td>
+<td style="text-align: right;">-0.10</td>
+<td style="text-align: right;">5.30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Średnia</td>
+<td style="text-align: right;">21247.00</td>
+<td style="text-align: right;">230063.24</td>
+<td style="text-align: right;">113006.69</td>
+<td style="text-align: right;">75.23</td>
+<td style="text-align: right;">29019.63</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">7.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mediana</td>
+<td style="text-align: right;">20448.00</td>
+<td style="text-align: right;">108500.30</td>
+<td style="text-align: right;">41798.30</td>
+<td style="text-align: right;">58.40</td>
+<td style="text-align: right;">22610.00</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">6.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Odchylenie standardowe</td>
+<td style="text-align: right;">5216.31</td>
+<td style="text-align: right;">297622.56</td>
+<td style="text-align: right;">184161.68</td>
+<td style="text-align: right;">44.25</td>
+<td style="text-align: right;">20088.69</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">3.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 3</td>
+<td style="text-align: right;">24882.00</td>
+<td style="text-align: right;">311526.90</td>
+<td style="text-align: right;">106290.05</td>
+<td style="text-align: right;">98.85</td>
+<td style="text-align: right;">38660.00</td>
+<td style="text-align: right;">1.15</td>
+<td style="text-align: right;">7.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maksimum</td>
+<td style="text-align: right;">34447.00</td>
+<td style="text-align: right;">1351188.00</td>
+<td style="text-align: right;">769045.00</td>
+<td style="text-align: right;">209.40</td>
+<td style="text-align: right;">94770.00</td>
+<td style="text-align: right;">3.70</td>
+<td style="text-align: right;">17.60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skośność</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">2.26</td>
+<td style="text-align: right;">2.46</td>
+<td style="text-align: right;">1.21</td>
+<td style="text-align: right;">1.67</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">1.83</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kurtoza</td>
+<td style="text-align: right;">2.88</td>
+<td style="text-align: right;">8.55</td>
+<td style="text-align: right;">8.35</td>
+<td style="text-align: right;">4.34</td>
+<td style="text-align: right;">5.78</td>
+<td style="text-align: right;">3.17</td>
+<td style="text-align: right;">6.84</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Współczynnik zmienności</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">1.29</td>
+<td style="text-align: right;">1.63</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">0.69</td>
+<td style="text-align: right;">1.86</td>
+<td style="text-align: right;">0.46</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Statystyki dla roku 2021</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">DISP_INC_hh</th>
+<th style="text-align: right;">EXP</th>
+<th style="text-align: right;">G_CONS</th>
+<th style="text-align: right;">G_DEBT</th>
+<th style="text-align: right;">GDP_pc</th>
+<th style="text-align: right;">HICP</th>
+<th style="text-align: right;">UNEMP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Minimum</td>
+<td style="text-align: right;">13470.00</td>
+<td style="text-align: right;">19772.50</td>
+<td style="text-align: right;">3058.90</td>
+<td style="text-align: right;">18.40</td>
+<td style="text-align: right;">8270.00</td>
+<td style="text-align: right;">0.60</td>
+<td style="text-align: right;">2.80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 1</td>
+<td style="text-align: right;">18056.00</td>
+<td style="text-align: right;">44630.30</td>
+<td style="text-align: right;">13035.95</td>
+<td style="text-align: right;">44.60</td>
+<td style="text-align: right;">16860.00</td>
+<td style="text-align: right;">2.10</td>
+<td style="text-align: right;">4.95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Średnia</td>
+<td style="text-align: right;">22547.93</td>
+<td style="text-align: right;">272001.02</td>
+<td style="text-align: right;">120580.16</td>
+<td style="text-align: right;">71.91</td>
+<td style="text-align: right;">31102.59</td>
+<td style="text-align: right;">2.83</td>
+<td style="text-align: right;">6.64</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mediana</td>
+<td style="text-align: right;">22002.00</td>
+<td style="text-align: right;">123079.60</td>
+<td style="text-align: right;">43183.70</td>
+<td style="text-align: right;">60.20</td>
+<td style="text-align: right;">24120.00</td>
+<td style="text-align: right;">2.80</td>
+<td style="text-align: right;">6.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Odchylenie standardowe</td>
+<td style="text-align: right;">5183.43</td>
+<td style="text-align: right;">346822.79</td>
+<td style="text-align: right;">195857.96</td>
+<td style="text-align: right;">41.19</td>
+<td style="text-align: right;">21643.07</td>
+<td style="text-align: right;">1.19</td>
+<td style="text-align: right;">2.89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 3</td>
+<td style="text-align: right;">26001.50</td>
+<td style="text-align: right;">374796.10</td>
+<td style="text-align: right;">114130.95</td>
+<td style="text-align: right;">89.45</td>
+<td style="text-align: right;">40215.00</td>
+<td style="text-align: right;">3.25</td>
+<td style="text-align: right;">7.55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maksimum</td>
+<td style="text-align: right;">34882.00</td>
+<td style="text-align: right;">1568289.00</td>
+<td style="text-align: right;">820185.00</td>
+<td style="text-align: right;">197.30</td>
+<td style="text-align: right;">99760.00</td>
+<td style="text-align: right;">5.20</td>
+<td style="text-align: right;">14.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skośność</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">2.22</td>
+<td style="text-align: right;">2.46</td>
+<td style="text-align: right;">1.21</td>
+<td style="text-align: right;">1.70</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">1.52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kurtoza</td>
+<td style="text-align: right;">2.58</td>
+<td style="text-align: right;">8.31</td>
+<td style="text-align: right;">8.42</td>
+<td style="text-align: right;">4.40</td>
+<td style="text-align: right;">5.72</td>
+<td style="text-align: right;">2.85</td>
+<td style="text-align: right;">5.44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Współczynnik zmienności</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">1.28</td>
+<td style="text-align: right;">1.62</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">0.42</td>
+<td style="text-align: right;">0.44</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Statystyki dla roku 2022</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">DISP_INC_hh</th>
+<th style="text-align: right;">EXP</th>
+<th style="text-align: right;">G_CONS</th>
+<th style="text-align: right;">G_DEBT</th>
+<th style="text-align: right;">GDP_pc</th>
+<th style="text-align: right;">HICP</th>
+<th style="text-align: right;">UNEMP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Minimum</td>
+<td style="text-align: right;">15260.00</td>
+<td style="text-align: right;">23460.60</td>
+<td style="text-align: right;">3171.90</td>
+<td style="text-align: right;">19.10</td>
+<td style="text-align: right;">8660.00</td>
+<td style="text-align: right;">5.90</td>
+<td style="text-align: right;">2.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 1</td>
+<td style="text-align: right;">19305.00</td>
+<td style="text-align: right;">59387.90</td>
+<td style="text-align: right;">14067.50</td>
+<td style="text-align: right;">42.80</td>
+<td style="text-align: right;">17010.00</td>
+<td style="text-align: right;">8.15</td>
+<td style="text-align: right;">4.10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Średnia</td>
+<td style="text-align: right;">23916.85</td>
+<td style="text-align: right;">330537.91</td>
+<td style="text-align: right;">127496.52</td>
+<td style="text-align: right;">67.35</td>
+<td style="text-align: right;">31829.26</td>
+<td style="text-align: right;">10.73</td>
+<td style="text-align: right;">5.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mediana</td>
+<td style="text-align: right;">22723.00</td>
+<td style="text-align: right;">151309.30</td>
+<td style="text-align: right;">47155.00</td>
+<td style="text-align: right;">57.70</td>
+<td style="text-align: right;">25380.00</td>
+<td style="text-align: right;">9.30</td>
+<td style="text-align: right;">5.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Odchylenie standardowe</td>
+<td style="text-align: right;">5489.16</td>
+<td style="text-align: right;">409288.55</td>
+<td style="text-align: right;">206339.69</td>
+<td style="text-align: right;">37.64</td>
+<td style="text-align: right;">21705.11</td>
+<td style="text-align: right;">3.70</td>
+<td style="text-align: right;">2.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 3</td>
+<td style="text-align: right;">27160.00</td>
+<td style="text-align: right;">474734.95</td>
+<td style="text-align: right;">125769.45</td>
+<td style="text-align: right;">79.75</td>
+<td style="text-align: right;">40830.00</td>
+<td style="text-align: right;">12.55</td>
+<td style="text-align: right;">6.80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maksimum</td>
+<td style="text-align: right;">37206.00</td>
+<td style="text-align: right;">1810093.00</td>
+<td style="text-align: right;">869815.00</td>
+<td style="text-align: right;">177.00</td>
+<td style="text-align: right;">96540.00</td>
+<td style="text-align: right;">19.40</td>
+<td style="text-align: right;">13.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skośność</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">2.07</td>
+<td style="text-align: right;">2.48</td>
+<td style="text-align: right;">1.12</td>
+<td style="text-align: right;">1.63</td>
+<td style="text-align: right;">0.98</td>
+<td style="text-align: right;">1.39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kurtoza</td>
+<td style="text-align: right;">2.62</td>
+<td style="text-align: right;">7.44</td>
+<td style="text-align: right;">8.52</td>
+<td style="text-align: right;">3.97</td>
+<td style="text-align: right;">5.37</td>
+<td style="text-align: right;">3.02</td>
+<td style="text-align: right;">5.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Współczynnik zmienności</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">1.24</td>
+<td style="text-align: right;">1.62</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.68</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;">0.44</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Statystyki dla roku 2023</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">DISP_INC_hh</th>
+<th style="text-align: right;">EXP</th>
+<th style="text-align: right;">G_CONS</th>
+<th style="text-align: right;">G_DEBT</th>
+<th style="text-align: right;">GDP_pc</th>
+<th style="text-align: right;">HICP</th>
+<th style="text-align: right;">UNEMP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Minimum</td>
+<td style="text-align: right;">15832.00</td>
+<td style="text-align: right;">25593.30</td>
+<td style="text-align: right;">3430.00</td>
+<td style="text-align: right;">20.20</td>
+<td style="text-align: right;">8850.00</td>
+<td style="text-align: right;">2.30</td>
+<td style="text-align: right;">2.60</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 1</td>
+<td style="text-align: right;">20755.50</td>
+<td style="text-align: right;">57521.35</td>
+<td style="text-align: right;">15886.45</td>
+<td style="text-align: right;">42.90</td>
+<td style="text-align: right;">17105.00</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">4.20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Średnia</td>
+<td style="text-align: right;">25466.41</td>
+<td style="text-align: right;">331010.91</td>
+<td style="text-align: right;">134765.81</td>
+<td style="text-align: right;">65.11</td>
+<td style="text-align: right;">31562.59</td>
+<td style="text-align: right;">6.94</td>
+<td style="text-align: right;">5.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mediana</td>
+<td style="text-align: right;">24614.00</td>
+<td style="text-align: right;">159974.40</td>
+<td style="text-align: right;">55592.70</td>
+<td style="text-align: right;">55.60</td>
+<td style="text-align: right;">25730.00</td>
+<td style="text-align: right;">5.90</td>
+<td style="text-align: right;">5.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Odchylenie standardowe</td>
+<td style="text-align: right;">5569.83</td>
+<td style="text-align: right;">408802.67</td>
+<td style="text-align: right;">214198.77</td>
+<td style="text-align: right;">35.18</td>
+<td style="text-align: right;">20721.72</td>
+<td style="text-align: right;">3.35</td>
+<td style="text-align: right;">2.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kwantyl 3</td>
+<td style="text-align: right;">28755.50</td>
+<td style="text-align: right;">468557.45</td>
+<td style="text-align: right;">141353.90</td>
+<td style="text-align: right;">78.00</td>
+<td style="text-align: right;">40625.00</td>
+<td style="text-align: right;">8.90</td>
+<td style="text-align: right;">6.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maksimum</td>
+<td style="text-align: right;">37883.00</td>
+<td style="text-align: right;">1816627.00</td>
+<td style="text-align: right;">905151.00</td>
+<td style="text-align: right;">163.90</td>
+<td style="text-align: right;">94080.00</td>
+<td style="text-align: right;">17.00</td>
+<td style="text-align: right;">12.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Skośność</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">2.08</td>
+<td style="text-align: right;">2.46</td>
+<td style="text-align: right;">1.06</td>
+<td style="text-align: right;">1.54</td>
+<td style="text-align: right;">1.01</td>
+<td style="text-align: right;">1.09</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kurtoza</td>
+<td style="text-align: right;">2.38</td>
+<td style="text-align: right;">7.57</td>
+<td style="text-align: right;">8.48</td>
+<td style="text-align: right;">3.70</td>
+<td style="text-align: right;">5.11</td>
+<td style="text-align: right;">4.09</td>
+<td style="text-align: right;">4.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Współczynnik zmienności</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">1.24</td>
+<td style="text-align: right;">1.59</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.66</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.39</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="badanie-normalności-rozkładu" class="level3">
 <h3 class="anchored" data-anchor-id="badanie-normalności-rozkładu">Badanie normalności rozkładu</h3>
@@ -262,6 +980,8 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <section id="podsumowanie" class="level2">
 <h2 class="anchored" data-anchor-id="podsumowanie">Podsumowanie</h2>
 <p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+<!-- -->
+
 </section>
 </section>
 
@@ -346,6 +1066,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -499,7 +1270,511 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Raport"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Dominik Mieszkowski, Dagmara Łyś"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cerulean</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    #code-fold: true # dzieki temu każdy fragment kodu jest zwijany, można to zmienić przy poszcezgólnych fragmentach </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true # dodaje przyciski: copy/show/hide code</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true #(table of contents) </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    toc_float: true # latająca tabela kontekstów nawet przy scrollowaniu </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    toc_depth: 2 # "głębokość" z jaką pokazując się headery w toc</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: false # opcja chowa numerowanie headerów </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: right # po której stronie jest toc</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>Dagmara Łyś, s211011\@sggw.edu.pl\</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>Dominik Mieszkowski s211015\@sggw.edu.pl\</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wprowadzenie</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>Wskaźniki makroekonomiczne pełnią kluczową rolę w opisywaniu i ocenie sytuacji gospodarczej kraju. Ich wartości odzwierciedlają sytuację finasową rządu państwa, a także warunki ekonomiczne w jakich funkcjonują przdesiębiorstwa i gospodartwa domowe na jego terenie. W ostatnich latach wybuch pandemii wirusa COVID-19 w 2020 r., a także rozpoczęcie przez Rosję wojny na Ukrainie w lutym 2022 r. wstrząsnęły Europą, wpływając na handel, rynek pracy i ludność. Aby ocenić rodzaj i zakres zmian społeczno-ekonomicznych w tym okresie, koniecznym jest przyjrzenie się zmianom w wartościach wspomnainych wskaźników, które towarzyszyly tym wydarzeniom. Temat ten jest podjęty w tej pracy, uwzględniając 27 pańśtw obecnie wchodzących w skład Unii Europejskiej w latach 2019-2023.</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Streszczenie</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="fu">### Słowa kluczowe</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>wskaźnk makroekonomiczny, Unia Europejska, COVID-19, wojna, nierówność, analiza Wizualna, test Wilcoxona, krzywa Lorenza, indeks Gini'ego</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cele i hipotezy</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukrainie na sytuację gospodarczą krajów Unii Europejskiej. Zmiana taka powinna być odzwierciedlona zauważalną różnicą w wartościch wybranych wskaźników makroekonomicznych w czasie, dotyczącą całokształtu Unii Europejskiej. Zmiana taka może mieć jednolity charakter i dotyczyć wszytskich państw w jednakowy sposób lub mieć wpływać na państwa w różnym stopniu, redukując lub amplifikując występujące między państwami występujące uprzednio na danym tle nierówności. Cel ów jest rónoznaczny z potwierdzeniem dwóch hipotez badawczych:</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Pandemia COVID-19 miały negatywny wpływ na sytuację ekonomiczną krajów Unii Europejskiej oraz jej ludności.</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Zmiany wywołane tymi wydarzeniami nie dotykały krajów jednakowo, powodując zmiany w występujących między nimi nierównościach makroekonomicznych.</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Przegląd literatury</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dane</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"eurostat"</span>, <span class="st">"tidyr"</span>, <span class="st">"tmap"</span>, <span class="st">"sf"</span>, <span class="st">"dplyr"</span>, <span class="st">"stringr"</span>, <span class="st">"purrr"</span>,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>     <span class="st">"ggplot2"</span>, <span class="st">"tidyr"</span>, <span class="st">"reshape2"</span>, <span class="st">"dplyr"</span>, <span class="st">"stringr"</span>, <span class="st">"ineq"</span>, <span class="st">"knitr"</span>, </span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>     <span class="st">"moments"</span>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> p){</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="co">#if(!require(i, character.only = TRUE)){install.packages(i)}</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span>i <span class="sc">%in%</span> <span class="fu">installed.packages</span>()){</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(i)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(i, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(p, i)</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="co">#Wczytanie kodów państw UE</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>CNTR_eu<span class="ot">&lt;-</span><span class="fu">unlist</span>(eu_countries <span class="sc">%&gt;%</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geo=</span>code) <span class="sc">%&gt;%</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo))</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>YEARS<span class="ot">=</span><span class="dv">2019</span><span class="sc">:</span><span class="dv">2023</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="co"># WCZYTANIE DANYCH Z EUROSTATU ####</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Real GDP per capita ####</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="co">#ewentualnie "sdg_08_10" bo jako base year używa 2020, a nie 2015</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>GDP_pc<span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"tipsna40"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>                      <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">geo =</span> CNTR_eu)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">GDP_pc =</span> values)</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Uneployment Rate ####</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>UNEMP <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"tps00203"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>                      <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">geo =</span> CNTR_eu, </span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">unit =</span> <span class="st">"PC_ACT"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">UNEMP =</span> values)</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="co"># HICP - inflation rate</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>HICP <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"tec00118"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">geo =</span> CNTR_eu)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">HICP =</span> values)</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Governemntal consumption expenditure (Percentage of GDP) ####</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>G_CONS <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"tec00010"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>                       <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">geo =</span> CNTR_eu, </span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">unit =</span> <span class="st">"CP_MEUR"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">G_CONS =</span> values)</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a><span class="co"># General government gross debt - Percentage of gross domestic product (GDP) ####</span></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>G_DEBT <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"sdg_17_40"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>                       <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">geo =</span> CNTR_eu, </span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">unit =</span> <span class="st">"PC_GDP"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">G_DEBT =</span> values)</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjusted gross disposable income of households per capita in PPS ####</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>DISP_INC_hh <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"tec00113"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>                            <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">geo =</span> CNTR_eu)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">DISP_INC_hh =</span> values)</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="co"># Export of goods and servieces in % of GDP ####</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>EXP <span class="ot">&lt;-</span> <span class="fu">get_eurostat</span>(<span class="at">id =</span> <span class="st">"nama_10_gdp"</span>, <span class="at">time_format =</span> <span class="st">"num"</span>,</span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>                    <span class="at">filters =</span> <span class="fu">list</span>(<span class="at">time =</span> YEARS, </span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">freq =</span> <span class="st">"A"</span>, </span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">geo =</span> CNTR_eu,</span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">na_item =</span> <span class="st">"P6"</span>,</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">unit =</span> <span class="st">"CP_MEUR"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(geo, time, values) <span class="sc">%&gt;%</span></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">EXP =</span> values)</span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>dfs <span class="ot">&lt;-</span> <span class="fu">list</span>(DISP_INC_hh, EXP, G_CONS, G_DEBT, GDP_pc,</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>            HICP, UNEMP)</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">reduce</span>(dfs, <span class="cf">function</span>(x, y) <span class="fu">full_join</span>(x, y, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"geo"</span>, <span class="st">"time"</span>)))</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(DISP_INC_hh, EXP, G_CONS, G_DEBT, GDP_pc,</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>   HICP, UNEMP)</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(dfs)</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>eu_north <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DK"</span>, <span class="st">"EE"</span>, <span class="st">"FI"</span>, <span class="st">"IE"</span>, <span class="st">"LV"</span>, <span class="st">"LT"</span>, <span class="st">"SE"</span>)</span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>eu_south <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"HR"</span>, <span class="st">"CY"</span>, <span class="st">"EL"</span>, <span class="st">"IT"</span>, <span class="st">"MT"</span>, <span class="st">"PT"</span>, <span class="st">"SI"</span>, <span class="st">"ES"</span>)</span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>eu_east  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BG"</span>, <span class="st">"CZ"</span>, <span class="st">"HU"</span>, <span class="st">"PL"</span>, <span class="st">"RO"</span>, <span class="st">"SK"</span>)</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>eu_west  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AT"</span>, <span class="st">"BE"</span>, <span class="st">"FR"</span>, <span class="st">"DE"</span>, <span class="st">"LU"</span>, <span class="st">"NL"</span>)</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>    geo <span class="sc">%in%</span> eu_north <span class="sc">~</span> <span class="st">"North"</span>,</span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>    geo <span class="sc">%in%</span> eu_south <span class="sc">~</span> <span class="st">"South"</span>,</span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>    geo <span class="sc">%in%</span> eu_east  <span class="sc">~</span> <span class="st">"East"</span>,</span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>    geo <span class="sc">%in%</span> eu_west  <span class="sc">~</span> <span class="st">"West"</span>))</span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(eu_east, eu_south, eu_north, eu_west)</span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>time)</span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>geo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>geo)</span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a><span class="co"># Obliczanie NA dla Bułgari w DISP_INC_hh</span></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a><span class="co"># Microeconometrics (Methods and Applications) || Missing Data and Imputation 🔍</span></span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambridge University Press, 2005 may 09</span></span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a><span class="co"># Cameron, A. Colin; Trivedi, Pravin K</span></span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a><span class="co">#uzupełnianie brakującej danej</span></span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL Z CZASEM </span></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>danee<span class="ot">&lt;-</span>data</span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>danee<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(danee<span class="sc">$</span>time))</span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>model_data <span class="ot">&lt;-</span> danee[danee<span class="sc">$</span>geo <span class="sc">==</span> <span class="st">"BG"</span>, ] <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(DISP_INC_hh)) </span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="co">#model dla bułgarii</span></span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DISP_INC_hh <span class="sc">~</span> time, <span class="at">data =</span> model_data)</span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>missing_rows <span class="ot">&lt;-</span> danee <span class="sc">%&gt;%</span></span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(DISP_INC_hh) <span class="sc">&amp;</span> geo <span class="sc">==</span> <span class="st">"BG"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time, DISP_INC_hh)</span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> missing_rows)</span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>DISP_INC_hh[danee<span class="sc">$</span>geo <span class="sc">==</span> <span class="st">"BG"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(danee<span class="sc">$</span>DISP_INC_hh)] <span class="ot">&lt;-</span> predicted</span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(danee, missing_rows, model, model_data, predicted)</span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a><span class="fu">### Źródło i zakres danych</span></span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a>Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegóły dotyczącze baz danych, z których pochodzą poszczególne wskaźniki opisane są w sekcji poświęconej opisowi zmiennych. Zbiór danych obejmuje wartości 7 wskażników makroekonometrycznych, podawanych z roczną częstotliwością na przestrzeni lat 2019-2023. W badaniu uwzględnione zostało 27 państw wchodzących w skład Unii Europejskiej z roku 2020. W badaniu nie zostały uwzględnione kraje nienależące do Unii Europejskiej, ale wpółpracujące z Eurostatem w zakresie statystyki publicznej.</span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Opis zmiennych</span></span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a>Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej</span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>| Nazwa       | Opis                                                                               | Jednostka                          | Baza Danych |</span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a>|:-------------|:----------------------------|:-------------|:-------------|</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a>| GDP_pc      | Przychód krajowy brutto na jednego miszkańca                                       | EUR, ceny bieżące                  | tipsna40    |</span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a>| UNEMP       | Stoba bezrobocia                                                                   | \%                                 | tps00203    |</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a>| HICP        | Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)                       | <span class="sc">\-</span>                                 | tec00118    |</span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a>| G_CONS      | Wydatki rządowe na konsumpcję                                                      | mln EUR, ceny bieżące              | tec00010    |</span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>| G_DEBT      | Zadłużenie rządowe brutto                                                          | \% PKB                             | sdg_17_40   |</span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>| DISP_INC_hh | Skorygowany dochód rozporządzany dochód gospodarstw domowych na jednego mieszkańca | Standard siły nabywczej (PPS 2020) | tec00113    |</span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a>| EXP         | Eksport towarów i usług                                                            | mln EUR, ceny bieżące              | nama_10_gdp |</span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statystyki opisowe</span></span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a>podstawowe_statystyki <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a>  statystyki <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a>    <span class="at">Minimum =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">min</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a>    <span class="at">Kwantyl1 =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a>    <span class="at">Srednia =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mediana =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">median</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a>    <span class="at">OdchStand =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a>    <span class="at">Kwantyl3 =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">quantile</span>(x, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a>    <span class="at">Maksimum =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">max</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a>    <span class="at">Skosnosc =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">skewness</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a>    <span class="at">Kurtoza =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">kurtosis</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Braki = sapply(df, function(x) sum(is.na(x))), </span></span>
+<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a>    <span class="at">WspZmiennosci =</span> <span class="fu">sapply</span>(df, <span class="cf">function</span>(x) {</span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a>      m <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a>      s <span class="ot">&lt;-</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">is.na</span>(m) <span class="sc">||</span> m <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NA</span>)</span>
+<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span> <span class="fu">return</span>(s <span class="sc">/</span> m)</span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a>  statystyki<span class="ot">&lt;-</span><span class="fu">t</span>(statystyki)</span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a>  nazwy_rows<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Minimum"</span>, <span class="st">"Kwantyl 1"</span>, <span class="st">"Średnia"</span>, <span class="st">"Mediana"</span>, <span class="st">"Odchylenie standardowe"</span>, <span class="st">"Kwantyl 3"</span>, <span class="st">"Maksimum"</span>, <span class="st">"Skośność"</span>, <span class="st">"Kurtoza"</span>, <span class="st">"Współczynnik zmienności"</span>)</span>
+<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>(statystyki)<span class="ot">&lt;-</span>nazwy_rows</span>
+<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">round</span>(statystyki, <span class="dv">2</span>))</span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">podstawowe_statystyki</span>(<span class="fu">select</span>(data[data<span class="sc">$</span>time<span class="sc">==</span><span class="dv">2019</span>,], <span class="fu">c</span>(<span class="sc">-</span>time, <span class="sc">-</span>geo, <span class="sc">-</span>region))), <span class="at">caption =</span> <span class="st">"Statystyki dla roku 2019"</span>)</span>
+<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">podstawowe_statystyki</span>(<span class="fu">select</span>(data[data<span class="sc">$</span>time<span class="sc">==</span><span class="dv">2020</span>,], <span class="fu">c</span>(<span class="sc">-</span>time, <span class="sc">-</span>geo, <span class="sc">-</span>region))), <span class="at">caption =</span> <span class="st">"Statystyki dla roku 2020"</span>)</span>
+<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">podstawowe_statystyki</span>(<span class="fu">select</span>(data[data<span class="sc">$</span>time<span class="sc">==</span><span class="dv">2021</span>,], <span class="fu">c</span>(<span class="sc">-</span>time, <span class="sc">-</span>geo, <span class="sc">-</span>region))), <span class="at">caption =</span> <span class="st">"Statystyki dla roku 2021"</span>)</span>
+<span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">podstawowe_statystyki</span>(<span class="fu">select</span>(data[data<span class="sc">$</span>time<span class="sc">==</span><span class="dv">2022</span>,], <span class="fu">c</span>(<span class="sc">-</span>time, <span class="sc">-</span>geo, <span class="sc">-</span>region))), <span class="at">caption =</span> <span class="st">"Statystyki dla roku 2022"</span>)</span>
+<span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">podstawowe_statystyki</span>(<span class="fu">select</span>(data[data<span class="sc">$</span>time<span class="sc">==</span><span class="dv">2023</span>,], <span class="fu">c</span>(<span class="sc">-</span>time, <span class="sc">-</span>geo, <span class="sc">-</span>region))), <span class="at">caption =</span> <span class="st">"Statystyki dla roku 2023"</span>)</span>
+<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a><span class="fu">### Badanie normalności rozkładu</span></span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a>W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro wilka.</span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a><span class="co">#project_path &lt;- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"</span></span>
+<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a>project_path <span class="ot">&lt;-</span> <span class="st">"C:/Users/dagma/OneDrive/Pulpit/PROJEKT_EMOS/Projekt-Analiza-Danych-Unii-Europejskiej"</span></span>
+<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a><span class="co">#Ograniczenie wyświetlania liczb w notacji wykładniczej</span></span>
+<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">9999</span>)</span>
+<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a><span class="co">#Rozrzut punktów (dla czytelności)</span></span>
+<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a>jitter <span class="ot">&lt;-</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">seed=</span><span class="dv">123</span>)</span>
+<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a><span class="co">#Ustalenie wspólnego motywu</span></span>
+<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a>main_plot_theme <span class="ot">&lt;-</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="co">#brak legendy</span></span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a>                         <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>),</span>
+<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a>                         <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>),</span>
+<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a>                         <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)),</span>
+<span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a>                         <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) </span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/q-q"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat"</span>, <span class="at">width =</span> <span class="dv">50</span>)</span>
+<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a>q_q_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data=</span>data, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"geo"</span>, <span class="st">"region"</span>), </span>
+<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a>                 <span class="at">variable.name =</span> <span class="st">"variable"</span>, <span class="at">value.name =</span> <span class="st">"value"</span>)</span>
+<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Wykres q-q.png"</span>)</span>
+<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat"</span>,</span>
+<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="dv">50</span>)</span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(q_q_data, <span class="fu">aes</span>(<span class="at">sample =</span> value)) <span class="sc">+</span></span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(variable), <span class="at">cols =</span> <span class="fu">vars</span>(time), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Wartości rzeczywste zmiennych"</span>) <span class="sc">+</span></span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teoretyczne wartości rozkładu normalnego"</span>) <span class="sc">+</span></span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a>  main_plot_theme <span class="sc">+</span></span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)))</span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">width =</span> <span class="dv">1800</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(p, file_name, q_q_data)</span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a><span class="al">![Wykres q-q](Wykresy/q-q/Wykres%20q-q.png)</span></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a>Wykresy kwartyl-kwartyl porównujące rozkład badanych wskaźników w krajach Unii Europejskiej ze standardowym rozkładem normalnym zdają się wykazywać rozbieżność między nimi. Eksport towarów i usług (EXP), Rządowe wydatki na konsumpcję (G_CONS), Zadłużenie rządowe (G_DEBT), PKB na mieszkańca (GDP-pc) oraz Stopa Bezrobocia (UNEMP) niezależnie do roku charakteryzują się obserwacjami po prawej stronie położonymi zauważalnie powyżej linii symbolizującej rozkład normalny. Zjawisko to jest szczególnie silne w przypadku Eksportu oraz Wydatków na konsumpcję. Wzorzec taki odzwierciedla istnienie krajów plasujących się pod tymi względami znaczącow wyżej od pozostałych, co oznacza niesymetryczny rozkład obserwacji wokół średniej.</span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>W przypadku niektórych wskaźników, np. Dochodów gospodarstw domowych od dyspozycji (DISP_INC_hh) oraz Eksportu towarów i usług (EXP) zauważyć też można analogiczne zjawisko dla niskich wartości wskaźników (reprezentowanych po lewej stronie wykresów) lecz nie jest ono tak zauważalne jak w przyadku wartości wysokich.</span>
+<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a>Wykrey Indeksu cen towarów i usług konsumenckich (HICP) oraz Stopy bezrobocia (UNEMP) w najbardziej zauważalny sposób zmieniają się w czasie. W przypadku Indeksu cen towarów i usług konsumenckich, zmiana ta wskazuje na wstrząs towarzyszący rozpoczęciu wojny w roku 2022, który doproadził do ogólnego wzrostu iinfalcji, w sposób nierównomierny dla poszczególnych krajów. Stopa bezrobocia natomiast zdaje się maleć wraz z czasem w krajach, które uprzednio charakteryzowały się jej szczególnie wysokimi wartościami.</span>
+<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a>Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający "U" na niektórych z wykresów może być również świadectem platokurtyczności ich rozkładów.</span>
+<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-329"><a href="#cb4-329" aria-hidden="true" tabindex="-1"></a>W celu statystycznej weryfikacji normalnoći rozkładów zmiennych, dla wartości każdego wskaźnika w każdym roku wykonano test normalności Shapiro-Wilka. Wartości p. owych testów przedtsawiono w tabeli poniżej.</span>
+<span id="cb4-330"><a href="#cb4-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-333"><a href="#cb4-333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-334"><a href="#cb4-334" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-335"><a href="#cb4-335" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-336"><a href="#cb4-336" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-337"><a href="#cb4-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-338"><a href="#cb4-338" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DISP_INC_hh"</span>, <span class="st">"EXP"</span>, <span class="st">"G_CONS"</span>, <span class="st">"G_DEBT"</span>, <span class="st">"GDP_pc"</span>, <span class="st">"HICP"</span>, <span class="st">"UNEMP"</span>)</span>
+<span id="cb4-339"><a href="#cb4-339" aria-hidden="true" tabindex="-1"></a>test_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="fu">length</span>(vars), <span class="at">nrow =</span> <span class="fu">length</span>(YEARS))</span>
+<span id="cb4-340"><a href="#cb4-340" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(test_mat) <span class="ot">&lt;-</span> vars</span>
+<span id="cb4-341"><a href="#cb4-341" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(test_mat) <span class="ot">&lt;-</span> YEARS</span>
+<span id="cb4-342"><a href="#cb4-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-343"><a href="#cb4-343" aria-hidden="true" tabindex="-1"></a>shapiro_mat <span class="ot">&lt;-</span> test_mat</span>
+<span id="cb4-344"><a href="#cb4-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-345"><a href="#cb4-345" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> vars){</span>
+<span id="cb4-346"><a href="#cb4-346" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> YEARS){</span>
+<span id="cb4-347"><a href="#cb4-347" aria-hidden="true" tabindex="-1"></a>    p_val <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(<span class="fu">unlist</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i]))<span class="sc">$</span>p.value</span>
+<span id="cb4-348"><a href="#cb4-348" aria-hidden="true" tabindex="-1"></a>    shapiro_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>(p_val, <span class="dv">4</span>)</span>
+<span id="cb4-349"><a href="#cb4-349" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-350"><a href="#cb4-350" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-351"><a href="#cb4-351" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, j, p_val)</span>
+<span id="cb4-352"><a href="#cb4-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-353"><a href="#cb4-353" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(shapiro_mat)</span>
+<span id="cb4-354"><a href="#cb4-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-355"><a href="#cb4-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-356"><a href="#cb4-356" aria-hidden="true" tabindex="-1"></a>Jak widać, na poziomie istotności $\alpha$ = 0.05, jedynie Dochody gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.</span>
+<span id="cb4-357"><a href="#cb4-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-358"><a href="#cb4-358" aria-hidden="true" tabindex="-1"></a>Podsumowując, należy uznać, że, z nielicznymi wyjątkami, wartości wskaźników makroekonomicznych w krajach Unii Europejskiej nie pochodzą z rozkładu normalnego. Pomimo, że w kilku konkretnych przypadkach możliwe byłoby zastosowanie parametrycznych testów statystycznych do badania różnic wartości wskaźników, w celu ujednolicenia procesu badawczego wszystkich zmiennych w dalszych etapach badania wykorzystywane będą nieparametryczne testy statystyczne.</span>
+<span id="cb4-359"><a href="#cb4-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-360"><a href="#cb4-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## Badanie nierówności</span></span>
+<span id="cb4-361"><a href="#cb4-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-362"><a href="#cb4-362" aria-hidden="true" tabindex="-1"></a>W niniejszym rozdziale przeanalizowano nierówności w rozkładzie wybranych wskaźników ekonomicznych oraz społeczno-demograficznych wśród krajów Unii Europejskiej w latach 2019--2023. W analizie pominięto Wskaźnik cen towarów i usług konsumpcyjnych (HICP), ze względu na pojawiające się tam ujemne wartości.</span>
+<span id="cb4-363"><a href="#cb4-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-364"><a href="#cb4-364" aria-hidden="true" tabindex="-1"></a>Aby ocenić stopień nierówności w rozkładzie wartości tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini'ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.</span>
+<span id="cb4-365"><a href="#cb4-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-366"><a href="#cb4-366" aria-hidden="true" tabindex="-1"></a>W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.</span>
+<span id="cb4-367"><a href="#cb4-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-368"><a href="#cb4-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wizualna</span></span>
+<span id="cb4-369"><a href="#cb4-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-370"><a href="#cb4-370" aria-hidden="true" tabindex="-1"></a>W celu wizualnej ocny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.</span>
+<span id="cb4-371"><a href="#cb4-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-374"><a href="#cb4-374" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-375"><a href="#cb4-375" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-376"><a href="#cb4-376" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-377"><a href="#cb4-377" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-378"><a href="#cb4-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-379"><a href="#cb4-379" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/Lorenz"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb4-380"><a href="#cb4-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-381"><a href="#cb4-381" aria-hidden="true" tabindex="-1"></a><span class="co">#Zmiana formatu danych dla odpowiedniego rysowania wykresu</span></span>
+<span id="cb4-382"><a href="#cb4-382" aria-hidden="true" tabindex="-1"></a><span class="co">#Inflcja pominięta ze wzglęu na ujemne wartości</span></span>
+<span id="cb4-383"><a href="#cb4-383" aria-hidden="true" tabindex="-1"></a>lorenz_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data =</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>HICP), </span>
+<span id="cb4-384"><a href="#cb4-384" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"geo"</span>, <span class="st">"region"</span>), </span>
+<span id="cb4-385"><a href="#cb4-385" aria-hidden="true" tabindex="-1"></a>                 <span class="at">variable.name =</span> <span class="st">"variable"</span>, <span class="at">value.name =</span> <span class="st">"value"</span>)</span>
+<span id="cb4-386"><a href="#cb4-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-387"><a href="#cb4-387" aria-hidden="true" tabindex="-1"></a>lorenz_data <span class="ot">&lt;-</span> lorenz_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-388"><a href="#cb4-388" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable, time) <span class="sc">%&gt;%</span></span>
+<span id="cb4-389"><a href="#cb4-389" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lorenz =</span> <span class="fu">list</span>(<span class="fu">Lc</span>(value)<span class="sc">$</span>L),</span>
+<span id="cb4-390"><a href="#cb4-390" aria-hidden="true" tabindex="-1"></a>            <span class="at">p =</span> <span class="fu">list</span>(<span class="fu">Lc</span>(value)<span class="sc">$</span>p),</span>
+<span id="cb4-391"><a href="#cb4-391" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-392"><a href="#cb4-392" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="fu">c</span>(p, lorenz)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-393"><a href="#cb4-393" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">L =</span> lorenz)</span>
+<span id="cb4-394"><a href="#cb4-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-395"><a href="#cb4-395" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Krzywe Lorenza.png"</span>)</span>
+<span id="cb4-396"><a href="#cb4-396" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Krzywa Lorenza obrazująca dystrybucję lub zróżnicowanie poszczególnych zmiennycw karajch UE w latach 2019-2023"</span>,</span>
+<span id="cb4-397"><a href="#cb4-397" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="dv">70</span>)</span>
+<span id="cb4-398"><a href="#cb4-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-399"><a href="#cb4-399" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lorenz_data, <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> L)) <span class="sc">+</span></span>
+<span id="cb4-400"><a href="#cb4-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb4-401"><a href="#cb4-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> L, <span class="at">ymax =</span> p), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
+<span id="cb4-402"><a href="#cb4-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb4-403"><a href="#cb4-403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(variable), <span class="at">cols =</span> <span class="fu">vars</span>(time), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb4-404"><a href="#cb4-404" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb4-405"><a href="#cb4-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb4-406"><a href="#cb4-406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Kwantyl"</span>) <span class="sc">+</span></span>
+<span id="cb4-407"><a href="#cb4-407" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Skumulowany odsetek rozpatrywanej zmiennej"</span>) <span class="sc">+</span></span>
+<span id="cb4-408"><a href="#cb4-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(title)<span class="sc">+</span></span>
+<span id="cb4-409"><a href="#cb4-409" aria-hidden="true" tabindex="-1"></a>  main_plot_theme <span class="sc">+</span></span>
+<span id="cb4-410"><a href="#cb4-410" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)),</span>
+<span id="cb4-411"><a href="#cb4-411" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb4-412"><a href="#cb4-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-413"><a href="#cb4-413" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">width =</span> <span class="dv">1800</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
+<span id="cb4-414"><a href="#cb4-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-415"><a href="#cb4-415" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(file_name, p, lorenz_data, title)</span>
+<span id="cb4-416"><a href="#cb4-416" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-417"><a href="#cb4-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-418"><a href="#cb4-418" aria-hidden="true" tabindex="-1"></a><span class="al">![Krzywa Lorenz\'a](Wykresy/Lorenz/Krzywe%20Lorenza.png)</span> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</span>
+<span id="cb4-419"><a href="#cb4-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-420"><a href="#cb4-420" aria-hidden="true" tabindex="-1"></a>Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.</span>
+<span id="cb4-421"><a href="#cb4-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-422"><a href="#cb4-422" aria-hidden="true" tabindex="-1"></a>Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.</span>
+<span id="cb4-423"><a href="#cb4-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-424"><a href="#cb4-424" aria-hidden="true" tabindex="-1"></a><span class="fu">### Indeksy nierówności</span></span>
+<span id="cb4-425"><a href="#cb4-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-426"><a href="#cb4-426" aria-hidden="true" tabindex="-1"></a>W tabelach poniżej przedstawiono wartości indeksy nierówności Gini'ego oraz Kukuły. Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.</span>
+<span id="cb4-427"><a href="#cb4-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-428"><a href="#cb4-428" aria-hidden="true" tabindex="-1"></a>W tabelach poniżej przedstawiono wartości Indeksów nierówności:</span>
+<span id="cb4-429"><a href="#cb4-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-430"><a href="#cb4-430" aria-hidden="true" tabindex="-1"></a>Indeks nierówności Gini'ego</span>
+<span id="cb4-431"><a href="#cb4-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-434"><a href="#cb4-434" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-435"><a href="#cb4-435" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-436"><a href="#cb4-436" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-437"><a href="#cb4-437" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-438"><a href="#cb4-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-439"><a href="#cb4-439" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DISP_INC_hh"</span>, <span class="st">"EXP"</span>, <span class="st">"G_CONS"</span>, <span class="st">"G_DEBT"</span>, <span class="st">"GDP_pc"</span>, <span class="st">"UNEMP"</span>)</span>
+<span id="cb4-440"><a href="#cb4-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-441"><a href="#cb4-441" aria-hidden="true" tabindex="-1"></a><span class="co">#Kolumny to zmienne, rzędy to lata</span></span>
+<span id="cb4-442"><a href="#cb4-442" aria-hidden="true" tabindex="-1"></a>wsk_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="fu">length</span>(vars), <span class="at">nrow =</span> <span class="fu">length</span>(YEARS))</span>
+<span id="cb4-443"><a href="#cb4-443" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(wsk_mat) <span class="ot">&lt;-</span> vars</span>
+<span id="cb4-444"><a href="#cb4-444" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(wsk_mat) <span class="ot">&lt;-</span> YEARS</span>
+<span id="cb4-445"><a href="#cb4-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-446"><a href="#cb4-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-447"><a href="#cb4-447" aria-hidden="true" tabindex="-1"></a><span class="co"># MACIERZ WARTOŚCI GINIEGO </span></span>
+<span id="cb4-448"><a href="#cb4-448" aria-hidden="true" tabindex="-1"></a>gini_mat<span class="ot">&lt;-</span>wsk_mat</span>
+<span id="cb4-449"><a href="#cb4-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-450"><a href="#cb4-450" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
+<span id="cb4-451"><a href="#cb4-451" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
+<span id="cb4-452"><a href="#cb4-452" aria-hidden="true" tabindex="-1"></a>    gini <span class="ot">&lt;-</span> <span class="fu">ineq</span>(<span class="fu">unlist</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i]), <span class="at">type =</span> <span class="st">"Gini"</span>)</span>
+<span id="cb4-453"><a href="#cb4-453" aria-hidden="true" tabindex="-1"></a>    gini_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>(gini, <span class="dv">4</span>)</span>
+<span id="cb4-454"><a href="#cb4-454" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-455"><a href="#cb4-455" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-456"><a href="#cb4-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-457"><a href="#cb4-457" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, j, gini)</span>
+<span id="cb4-458"><a href="#cb4-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-459"><a href="#cb4-459" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(gini_mat)</span>
+<span id="cb4-460"><a href="#cb4-460" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-461"><a href="#cb4-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-462"><a href="#cb4-462" aria-hidden="true" tabindex="-1"></a>Indeks nierówności Kukuły:</span>
+<span id="cb4-463"><a href="#cb4-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-466"><a href="#cb4-466" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-467"><a href="#cb4-467" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-468"><a href="#cb4-468" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-469"><a href="#cb4-469" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-470"><a href="#cb4-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-471"><a href="#cb4-471" aria-hidden="true" tabindex="-1"></a>kuk_mat<span class="ot">&lt;-</span>wsk_mat</span>
+<span id="cb4-472"><a href="#cb4-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-473"><a href="#cb4-473" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> (<span class="dv">27</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">27</span>))<span class="sc">/</span>(<span class="dv">27-1</span>)</span>
+<span id="cb4-474"><a href="#cb4-474" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
+<span id="cb4-475"><a href="#cb4-475" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
+<span id="cb4-476"><a href="#cb4-476" aria-hidden="true" tabindex="-1"></a>    f<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="fu">apply</span>(<span class="at">X=</span>data[data<span class="sc">$</span>time<span class="sc">==</span>j, i], <span class="at">MARGIN =</span> <span class="dv">1</span>,</span>
+<span id="cb4-477"><a href="#cb4-477" aria-hidden="true" tabindex="-1"></a>             <span class="at">FUN =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span>(<span class="fu">sum</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i])<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb4-478"><a href="#cb4-478" aria-hidden="true" tabindex="-1"></a>    kuk_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>((a<span class="sc">*</span>(f<span class="dv">-1</span>)) <span class="sc">+</span> <span class="dv">1</span> ,<span class="dv">4</span>)</span>
+<span id="cb4-479"><a href="#cb4-479" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-480"><a href="#cb4-480" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-481"><a href="#cb4-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-482"><a href="#cb4-482" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a, i, j, f)</span>
+<span id="cb4-483"><a href="#cb4-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-484"><a href="#cb4-484" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(kuk_mat)</span>
+<span id="cb4-485"><a href="#cb4-485" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-486"><a href="#cb4-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-487"><a href="#cb4-487" aria-hidden="true" tabindex="-1"></a>Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.</span>
+<span id="cb4-488"><a href="#cb4-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-489"><a href="#cb4-489" aria-hidden="true" tabindex="-1"></a>Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini'ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.</span>
+<span id="cb4-490"><a href="#cb4-490" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-491"><a href="#cb4-491" aria-hidden="true" tabindex="-1"></a>W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini'ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianęk szczególnie przy niewielkich co do modułów wartościch wskaźników.</span>
+<span id="cb4-492"><a href="#cb4-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-493"><a href="#cb4-493" aria-hidden="true" tabindex="-1"></a>Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini'ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej. Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka.</span>
+<span id="cb4-494"><a href="#cb4-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-495"><a href="#cb4-495" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wnioski</span></span>
+<span id="cb4-496"><a href="#cb4-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-497"><a href="#cb4-497" aria-hidden="true" tabindex="-1"></a>Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.</span>
+<span id="cb4-498"><a href="#cb4-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-499"><a href="#cb4-499" aria-hidden="true" tabindex="-1"></a>Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.</span>
+<span id="cb4-500"><a href="#cb4-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-501"><a href="#cb4-501" aria-hidden="true" tabindex="-1"></a>Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.</span>
+<span id="cb4-502"><a href="#cb4-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-503"><a href="#cb4-503" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analiza zmian wskaźników w czasie</span></span>
+<span id="cb4-504"><a href="#cb4-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-507"><a href="#cb4-507" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-508"><a href="#cb4-508" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-509"><a href="#cb4-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-510"><a href="#cb4-510" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wizualna</span></span>
+<span id="cb4-511"><a href="#cb4-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-512"><a href="#cb4-512" aria-hidden="true" tabindex="-1"></a><span class="fu">### Testy statystyczne</span></span>
+<span id="cb4-513"><a href="#cb4-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-514"><a href="#cb4-514" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wnioski</span></span>
+<span id="cb4-515"><a href="#cb4-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-516"><a href="#cb4-516" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb4-517"><a href="#cb4-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-518"><a href="#cb4-518" aria-hidden="true" tabindex="-1"></a>The <span class="in">`echo: false`</span> option disables the printing of code (only output is displayed).</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

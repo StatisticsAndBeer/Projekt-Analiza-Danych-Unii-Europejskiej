@@ -1,7 +1,16 @@
 ---
 title: "Raport"
 author: "Dominik Mieszkowski, Dagmara Łyś"
-format: html
+format: 
+  html:
+    theme: cerulean
+    #code-fold: true # dzieki temu każdy fragment kodu jest zwijany, można to zmienić przy poszcezgólnych fragmentach 
+    code-tools: true # dodaje przyciski: copy/show/hide code
+    toc: true #(table of contents) 
+    toc_float: true # latająca tabela kontekstów nawet przy scrollowaniu 
+    toc_depth: 2 # "głębokość" z jaką pokazując się headery w toc
+    number-sections: false # opcja chowa numerowanie headerów 
+    toc-location: right # po której stronie jest toc
 editor: visual
 ---
 
@@ -36,7 +45,8 @@ Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukr
 #| warning: false
 #| message: false
 p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
-     "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq")
+     "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq", "knitr", 
+     "moments")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -188,7 +198,7 @@ Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegó�
 Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej
 
 | Nazwa       | Opis                                                                               | Jednostka                          | Baza Danych |
-|:------------|:-----------------------------------------------------------------------------------|:-----------------------------------|:------------|
+|:-------------|:----------------------------|:-------------|:-------------|
 | GDP_pc      | Przychód krajowy brutto na jednego miszkańca                                       | EUR, ceny bieżące                  | tipsna40    |
 | UNEMP       | Stoba bezrobocia                                                                   | \%                                 | tps00203    |
 | HICP        | Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)                       | \-                                 | tec00118    |
@@ -198,6 +208,51 @@ Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomiczny
 | EXP         | Eksport towarów i usług                                                            | mln EUR, ceny bieżące              | nama_10_gdp |
 
 ### Statystyki opisowe
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+podstawowe_statystyki <- function(df) {
+  statystyki <- data.frame(
+    Minimum = sapply(df, function(x) min(x, na.rm = TRUE)),
+    Kwantyl1 = sapply(df, function(x) quantile(x, 0.25, na.rm = TRUE)),
+    Srednia = sapply(df, function(x) mean(x, na.rm = TRUE)),
+    Mediana = sapply(df, function(x) median(x, na.rm = TRUE)),
+    OdchStand = sapply(df, function(x) sd(x, na.rm = TRUE)),
+    Kwantyl3 = sapply(df, function(x) quantile(x, 0.75, na.rm = TRUE)),
+    Maksimum = sapply(df, function(x) max(x, na.rm = TRUE)),
+    Skosnosc = sapply(df, function(x) skewness(x, na.rm = TRUE)),
+    Kurtoza = sapply(df, function(x) kurtosis(x, na.rm = TRUE)),
+    #Braki = sapply(df, function(x) sum(is.na(x))), 
+    WspZmiennosci = sapply(df, function(x) {
+      m <- mean(x, na.rm = TRUE)
+      s <- sd(x, na.rm = TRUE)
+      if (is.na(m) || m == 0) return(NA)
+      else return(s / m)
+    })
+  )
+  statystyki<-t(statystyki)
+  nazwy_rows<-c("Minimum", "Kwantyl 1", "Średnia", "Mediana", "Odchylenie standardowe", "Kwantyl 3", "Maksimum", "Skośność", "Kurtoza", "Współczynnik zmienności")
+  row.names(statystyki)<-nazwy_rows
+  
+  
+  return(round(statystyki, 2))
+}
+
+
+kable(podstawowe_statystyki(select(data[data$time==2019,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2019")
+kable(podstawowe_statystyki(select(data[data$time==2020,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2020")
+kable(podstawowe_statystyki(select(data[data$time==2021,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2021")
+kable(podstawowe_statystyki(select(data[data$time==2022,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2022")
+kable(podstawowe_statystyki(select(data[data$time==2023,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2023")
+
+
+```
+
+
+
 
 ### Badanie normalności rozkładu
 
@@ -209,7 +264,9 @@ W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkła
 #| message: false
 #| include: false
 
-project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+#project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+project_path <- "C:/Users/dagma/OneDrive/Pulpit/PROJEKT_EMOS/Projekt-Analiza-Danych-Unii-Europejskiej"
+
 
 #Ograniczenie wyświetlania liczb w notacji wykładniczej
 options(scipen = 9999)
@@ -430,6 +487,11 @@ Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochod
 Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.
 
 ## Analiza zmian wskaźników w czasie
+
+```{r}
+
+
+```
 
 ### Analiza wizualna
 
