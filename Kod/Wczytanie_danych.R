@@ -20,7 +20,7 @@ YEARS=2019:2023
 
 
 project_path <- "C:\\Users\\dagma\\OneDrive\\Pulpit\\PROJEKT_EMOS\\PROJEKT"
-project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+#project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
 
 setwd(project_path)
 

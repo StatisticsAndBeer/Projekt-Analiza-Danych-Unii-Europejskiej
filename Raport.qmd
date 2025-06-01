@@ -1,7 +1,16 @@
 ---
 title: "Raport"
 author: "Dominik Mieszkowski, Dagmara Łyś"
-format: html
+format: 
+  html:
+    theme: cerulean
+    #code-fold: true # dzieki temu każdy fragment kodu jest zwijany, można to zmienić przy poszcezgólnych fragmentach 
+    code-tools: true # dodaje przyciski: copy/show/hide code
+    toc: true #(table of contents) 
+    toc_float: true # latająca tabela kontekstów nawet przy scrollowaniu 
+    toc_depth: 2 # "głębokość" z jaką pokazując się headery w toc
+    number-sections: false # opcja chowa numerowanie headerów 
+    toc-location: right # po której stronie jest toc
 editor: visual
 ---
 
@@ -36,7 +45,8 @@ Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukr
 #| warning: false
 #| message: false
 p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
-     "ggplot2", "reshape2", "ineq")
+     "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq", "knitr", 
+     "moments")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -55,9 +65,8 @@ CNTR_eu<-unlist(eu_countries %>%
   select(geo))
 YEARS=2019:2023
 
-
-project_path <- "C:\\Users\\dagma\\OneDrive\\Pulpit\\PROJEKT_EMOS\\PROJEKT"
-project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+project_path <- "C:\\Users\\dagma\\OneDrive\\Pulpit\\PROJEKT_EMOS\\Projekt-Analiza-Danych-Unii-Europejskiej"
+#project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
 
 setwd(project_path)
 # WCZYTANIE DANYCH Z EUROSTATU ####
@@ -207,6 +216,150 @@ Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomiczny
 
 ### Statystyki opisowe
 
+Poznanie podstawowaych statystyk opisowych pozwli na lepsze zrozumienie struktury badanych zmiennych makroekonomicznych. Dzięki temu możliwe jest dowiedzenie się, jak na przestrzeni lat - zarówno w okresie poprzedzającym pandemię COVID-19, której restrykcje zaczeły obowiązywać w Europie od marca 2020 roku, jak i inwazji Rosji na Ukrainę trwającej od lutego 2022, wpłyneły na gospodarki państw Unii Europejskiej. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+podstawowe_statystyki <- function(df) {
+  statystyki <- data.frame(
+    Minimum = sapply(df, function(x) min(x, na.rm = TRUE)),
+    Kwantyl1 = sapply(df, function(x) quantile(x, 0.25, na.rm = TRUE)),
+    Srednia = sapply(df, function(x) mean(x, na.rm = TRUE)),
+    Mediana = sapply(df, function(x) median(x, na.rm = TRUE)),
+    OdchStand = sapply(df, function(x) sd(x, na.rm = TRUE)),
+    Kwantyl3 = sapply(df, function(x) quantile(x, 0.75, na.rm = TRUE)),
+    Maksimum = sapply(df, function(x) max(x, na.rm = TRUE)),
+    Skosnosc = sapply(df, function(x) skewness(x, na.rm = TRUE)),
+    Kurtoza = sapply(df, function(x) kurtosis(x, na.rm = TRUE)),
+    #Braki = sapply(df, function(x) sum(is.na(x))), 
+    WspZmiennosci = sapply(df, function(x) {
+      m <- mean(x, na.rm = TRUE)
+      s <- sd(x, na.rm = TRUE)
+      if (is.na(m) || m == 0) return(NA)
+      else return(s / m)
+    })
+  )
+  statystyki<-t(statystyki)
+  nazwy_rows<-c("Minimum", "Kwantyl 1", "Średnia", "Mediana", "Odchylenie standardowe", "Kwantyl 3", "Maksimum", "Skośność", "Kurtoza", "Współczynnik zmienności")
+  row.names(statystyki)<-nazwy_rows
+  
+  
+  return(round(statystyki, 2))
+}
+
+
+kable(podstawowe_statystyki(select(data[data$time==2019,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2019")
+kable(podstawowe_statystyki(select(data[data$time==2020,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2020")
+kable(podstawowe_statystyki(select(data[data$time==2021,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2021")
+kable(podstawowe_statystyki(select(data[data$time==2022,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2022")
+kable(podstawowe_statystyki(select(data[data$time==2023,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2023")
+
+```
+
+Warto zauważyć, że dla wszystkich uwzględnionych w badaniu okresach współczynnik skośności przyjmuje wartość dodatnią wśród zbioru danych. Czyli można oczekiwać, że pośród państw zdarzają się wartośći odstające. Może to sugerować, że dla tych danych lepszą miarą tendencji centralnej okaże się mediana. Uwagę jednak zwracają zmienne EXP - Eksport towarów i usług i G_CONS - Wydatki rządowe na konsumpcję w mln EURO w cenach bieżących, ze względu na wysokie wartości powyżej 2. Oznacza to, że duże wartości odstające są przyjmowane przez nie rzadko, jednak znacząco wpływają na strukturę danych. 
+
+Kurtoza większości zmiennych we wszytkich badanych latach ma wartość bliską, lub powyżej 3 co sugeruje duże wartości obserwacji odstających. Podobnie jak w przypadku skośności zmiennymi, które mają rozkład leptokurtyczny są EXP i G_CONS, można zatem sądzić, że między krajami Unii Europejskiej, to zmienne najbardziej poróżniające.
+Ze względu na dodatnie wartości skośności i kurtozy warto rozważyć w dalszym badaniu zlogarytmownie tych zmiennych, aby posiadały rozkład normlany.
+
+Dla wszystkich badanych okresów, współczynnik zmienności badany jako iloczyn odchylenia standardowego i średniej wynosi powyżej wartości krytycznej przyjmowanej najczęściej na poziomie 0,1, więc badane dane wykazują się wystarczającą zmiennością by uwzględniać je w badaniu. 
+
+
+### Wykresy gęstości zmiennych
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+#Ograniczenie wyświetlania liczb w notacji wykładniczej
+options(scipen = 9999)
+
+#Rozrzut punktów (dla czytelności)
+jitter <- position_jitter(width = 0.3, height = 0, seed=123)
+
+#Ustalenie wspólnego motywu
+main_plot_theme <- theme(legend.position = "none", #brak legendy
+                         panel.background = element_rect(fill = "white"), #białe tło
+                         panel.border = element_rect(colour = "black", fill = NA), #czrana ramka
+                         panel.grid.major.y = element_line(colour = alpha("gray", 0.4)),#szare poziome linie siatki
+                         plot.title = element_text(hjust = 0.5)) 
+
+vars <- c("DISP_INC_hh", "EXP", "G_CONS", "G_DEBT", "GDP_pc", "HICP", "UNEMP")
+var_names <- list(geo = "Kraj",
+                  time = "Rok",
+                  DISP_INC_hh = "Skorygowany dochód brutto gospodarstw domowych do dyspozycji [standard mocy nabywzcej, (PPS 2020)]",
+                  EXP = "Eksport towarów i usług [wolumeny łańcuchowo powiązane (2015), milion euro]",
+                  G_CONS = "Rządowe wydatki na konsumpcję [milion euro, bieżące ceny]",
+                  G_DEBT = "Zadłużenie rządowe [% PKB]",
+                  GDP_pc = "Przychód krajowy brutto na mieszkańca [wolumeny łańcuchowo powiązane (2015), euro na mieszkańca]",
+                  HICP = "Wskaźniki cen towarów i usług konsumpcyjnych",
+                  UNEMP = "Stopa bezrobocia [%]",
+                  region = "Strefa")
+
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+setwd(paste(project_path, "/Wykresy/Gęstość", sep=""))
+
+
+for(i in vars){
+  title <- str_wrap(var_names[[i]], width = 70)
+  
+  file_name <- paste(i, " gestosc.png", sep="")
+  
+  p <- ggplot(data, aes(x = unlist(data[i]))) +
+    geom_density(fill = "blue", alpha =0.1) +
+    facet_wrap(~time, nrow = 1) +
+    scale_y_continuous(n.breaks = 8) + 
+    scale_x_continuous(n.breaks = 5) +
+    ylab("Częstotliwość") + 
+    xlab("Wartość zmiennej") +
+    ggtitle(title) +
+    main_plot_theme +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+  ggsave(filename = file_name, plot = p, height = 1600, width = 2400, units = "px")
+}
+
+rm(i, p, file_name, title)
+
+setwd(project_path)
+
+
+```
+![Gęstość_DISP_INC_hh](Wykresy/Gęstość/DISP_INC_hh gestosc.png)
+Odczytując powyższy wykres gęstości (DISP_INC_hh) Skorygowanego dochodu brutto gospodarstw domowych można zauważyć, że na przestrzeni badanego okresu doszło do nieznacznego zmniejszenia się różnic między badanymi krajam. Potwierdzają to także wartości kurtozy i skośności, ktore z roku na rok (oprócz 2022) regularnie nieznacznie malały. Oznacza to, że struktura dyspozycyjnego dochodu gospodarstw domowych między krajami UE uległa powolnej równowadze.
+
+![Gęstość_EXP](Wykresy/Gęstość/EXP gestosc.png)
+Rozkład EXP eksportu towarów i usług jest silnie prawostronny co wynikało także ze statystyk opisowych. Warto jednak wspomnieć, że jak wynika z raportu OECD Economic Surveys: European Union 2021; spodziwano się, że w roku 2020 eksport dóbr i towarów zmiejszy się o niemal 8,9% dla krajów Unii Europejskiej. 
+
+
+![Gęstość_G_CONS](Wykresy/Gęstość/G_CONS gestosc.png)
+Rozkłady rządowych wydatków na konsumpcję pokazuje, że struktura tych wydatków nie ulegała an przestrzeni lat znaczej zmianie. Tym samym utrzymywał on rokład prawostronny. 
+
+![Gęstość_G_DEBT](Wykresy/Gęstość/G_DEBT gestosc.png)
+Na podstawie pozyśzego wykresu zadłużenia rządowego, widac wyraźnie że jego rozkłąd jest asymetryczny i prawostronny. Patrząc na wykres, można odnieść wrażenie, że skośność tej zmiennej ulega minimalnym zmianom- co również wynika ze statystyk opisowych. 
+
+
+![Gęstość_GDP_pc](Wykresy/Gęstość/GDP_pc gestosc.png)
+Przychód krajowy brutto per capita nie uległ znacznym zmianom. Zwykresów gęstości tej zmiennej można zauważyć, że w badanym okresie nie zaszły znaczące zmiany dla badanych krajów. 
+
+![Gęstość_HICP](Wykresy/Gęstość/HICP gestosc.png)
+Warto zatrzymać się przy rozkładzie gęstości inflacji, której wartości po rozpoczęciu wojny na ukrainie znacząco wzrosły. Jak podaje rapot OECD Economic Surveys: European Union 2021 - inflacja w roku 2020 w krajach UE spadła, a w strefie krajów Euro nawet przyjmowała wartośći ujemne. Tym samym widac jak ogromnym ciosem dla Europejskiej gospodarki był wybuch wojny na Ukrainie. Wzrosty cen energii i wydatków na obronę jest tylko kilka z skutków Rosyjskiej inwazji.
+![Gęstość_UNEMP](Wykresy/Gęstość/UNEMP gestosc.png)
+Jak widać nie ma znaczących zmian w struktórze bezrobocia państw UE na przestrzeni lat 2019-2023. Rozkład zmiennej pozostawał prawostronny. 
+
+
+
+
+
 ### Badanie normalności rozkładu
 
 W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro wilka.
@@ -216,22 +369,6 @@ W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkła
 #| warning: false
 #| message: false
 #| include: false
-
-project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
-
-#Ograniczenie wyświetlania liczb w notacji wykładniczej
-options(scipen = 9999)
-
-#Rozrzut punktów (dla czytelności)
-jitter <- position_jitter(width = 0.3, height = 0, seed=123)
-
-#Ustalenie wspólnego motywu
-main_plot_theme <- theme(legend.position = "none", #brak legendy
-                         panel.background = element_rect(fill = "white"),
-                         panel.border = element_rect(colour = "black", fill = NA),
-                         panel.grid.major.y = element_line(colour = alpha("gray", 0.4)),
-                         plot.title = element_text(hjust = 0.5)) 
-
 setwd(paste(project_path, "/Wykresy/q-q", sep=""))
 
 title <- str_wrap("Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat", width = 50)
@@ -269,7 +406,7 @@ W przypadku niektórych wskaźników, np. Dochodów gospodarstw domowych od dysp
 
 Wykrey Indeksu cen towarów i usług konsumenckich (HICP) oraz Stopy bezrobocia (UNEMP) w najbardziej zauważalny sposób zmieniają się w czasie. W przypadku Indeksu cen towarów i usług konsumenckich, zmiana ta wskazuje na wstrząs towarzyszący rozpoczęciu wojny w roku 2022, który doproadził do ogólnego wzrostu iinfalcji, w sposób nierównomierny dla poszczególnych krajów. Stopa bezrobocia natomiast zdaje się maleć wraz z czasem w krajach, które uprzednio charakteryzowały się jej szczególnie wysokimi wartościami.
 
-Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający "U" na niektórych z wykresów może być również świadectem platokurtyczności ich rozkładów.
+Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający "U" na niektórych z wykresów może być również świadectem leptokurtyczności ich rozkładów.
 
 W celu statystycznej weryfikacji normalnoći rozkładów zmiennych, dla wartości każdego wskaźnika w każdym roku wykonano test normalności Shapiro-Wilka. Wartości p. owych testów przedtsawiono w tabeli poniżej.
 
@@ -293,7 +430,8 @@ for(i in vars){
 }
 rm(i, j, p_val)
 
-as.data.frame(shapiro_mat)
+#as.data.frame(shapiro_mat)
+kable(shapiro_mat)
 ```
 
 Jak widać, na poziomie istotności $\alpha$ = 0.05, jedynie Dochody gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.
@@ -310,7 +448,7 @@ W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód kraj
 
 ### Analiza wizualna
 
-W celu wizualnej ocny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.
+W celu wizualnej oceny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.
 
 ```{r}
 #| echo: false
@@ -395,7 +533,8 @@ for (i in vars){
 
 rm(i, j, gini)
 
-as.data.frame(gini_mat)
+#as.data.frame(gini_mat)
+kable(gini_mat)
 ```
 
 Indeks nierówności Kukuły:
@@ -418,7 +557,8 @@ for (i in vars){
 
 rm(a, i, j, f)
 
-as.data.frame(kuk_mat)
+#as.data.frame(kuk_mat)
+kable(kuk_mat)
 ```
 
 Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.58-0.59 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.14-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.
@@ -439,7 +579,40 @@ Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w 
 
 ## Analiza zmian wskaźników w czasie
 
+Jak zostało ustalone, na podstawie wizualnych rozkładów gęstości i testu Shapiro-Wilka, badane zmienne nie charakteryzuje rzokład normalny. Dlatego w celu dalszego badania zostana zastosowane testy nieparametryczne jak: Test Wilcoxona i Friedmana. Są to nieparametryczne testy statystyczne pozwalające określić, czy różnice między badanymi np.okresami są statystycznie istotne. 
+
+
 ### Analiza wizualna
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+setwd(paste(project_path, "/Wykresy/Boxploty", sep=""))
+
+for(i in vars){
+  title <- str_wrap(var_names[[i]], width = 70)
+  
+  file_name <- paste(i, ".png", sep="")
+  
+  p <- ggplot(data, aes(x = time, y = unlist(data[i]))) +
+    geom_boxplot(outlier.shape = NA, fill = alpha("blue", 0.1)) + 
+    geom_point(position = jitter, size=2, 
+               aes(x = time, y = unlist(data[i]), color = geo)) + 
+    geom_text_repel(mapping = aes(label=  geo), color = "black",  size = 2, 
+                    max.overlaps = 20, position = jitter, min.segment.length = 0) +
+    scale_y_continuous(n.breaks = 8) + 
+    xlab("Rok") +
+    ylab("") + 
+    ggtitle(title) +
+    main_plot_theme
+  
+    ggsave(filename = file_name, plot = p, height = 1600, width = 2400, units = "px")
+}
+
+rm(i, p, file_name, title)
+```
+
+
 
 ### Testy statystyczne
 
