@@ -198,7 +198,7 @@ Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegó�
 Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej
 
 | Nazwa       | Opis                                                                               | Jednostka                          | Baza Danych |
-|:-------------|:----------------------------|:-------------|:-------------|
+|:---------------|:-------------------------|:---------------|:---------------|
 | GDP_pc      | Przychód krajowy brutto na jednego miszkańca                                       | EUR, ceny bieżące                  | tipsna40    |
 | UNEMP       | Stoba bezrobocia                                                                   | \%                                 | tps00203    |
 | HICP        | Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)                       | \-                                 | tec00118    |
@@ -250,9 +250,6 @@ kable(podstawowe_statystyki(select(data[data$time==2023,], c(-time, -geo, -regio
 
 
 ```
-
-
-
 
 ### Badanie normalności rozkładu
 
@@ -405,7 +402,7 @@ ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px"
 rm(file_name, p, lorenz_data, title)
 ```
 
-![Krzywa Lorenz\'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
+![Krzywa Lorenz'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
 
 Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.
 
