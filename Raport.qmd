@@ -326,8 +326,7 @@ lorenz_data <- lorenz_data %>%
   rename(L = lorenz)
 
 file_name <- paste("Krzywe Lorenza.png")
-title <- str_wrap("Krzywa Lorenza obrazująca dystrybucję poszczególnych zmiennyc
-                  w karajch UE w poszczególnych latach",
+title <- str_wrap("Krzywa Lorenza obrazująca dystrybucję lub zróżnicowanie poszczególnych zmiennycw karajch UE w latach 2019-2023",
                   width = 70)
 
 p <- ggplot(lorenz_data, aes(x = p, y = L)) +
@@ -345,6 +344,8 @@ p <- ggplot(lorenz_data, aes(x = p, y = L)) +
         axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px")
+
+rm(file_name, p, lorenz_data, title)
 ```
 
 ![Krzywa Lorenz'a](Wykresy/Lorenz/Krzywe Lorenza.png)
@@ -356,9 +357,71 @@ Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nieró
 
 ### Indeksy nierówności
 
+W tabelach poniżej przedstawiono wartości indeksy nierówności Gini'ego oraz Kukuły.
+Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.
+
+W tabelach poniżej przedstawiono wartości Indeksów nierówności:
+
+Indeks nierówności Gini'ego
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+#Kolumny to zmienne, rzędy to lata
+wsk_mat <- matrix(ncol = length(vars), nrow = length(YEARS))
+colnames(wsk_mat) <- vars
+rownames(wsk_mat) <- YEARS
+
+
+# MACIERZ WARTOŚCI GINIEGO 
+gini_mat<-wsk_mat
+
+for (i in vars){
+  for (j in YEARS){
+    gini <- ineq(unlist(data[data$time==j, i]), type = "Gini")
+    gini_mat[as.character(j),i] <- round(gini, 4)
+  }
+}
+
+rm(i, j, gini)
+
+as.data.frame(gini_mat)
+```
+Indeks nierówności Kukuły:
+```{r}
+kuk_mat<-wsk_mat
+
+a <- (27 + sqrt(27))/(27-1)
+for (i in vars){
+  for (j in YEARS){
+    f<-sqrt(sum(apply(X=data[data$time==j, i], MARGIN = 1,
+             FUN = function(x) x^2))/(sum(data[data$time==j, i])^2))
+    kuk_mat[as.character(j),i] <- round((a*(f-1)) + 1 ,4)
+    }
+}
+
+rm(a, i, j, f)
+
+as.data.frame(kuk_mat)
+```
+Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej. 
+
+Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini'ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.
+
+W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini'ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianęk szczególnie przy niewielkich co do modułów wartościch wskaźników.
+
+Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini'ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej. Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka. 
+
 ### Wnioski
 
-## Analizma zmian wskaźników w czasie
+Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.
+
+Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.
+
+Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.
+
+## Analiza zmian wskaźników w czasie
 
 ### Analiza wizualna
 
@@ -368,9 +431,6 @@ Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nieró
 
 ## Podsumowanie
 
-```{r}
-#| echo: false
-2 * 2
-```
+
 
 The `echo: false` option disables the printing of code (only output is displayed).

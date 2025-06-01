@@ -1,4 +1,3 @@
-install.packages("ineq")
 library(ineq)      
 
 #WSPÓŁCZYNNIK KONCENTRACJI K JAKO MIARA ZRÓŻNICOWANIA DOCHODÓW I INWESTYCJI GMIN 
@@ -52,7 +51,7 @@ for (i in vars){
 kuk_mat
 
 
-rm(a, i, j, gini_gdp, gini, f)
+rm(a, i, j, gini, f)
 rm(wsk_mat, var_names, lorenz_curve, vars)
 # rm(gini_mat, kuk_mat)
 
