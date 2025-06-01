@@ -1,0 +1,442 @@
+---
+title: "Raport"
+author: "Dominik Mieszkowski, Dagmara Łyś"
+format: html
+editor: visual
+---
+
+# Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025
+
+Dagmara Łyś, s211011\@sggw.edu.pl\
+Dominik Mieszkowski s211015\@sggw.edu.pl\
+
+## Wprowadzenie
+
+Wskaźniki makroekonomiczne pełnią kluczową rolę w opisywaniu i ocenie sytuacji gospodarczej kraju. Ich wartości odzwierciedlają sytuację finasową rządu państwa, a także warunki ekonomiczne w jakich funkcjonują przdesiębiorstwa i gospodartwa domowe na jego terenie. W ostatnich latach wybuch pandemii wirusa COVID-19 w 2020 r., a także rozpoczęcie przez Rosję wojny na Ukrainie w lutym 2022 r. wstrząsnęły Europą, wpływając na handel, rynek pracy i ludność. Aby ocenić rodzaj i zakres zmian społeczno-ekonomicznych w tym okresie, koniecznym jest przyjrzenie się zmianom w wartościach wspomnainych wskaźników, które towarzyszyly tym wydarzeniom. Temat ten jest podjęty w tej pracy, uwzględniając 27 pańśtw obecnie wchodzących w skład Unii Europejskiej w latach 2019-2023.
+
+### Streszczenie
+
+### Słowa kluczowe
+
+wskaźnk makroekonomiczny, Unia Europejska, COVID-19, wojna, nierówność, analiza Wizualna, test Wilcoxona, krzywa Lorenza, indeks Gini'ego
+
+### Cele i hipotezy
+
+Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukrainie na sytuację gospodarczą krajów Unii Europejskiej. Zmiana taka powinna być odzwierciedlona zauważalną różnicą w wartościch wybranych wskaźników makroekonomicznych w czasie, dotyczącą całokształtu Unii Europejskiej. Zmiana taka może mieć jednolity charakter i dotyczyć wszytskich państw w jednakowy sposób lub mieć wpływać na państwa w różnym stopniu, redukując lub amplifikując występujące między państwami występujące uprzednio na danym tle nierówności. Cel ów jest rónoznaczny z potwierdzeniem dwóch hipotez badawczych:
+
+-   Pandemia COVID-19 miały negatywny wpływ na sytuację ekonomiczną krajów Unii Europejskiej oraz jej ludności.
+-   Zmiany wywołane tymi wydarzeniami nie dotykały krajów jednakowo, powodując zmiany w występujących między nimi nierównościach makroekonomicznych.
+
+### Przegląd literatury
+
+## Dane
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
+     "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq")
+
+for (i in p){
+  #if(!require(i, character.only = TRUE)){install.packages(i)}
+  if(!i %in% installed.packages()){
+    install.packages(i)
+  }
+  library(i, character.only = TRUE)
+}
+rm(p, i)
+
+#Wczytanie kodów państw UE
+CNTR_eu<-unlist(eu_countries %>%
+  mutate(geo=code) %>%
+  select(geo))
+YEARS=2019:2023
+
+# WCZYTANIE DANYCH Z EUROSTATU ####
+# Real GDP per capita ####
+#ewentualnie "sdg_08_10" bo jako base year używa 2020, a nie 2015
+GDP_pc<- get_eurostat(id = "tipsna40", time_format = "num",
+                      filters = list(time = YEARS, 
+                                     freq = "A", 
+                                     geo = CNTR_eu)) %>%
+  select(geo, time, values) %>%
+  rename(GDP_pc = values)
+
+
+# Uneployment Rate ####
+UNEMP <- get_eurostat(id = "tps00203", time_format = "num",
+                      filters = list(time = YEARS, 
+                                     freq = "A", 
+                                     geo = CNTR_eu, 
+                                     unit = "PC_ACT")) %>%
+  select(geo, time, values) %>%
+  rename(UNEMP = values)
+
+
+
+# HICP - inflation rate
+HICP <- get_eurostat(id = "tec00118", time_format = "num",
+                     filters = list(time = YEARS, 
+                                    freq = "A", 
+                                    geo = CNTR_eu)) %>%
+  select(geo, time, values) %>%
+  rename(HICP = values)
+
+
+# Governemntal consumption expenditure (Percentage of GDP) ####
+G_CONS <- get_eurostat(id = "tec00010", time_format = "num",
+                       filters = list(time = YEARS, 
+                                      freq = "A", 
+                                      geo = CNTR_eu, 
+                                      unit = "CP_MEUR")) %>%
+  select(geo, time, values) %>%
+  rename(G_CONS = values)
+
+
+
+# General government gross debt - Percentage of gross domestic product (GDP) ####
+G_DEBT <- get_eurostat(id = "sdg_17_40", time_format = "num",
+                       filters = list(time = YEARS, 
+                                      freq = "A", 
+                                      geo = CNTR_eu, 
+                                      unit = "PC_GDP")) %>%
+  select(geo, time, values) %>%
+  rename(G_DEBT = values)
+
+
+# Adjusted gross disposable income of households per capita in PPS ####
+DISP_INC_hh <- get_eurostat(id = "tec00113", time_format = "num",
+                            filters = list(time = YEARS, 
+                                           freq = "A", 
+                                           geo = CNTR_eu)) %>%
+  select(geo, time, values) %>%
+  rename(DISP_INC_hh = values)
+
+
+# Export of goods and servieces in % of GDP ####
+EXP <- get_eurostat(id = "nama_10_gdp", time_format = "num",
+                    filters = list(time = YEARS, 
+                                   freq = "A", 
+                                   geo = CNTR_eu,
+                                   na_item = "P6",
+                                   unit = "CP_MEUR")) %>%
+  select(geo, time, values) %>%
+  rename(EXP = values)
+
+dfs <- list(DISP_INC_hh, EXP, G_CONS, G_DEBT, GDP_pc,
+            HICP, UNEMP)
+data <- reduce(dfs, function(x, y) full_join(x, y, by = c("geo", "time")))
+
+rm(DISP_INC_hh, EXP, G_CONS, G_DEBT, GDP_pc,
+   HICP, UNEMP)
+rm(dfs)
+
+
+eu_north <- c("DK", "EE", "FI", "IE", "LV", "LT", "SE")
+eu_south <- c("HR", "CY", "EL", "IT", "MT", "PT", "SI", "ES")
+eu_east  <- c("BG", "CZ", "HU", "PL", "RO", "SK")
+eu_west  <- c("AT", "BE", "FR", "DE", "LU", "NL")
+
+data <- data %>%
+  mutate(region = case_when(
+    geo %in% eu_north ~ "North",
+    geo %in% eu_south ~ "South",
+    geo %in% eu_east  ~ "East",
+    geo %in% eu_west  ~ "West"))
+
+rm(eu_east, eu_south, eu_north, eu_west)
+
+data$time <- as.factor(data$time)
+data$geo <- as.factor(data$geo)
+
+
+
+# Obliczanie NA dla Bułgari w DISP_INC_hh
+# Microeconometrics (Methods and Applications) || Missing Data and Imputation 🔍
+# Cambridge University Press, 2005 may 09
+# Cameron, A. Colin; Trivedi, Pravin K
+
+#uzupełnianie brakującej danej
+# MODEL Z CZASEM 
+danee<-data
+danee$time <- as.numeric(as.character(danee$time))
+model_data <- danee[danee$geo == "BG", ] %>% filter(!is.na(DISP_INC_hh)) 
+
+#model dla bułgarii
+model <- lm(DISP_INC_hh ~ time, data = model_data)
+
+
+missing_rows <- danee %>%
+  filter(is.na(DISP_INC_hh) & geo == "BG") %>%
+  select(time, DISP_INC_hh)
+
+predicted <- predict(model, newdata = missing_rows)
+
+data$DISP_INC_hh[danee$geo == "BG" & is.na(danee$DISP_INC_hh)] <- predicted
+
+rm(danee, missing_rows, model, model_data, predicted)
+
+```
+
+### Źródło i zakres danych
+
+Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegóły dotyczącze baz danych, z których pochodzą poszczególne wskaźniki opisane są w sekcji poświęconej opisowi zmiennych. Zbiór danych obejmuje wartości 7 wskażników makroekonometrycznych, podawanych z roczną częstotliwością na przestrzeni lat 2019-2023. W badaniu uwzględnione zostało 27 państw wchodzących w skład Unii Europejskiej z roku 2020. W badaniu nie zostały uwzględnione kraje nienależące do Unii Europejskiej, ale wpółpracujące z Eurostatem w zakresie statystyki publicznej.
+
+### Opis zmiennych
+
+Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej
+
+| Nazwa       | Opis                                                                               | Jednostka                          | Baza Danych |
+|:------------|:-----------------------------------------------------------------------------------|:-----------------------------------|:------------|
+| GDP_pc      | Przychód krajowy brutto na jednego miszkańca                                       | EUR, ceny bieżące                  | tipsna40    |
+| UNEMP       | Stoba bezrobocia                                                                   | \%                                 | tps00203    |
+| HICP        | Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)                       | \-                                 | tec00118    |
+| G_CONS      | Wydatki rządowe na konsumpcję                                                      | mln EUR, ceny bieżące              | tec00010    |
+| G_DEBT      | Zadłużenie rządowe brutto                                                          | \% PKB                             | sdg_17_40   |
+| DISP_INC_hh | Skorygowany dochód rozporządzany dochód gospodarstw domowych na jednego mieszkańca | Standard siły nabywczej (PPS 2020) | tec00113    |
+| EXP         | Eksport towarów i usług                                                            | mln EUR, ceny bieżące              | nama_10_gdp |
+
+### Statystyki opisowe
+
+### Badanie normalności rozkładu
+
+W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro wilka.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+
+project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
+
+#Ograniczenie wyświetlania liczb w notacji wykładniczej
+options(scipen = 9999)
+
+#Rozrzut punktów (dla czytelności)
+jitter <- position_jitter(width = 0.3, height = 0, seed=123)
+
+#Ustalenie wspólnego motywu
+main_plot_theme <- theme(legend.position = "none", #brak legendy
+                         panel.background = element_rect(fill = "white"),
+                         panel.border = element_rect(colour = "black", fill = NA),
+                         panel.grid.major.y = element_line(colour = alpha("gray", 0.4)),
+                         plot.title = element_text(hjust = 0.5)) 
+
+setwd(paste(project_path, "/Wykresy/q-q", sep=""))
+
+title <- str_wrap("Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat", width = 50)
+
+q_q_data <- melt(data=data, id.vars = c("time", "geo", "region"), 
+                 variable.name = "variable", value.name = "value")
+
+file_name <- paste("Wykres q-q.png")
+title <- str_wrap("Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat",
+                  width = 50)
+  
+p <- ggplot(q_q_data, aes(sample = value)) +
+  geom_qq_line() +
+  geom_qq()+
+  facet_grid(rows = vars(variable), cols = vars(time), scales = "free") +
+  scale_y_continuous(n.breaks = 4) +
+  ylab("Wartości rzeczywste zmiennych") +
+  xlab("Teoretyczne wartości rozkładu normalnego") +
+  ggtitle(title) +
+  main_plot_theme +
+  theme(panel.grid.major.x = element_line(colour = alpha("gray", 0.4)))
+  
+ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px")
+
+
+rm(p, file_name, q_q_data)
+
+```
+
+![Wykres q-q](Wykresy/q-q/Wykres%20q-q.png)
+
+Wykresy kwartyl-kwartyl porównujące rozkład badanych wskaźników w krajach Unii Europejskiej ze standardowym rozkładem normalnym zdają się wykazywać rozbieżność między nimi. Eksport towarów i usług (EXP), Rządowe wydatki na konsumpcję (G_CONS), Zadłużenie rządowe (G_DEBT), PKB na mieszkańca (GDP-pc) oraz Stopa Bezrobocia (UNEMP) niezależnie do roku charakteryzują się obserwacjami po prawej stronie położonymi zauważalnie powyżej linii symbolizującej rozkład normalny. Zjawisko to jest szczególnie silne w przypadku Eksportu oraz Wydatków na konsumpcję. Wzorzec taki odzwierciedla istnienie krajów plasujących się pod tymi względami znaczącow wyżej od pozostałych, co oznacza niesymetryczny rozkład obserwacji wokół średniej.
+
+W przypadku niektórych wskaźników, np. Dochodów gospodarstw domowych od dyspozycji (DISP_INC_hh) oraz Eksportu towarów i usług (EXP) zauważyć też można analogiczne zjawisko dla niskich wartości wskaźników (reprezentowanych po lewej stronie wykresów) lecz nie jest ono tak zauważalne jak w przyadku wartości wysokich.
+
+Wykrey Indeksu cen towarów i usług konsumenckich (HICP) oraz Stopy bezrobocia (UNEMP) w najbardziej zauważalny sposób zmieniają się w czasie. W przypadku Indeksu cen towarów i usług konsumenckich, zmiana ta wskazuje na wstrząs towarzyszący rozpoczęciu wojny w roku 2022, który doproadził do ogólnego wzrostu iinfalcji, w sposób nierównomierny dla poszczególnych krajów. Stopa bezrobocia natomiast zdaje się maleć wraz z czasem w krajach, które uprzednio charakteryzowały się jej szczególnie wysokimi wartościami.
+
+Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający "U" na niektórych z wykresów może być również świadectem platokurtyczności ich rozkładów.
+
+W celu statystycznej weryfikacji normalnoći rozkładów zmiennych, dla wartości każdego wskaźnika w każdym roku wykonano test normalności Shapiro-Wilka. Wartości p. owych testów przedtsawiono w tabeli poniżej.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+vars <- c("DISP_INC_hh", "EXP", "G_CONS", "G_DEBT", "GDP_pc", "HICP", "UNEMP")
+test_mat <- matrix(ncol = length(vars), nrow = length(YEARS))
+colnames(test_mat) <- vars
+rownames(test_mat) <- YEARS
+
+shapiro_mat <- test_mat
+
+for(i in vars){
+  for(j in YEARS){
+    p_val <- shapiro.test(unlist(data[data$time==j, i]))$p.value
+    shapiro_mat[as.character(j),i] <- round(p_val, 4)
+  }
+}
+rm(i, j, p_val)
+
+as.data.frame(shapiro_mat)
+```
+
+Jak widać, na poziomie istotności $\alpha$ = 0.05, jedynie Dochody gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.
+
+Podsumowując, należy uznać, że, z nielicznymi wyjątkami, wartości wskaźników makroekonomicznych w krajach Unii Europejskiej nie pochodzą z rozkładu normalnego. Pomimo, że w kilku konkretnych przypadkach możliwe byłoby zastosowanie parametrycznych testów statystycznych do badania różnic wartości wskaźników, w celu ujednolicenia procesu badawczego wszystkich zmiennych w dalszych etapach badania wykorzystywane będą nieparametryczne testy statystyczne.
+
+## Badanie nierówności
+
+W niniejszym rozdziale przeanalizowano nierówności w rozkładzie wybranych wskaźników ekonomicznych oraz społeczno-demograficznych wśród krajów Unii Europejskiej w latach 2019--2023. W analizie pominięto Wskaźnik cen towarów i usług konsumpcyjnych (HICP), ze względu na pojawiające się tam ujemne wartości.
+
+Aby ocenić stopień nierówności w rozkładzie wartości tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini'ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.
+
+W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.
+
+### Analiza wizualna
+
+W celu wizualnej ocny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+setwd(paste(project_path, "/Wykresy/Lorenz", sep=""))
+
+#Zmiana formatu danych dla odpowiedniego rysowania wykresu
+#Inflcja pominięta ze wzglęu na ujemne wartości
+lorenz_data <- melt(data = data %>% select(-HICP), 
+                    id.vars = c("time", "geo", "region"), 
+                 variable.name = "variable", value.name = "value")
+
+lorenz_data <- lorenz_data %>%
+  group_by(variable, time) %>%
+  summarize(lorenz = list(Lc(value)$L),
+            p = list(Lc(value)$p),
+            .groups = "drop") %>%
+  unnest(c(p, lorenz)) %>%
+  rename(L = lorenz)
+
+file_name <- paste("Krzywe Lorenza.png")
+title <- str_wrap("Krzywa Lorenza obrazująca dystrybucję lub zróżnicowanie poszczególnych zmiennycw karajch UE w latach 2019-2023",
+                  width = 70)
+
+p <- ggplot(lorenz_data, aes(x = p, y = L)) +
+  geom_line(color = "blue", size = 0.8) +
+  geom_ribbon(aes(ymin = L, ymax = p), fill = "blue", alpha = 0.1)+
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+  facet_grid(rows = vars(variable), cols = vars(time), scales = "free") +
+  scale_y_continuous(n.breaks = 5) +
+  scale_x_continuous(n.breaks = 5) +
+  xlab("Kwantyl") +
+  ylab("Skumulowany odsetek rozpatrywanej zmiennej") +
+  ggtitle(title)+
+  main_plot_theme +
+  theme(panel.grid.major.x = element_line(colour = alpha("gray", 0.4)),
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px")
+
+rm(file_name, p, lorenz_data, title)
+```
+
+![Krzywa Lorenz\'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
+
+Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.
+
+Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.
+
+### Indeksy nierówności
+
+W tabelach poniżej przedstawiono wartości indeksy nierówności Gini'ego oraz Kukuły. Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.
+
+W tabelach poniżej przedstawiono wartości Indeksów nierówności:
+
+Indeks nierówności Gini'ego
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+vars <- c("DISP_INC_hh", "EXP", "G_CONS", "G_DEBT", "GDP_pc", "UNEMP")
+
+#Kolumny to zmienne, rzędy to lata
+wsk_mat <- matrix(ncol = length(vars), nrow = length(YEARS))
+colnames(wsk_mat) <- vars
+rownames(wsk_mat) <- YEARS
+
+
+# MACIERZ WARTOŚCI GINIEGO 
+gini_mat<-wsk_mat
+
+for (i in vars){
+  for (j in YEARS){
+    gini <- ineq(unlist(data[data$time==j, i]), type = "Gini")
+    gini_mat[as.character(j),i] <- round(gini, 4)
+  }
+}
+
+rm(i, j, gini)
+
+as.data.frame(gini_mat)
+```
+
+Indeks nierówności Kukuły:
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+kuk_mat<-wsk_mat
+
+a <- (27 + sqrt(27))/(27-1)
+for (i in vars){
+  for (j in YEARS){
+    f<-sqrt(sum(apply(X=data[data$time==j, i], MARGIN = 1,
+             FUN = function(x) x^2))/(sum(data[data$time==j, i])^2))
+    kuk_mat[as.character(j),i] <- round((a*(f-1)) + 1 ,4)
+    }
+}
+
+rm(a, i, j, f)
+
+as.data.frame(kuk_mat)
+```
+
+Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.
+
+Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini'ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.
+
+W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini'ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianęk szczególnie przy niewielkich co do modułów wartościch wskaźników.
+
+Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini'ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej. Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka.
+
+### Wnioski
+
+Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.
+
+Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.
+
+Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.
+
+## Analiza zmian wskaźników w czasie
+
+### Analiza wizualna
+
+### Testy statystyczne
+
+### Wnioski
+
+## Podsumowanie
+
+The `echo: false` option disables the printing of code (only output is displayed).

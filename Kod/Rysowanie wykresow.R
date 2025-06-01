@@ -1,5 +1,5 @@
 ###WYKRESY======================================================================
-p<-c("ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq")
+p<-c("ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq", "ggrepel")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -31,7 +31,7 @@ main_plot_theme <- theme(legend.position = "none", #brak legendy
 vars <- c("DISP_INC_hh", "EXP", "G_CONS", "G_DEBT", "GDP_pc", "HICP", "UNEMP")
 var_names <- list(geo = "Kraj",
                   time = "Rok",
-                  DISP_INC_hh = "Skorygowany dochód rozporządzalny brutto gospodarstw domowych (moc nabywcza)",
+                  DISP_INC_hh = "Skorygowany dochód brutto gospodarstw domowych do dyspozycji (moc nabywcza)",
                   EXP = "Eksport towarów i usług [mln EUR (bieżące ceny)]",
                   G_CONS = "Rządowe wydatki na konsumpcję [mln EUR (bieżące ceny)]",
                   G_DEBT = "Zadłużenie rządowe [%PKB]",
@@ -144,8 +144,8 @@ lorenz_data <- lorenz_data %>%
   rename(L = lorenz)
 
 file_name <- paste("Krzywe Lorenza.png")
-title <- str_wrap("Krzywa Lorenza obrazująca dystrybucję poszczególnych zmiennyc
-                  w karajch UE w poszczególnych latach",
+title <- str_wrap("Krzywa Lorenza obrazująca dystrybucję lub zróżnicowanie 
+                  poszczególnych zmiennycw karajch UE w latach 2019-2023",
                   width = 70)
 
 p <- ggplot(lorenz_data, aes(x = p, y = L)) +

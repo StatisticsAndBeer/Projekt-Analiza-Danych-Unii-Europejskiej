@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dominik Mieszkowski, Dagmara Łyś">
+
+<title>Raport</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Raport_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Raport_files/libs/quarto-html/quarto.js"></script>
+<script src="Raport_files/libs/quarto-html/popper.min.js"></script>
+<script src="Raport_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Raport_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Raport_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Raport_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Raport_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Raport_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Raport_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Raport</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dominik Mieszkowski, Dagmara Łyś </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="analiza-wybranych-wzkaźników-makroekonomicznych-w-krajach-unii-europejskiej-w-latach-2019-2025" class="level1">
+<h1>Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025</h1>
+<p>Dagmara Łyś, s211011@sggw.edu.pl<br>
+Dominik Mieszkowski s211015@sggw.edu.pl<br>
+</p>
+<section id="wprowadzenie" class="level2">
+<h2 class="anchored" data-anchor-id="wprowadzenie">Wprowadzenie</h2>
+<p>Wskaźniki makroekonomiczne pełnią kluczową rolę w opisywaniu i ocenie sytuacji gospodarczej kraju. Ich wartości odzwierciedlają sytuację finasową rządu państwa, a także warunki ekonomiczne w jakich funkcjonują przdesiębiorstwa i gospodartwa domowe na jego terenie. W ostatnich latach wybuch pandemii wirusa COVID-19 w 2020 r., a także rozpoczęcie przez Rosję wojny na Ukrainie w lutym 2022 r. wstrząsnęły Europą, wpływając na handel, rynek pracy i ludność. Aby ocenić rodzaj i zakres zmian społeczno-ekonomicznych w tym okresie, koniecznym jest przyjrzenie się zmianom w wartościach wspomnainych wskaźników, które towarzyszyly tym wydarzeniom. Temat ten jest podjęty w tej pracy, uwzględniając 27 pańśtw obecnie wchodzących w skład Unii Europejskiej w latach 2019-2023.</p>
+<section id="streszczenie" class="level3">
+<h3 class="anchored" data-anchor-id="streszczenie">Streszczenie</h3>
+</section>
+<section id="słowa-kluczowe" class="level3">
+<h3 class="anchored" data-anchor-id="słowa-kluczowe">Słowa kluczowe</h3>
+<p>wskaźnk makroekonomiczny, Unia Europejska, COVID-19, wojna, nierówność, analiza Wizualna, test Wilcoxona, krzywa Lorenza, indeks Gini’ego</p>
+</section>
+<section id="cele-i-hipotezy" class="level3">
+<h3 class="anchored" data-anchor-id="cele-i-hipotezy">Cele i hipotezy</h3>
+<p>Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukrainie na sytuację gospodarczą krajów Unii Europejskiej. Zmiana taka powinna być odzwierciedlona zauważalną różnicą w wartościch wybranych wskaźników makroekonomicznych w czasie, dotyczącą całokształtu Unii Europejskiej. Zmiana taka może mieć jednolity charakter i dotyczyć wszytskich państw w jednakowy sposób lub mieć wpływać na państwa w różnym stopniu, redukując lub amplifikując występujące między państwami występujące uprzednio na danym tle nierówności. Cel ów jest rónoznaczny z potwierdzeniem dwóch hipotez badawczych:</p>
+<ul>
+<li>Pandemia COVID-19 miały negatywny wpływ na sytuację ekonomiczną krajów Unii Europejskiej oraz jej ludności.</li>
+<li>Zmiany wywołane tymi wydarzeniami nie dotykały krajów jednakowo, powodując zmiany w występujących między nimi nierównościach makroekonomicznych.</li>
+</ul>
+</section>
+<section id="przegląd-literatury" class="level3">
+<h3 class="anchored" data-anchor-id="przegląd-literatury">Przegląd literatury</h3>
+</section>
+</section>
+<section id="dane" class="level2">
+<h2 class="anchored" data-anchor-id="dane">Dane</h2>
+<section id="źródło-i-zakres-danych" class="level3">
+<h3 class="anchored" data-anchor-id="źródło-i-zakres-danych">Źródło i zakres danych</h3>
+<p>Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegóły dotyczącze baz danych, z których pochodzą poszczególne wskaźniki opisane są w sekcji poświęconej opisowi zmiennych. Zbiór danych obejmuje wartości 7 wskażników makroekonometrycznych, podawanych z roczną częstotliwością na przestrzeni lat 2019-2023. W badaniu uwzględnione zostało 27 państw wchodzących w skład Unii Europejskiej z roku 2020. W badaniu nie zostały uwzględnione kraje nienależące do Unii Europejskiej, ale wpółpracujące z Eurostatem w zakresie statystyki publicznej.</p>
+</section>
+<section id="opis-zmiennych" class="level3">
+<h3 class="anchored" data-anchor-id="opis-zmiennych">Opis zmiennych</h3>
+<p>Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydati rządowe na konsumpcję, Zadłużenie rządowe brutto, Skorygowany dochód brutto do dyspozycji na mieszkańca, Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono poniżej</p>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 57%">
+<col style="width: 24%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nazwa</th>
+<th style="text-align: left;">Opis</th>
+<th style="text-align: left;">Jednostka</th>
+<th style="text-align: left;">Baza Danych</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GDP_pc</td>
+<td style="text-align: left;">Przychód krajowy brutto na jednego miszkańca</td>
+<td style="text-align: left;">EUR, ceny bieżące</td>
+<td style="text-align: left;">tipsna40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">UNEMP</td>
+<td style="text-align: left;">Stoba bezrobocia</td>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">tps00203</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HICP</td>
+<td style="text-align: left;">Wskaźniki cen towarów i usług konsumpcyjnych (pot. infalcja)</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">tec00118</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">G_CONS</td>
+<td style="text-align: left;">Wydatki rządowe na konsumpcję</td>
+<td style="text-align: left;">mln EUR, ceny bieżące</td>
+<td style="text-align: left;">tec00010</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">G_DEBT</td>
+<td style="text-align: left;">Zadłużenie rządowe brutto</td>
+<td style="text-align: left;">% PKB</td>
+<td style="text-align: left;">sdg_17_40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DISP_INC_hh</td>
+<td style="text-align: left;">Skorygowany dochód rozporządzany dochód gospodarstw domowych na jednego mieszkańca</td>
+<td style="text-align: left;">Standard siły nabywczej (PPS 2020)</td>
+<td style="text-align: left;">tec00113</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EXP</td>
+<td style="text-align: left;">Eksport towarów i usług</td>
+<td style="text-align: left;">mln EUR, ceny bieżące</td>
+<td style="text-align: left;">nama_10_gdp</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="statystyki-opisowe" class="level3">
+<h3 class="anchored" data-anchor-id="statystyki-opisowe">Statystyki opisowe</h3>
+</section>
+<section id="badanie-normalności-rozkładu" class="level3">
+<h3 class="anchored" data-anchor-id="badanie-normalności-rozkładu">Badanie normalności rozkładu</h3>
+<p>W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro wilka.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Wykresy/q-q/Wykres%20q-q.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Wykres q-q</figcaption>
+</figure>
+</div>
+<p>Wykresy kwartyl-kwartyl porównujące rozkład badanych wskaźników w krajach Unii Europejskiej ze standardowym rozkładem normalnym zdają się wykazywać rozbieżność między nimi. Eksport towarów i usług (EXP), Rządowe wydatki na konsumpcję (G_CONS), Zadłużenie rządowe (G_DEBT), PKB na mieszkańca (GDP-pc) oraz Stopa Bezrobocia (UNEMP) niezależnie do roku charakteryzują się obserwacjami po prawej stronie położonymi zauważalnie powyżej linii symbolizującej rozkład normalny. Zjawisko to jest szczególnie silne w przypadku Eksportu oraz Wydatków na konsumpcję. Wzorzec taki odzwierciedla istnienie krajów plasujących się pod tymi względami znaczącow wyżej od pozostałych, co oznacza niesymetryczny rozkład obserwacji wokół średniej.</p>
+<p>W przypadku niektórych wskaźników, np. Dochodów gospodarstw domowych od dyspozycji (DISP_INC_hh) oraz Eksportu towarów i usług (EXP) zauważyć też można analogiczne zjawisko dla niskich wartości wskaźników (reprezentowanych po lewej stronie wykresów) lecz nie jest ono tak zauważalne jak w przyadku wartości wysokich.</p>
+<p>Wykrey Indeksu cen towarów i usług konsumenckich (HICP) oraz Stopy bezrobocia (UNEMP) w najbardziej zauważalny sposób zmieniają się w czasie. W przypadku Indeksu cen towarów i usług konsumenckich, zmiana ta wskazuje na wstrząs towarzyszący rozpoczęciu wojny w roku 2022, który doproadził do ogólnego wzrostu iinfalcji, w sposób nierównomierny dla poszczególnych krajów. Stopa bezrobocia natomiast zdaje się maleć wraz z czasem w krajach, które uprzednio charakteryzowały się jej szczególnie wysokimi wartościami.</p>
+<p>Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający “U” na niektórych z wykresów może być również świadectem platokurtyczności ich rozkładów.</p>
+<p>W celu statystycznej weryfikacji normalnoći rozkładów zmiennych, dla wartości każdego wskaźnika w każdym roku wykonano test normalności Shapiro-Wilka. Wartości p.&nbsp;owych testów przedtsawiono w tabeli poniżej.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     DISP_INC_hh EXP G_CONS G_DEBT GDP_pc   HICP  UNEMP
+2019      0.4991   0      0 0.0138 0.0009 0.2666 0.0001
+2020      0.5990   0      0 0.0112 0.0004 0.0319 0.0002
+2021      0.6800   0      0 0.0140 0.0002 0.3049 0.0010
+2022      0.4684   0      0 0.0180 0.0002 0.0060 0.0029
+2023      0.7041   0      0 0.0261 0.0005 0.0522 0.0238</code></pre>
+</div>
+</div>
+<p>Jak widać, na poziomie istotności <span class="math inline">\(\alpha\)</span> = 0.05, jedynie Dochody gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.</p>
+<p>Podsumowując, należy uznać, że, z nielicznymi wyjątkami, wartości wskaźników makroekonomicznych w krajach Unii Europejskiej nie pochodzą z rozkładu normalnego. Pomimo, że w kilku konkretnych przypadkach możliwe byłoby zastosowanie parametrycznych testów statystycznych do badania różnic wartości wskaźników, w celu ujednolicenia procesu badawczego wszystkich zmiennych w dalszych etapach badania wykorzystywane będą nieparametryczne testy statystyczne.</p>
+</section>
+</section>
+<section id="badanie-nierówności" class="level2">
+<h2 class="anchored" data-anchor-id="badanie-nierówności">Badanie nierówności</h2>
+<p>W niniejszym rozdziale przeanalizowano nierówności w rozkładzie wybranych wskaźników ekonomicznych oraz społeczno-demograficznych wśród krajów Unii Europejskiej w latach 2019–2023. W analizie pominięto Wskaźnik cen towarów i usług konsumpcyjnych (HICP), ze względu na pojawiające się tam ujemne wartości.</p>
+<p>Aby ocenić stopień nierówności w rozkładzie wartości tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini’ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.</p>
+<p>W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.</p>
+<section id="analiza-wizualna" class="level3">
+<h3 class="anchored" data-anchor-id="analiza-wizualna">Analiza wizualna</h3>
+<p>W celu wizualnej ocny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz’a dla poszczególnych zmiennych w poszczecgólnych latach.</p>
+<p><img src="Wykresy/Lorenz/Krzywe%20Lorenza.png" class="img-fluid" alt="Krzywa Lorenz'a"> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</p>
+<p>Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.</p>
+<p>Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.</p>
+</section>
+<section id="indeksy-nierówności" class="level3">
+<h3 class="anchored" data-anchor-id="indeksy-nierówności">Indeksy nierówności</h3>
+<p>W tabelach poniżej przedstawiono wartości indeksy nierówności Gini’ego oraz Kukuły. Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.</p>
+<p>W tabelach poniżej przedstawiono wartości Indeksów nierówności:</p>
+<p>Indeks nierówności Gini’ego</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc  UNEMP
+2019      0.1361 0.5883 0.6746 0.3186 0.3347 0.2478
+2020      0.1351 0.5875 0.6740 0.3071 0.3429 0.2189
+2021      0.1274 0.5825 0.6722 0.2992 0.3422 0.2176
+2022      0.1269 0.5744 0.6696 0.2943 0.3371 0.2225
+2023      0.1218 0.5732 0.6618 0.2866 0.3289 0.2054</code></pre>
+</div>
+</div>
+<p>Indeks nierówności Kukuły:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     DISP_INC_hh    EXP G_CONS G_DEBT GDP_pc  UNEMP
+2019      0.0069 0.1484 0.2094 0.0397 0.0464 0.0308
+2020      0.0068 0.1468 0.2112 0.0369 0.0498 0.0231
+2021      0.0060 0.1434 0.2101 0.0351 0.0503 0.0209
+2022      0.0060 0.1367 0.2089 0.0335 0.0484 0.0211
+2023      0.0054 0.1361 0.2032 0.0314 0.0452 0.0170</code></pre>
+</div>
+</div>
+<p>Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.57-0.58 i 0.66-0.67 indeksu Gini’ego oraz ok. 0.13-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.</p>
+<p>Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini’ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.</p>
+<p>W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini’ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianęk szczególnie przy niewielkich co do modułów wartościch wskaźników.</p>
+<p>Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini’ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej. Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka.</p>
+</section>
+<section id="wnioski" class="level3">
+<h3 class="anchored" data-anchor-id="wnioski">Wnioski</h3>
+<p>Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.</p>
+<p>Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.</p>
+<p>Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.</p>
+</section>
+</section>
+<section id="analiza-zmian-wskaźników-w-czasie" class="level2">
+<h2 class="anchored" data-anchor-id="analiza-zmian-wskaźników-w-czasie">Analiza zmian wskaźników w czasie</h2>
+<section id="analiza-wizualna-1" class="level3">
+<h3 class="anchored" data-anchor-id="analiza-wizualna-1">Analiza wizualna</h3>
+</section>
+<section id="testy-statystyczne" class="level3">
+<h3 class="anchored" data-anchor-id="testy-statystyczne">Testy statystyczne</h3>
+</section>
+<section id="wnioski-1" class="level3">
+<h3 class="anchored" data-anchor-id="wnioski-1">Wnioski</h3>
+</section>
+</section>
+<section id="podsumowanie" class="level2">
+<h2 class="anchored" data-anchor-id="podsumowanie">Podsumowanie</h2>
+<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
