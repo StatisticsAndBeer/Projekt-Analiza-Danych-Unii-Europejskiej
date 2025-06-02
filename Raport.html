@@ -1154,13 +1154,13 @@ Dominik Mieszkowski s211015@sggw.edu.pl<br>
 <section id="analiza-wizualna-1" class="level3">
 <h3 class="anchored" data-anchor-id="analiza-wizualna-1">Analiza wizualna</h3>
 <p>W celu lepszego zapoznania ze strukturą wybranych wskaźników makroekonomicznych, stworzono wykresy pudełkowe.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Wykresy/Boxploty/DISP_INC_hh.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">BOXPLOT_DISP_INC_hh</figcaption>
-</figure>
-</div>
-<p><img src="Wykresy/Boxploty/EXP.png" class="img-fluid" alt="BOXPLOT_EXP"> <img src="Wykresy/Boxploty/G_CONS.png" class="img-fluid" alt="BOXPLOT_G_CONS"> <img src="Wykresy/Boxploty/G_DEBT.png" class="img-fluid" alt="BOXPLOT_G_DEBT"> <img src="Wykresy/Boxploty/GDP_pc.png" class="img-fluid" alt="BOXPLOT_GDP_pc"> <img src="Wykresy/Boxploty/HICP.png" class="img-fluid" alt="BOXPLOT_HICP"> <img src="Wykresy/Boxploty/UNEMP.png" class="img-fluid" alt="BOXPLOT_UNEMP"></p>
+<p><img src="Wykresy/Boxploty/DISP_INC_hh.png" class="img-fluid" alt="BOXPLOT_DISP_INC_hh"> Jak można zauważyć z wykresu, w badanym okresie skorygowany dochód gospodarstw domowych do dyspozycji wzrsatał od 2020. Jest to pewna anomalia, biorąc pod uwagę analizy OECD z roku 2022 Europa była trakcie recesji. Jest to niespodziwane, ze względu na wysoką inflację w okresach 2022 i 2023. Są to lata gdy znacząco wzrosły ceny energii co nie mogło odbyć się bez zmniejszenia dochodów gospodarstw domowych.</p>
+<p><img src="Wykresy/Boxploty/EXP.png" class="img-fluid" alt="BOXPLOT_EXP"> Wykres pudełkowy pozwala poznać, powód wysokiej wartośc skośności i kurtozy. Niemcy znacząco odbiegają od reszty krajów UE pod względem eksportowanych dóbr. Mimo dużej skali wykresy udaje się zauważyć, spadek zmiennej w roku 2020. Powodem takiego stanu rzeczy najpewniej jest wybuch pandemii COVID-19, podczas którego na przedsiębiorstwa były nakładne liczne obostrzenia. W tym samym okresie ze względu na panujący izolację panował znaczący zastój w usługach i tym samym upadek wielu przedsiębiorstw.</p>
+<p><img src="Wykresy/Boxploty/G_CONS.png" class="img-fluid" alt="BOXPLOT_G_CONS"> Na przestrzeni badanego okresu, rządowe wydatki na konsumpcję znacząco wzrosły. Może to wynikać z zapomóg dla przedsiębiorców, zwiąkszonych wydatków na słuźbę zdrowaia podczas pandemii, a kolejno zwiększenia wydatkó na zbrojenia. Ponownie wśród wartości odstających znajdują się Niemcy, a także Francja i Włochy. Państwa w obliczu dwóch kryzysów musiały zwiększyć odpowiedno wydatki, aby wspomóc obywateli, czy zapewnić im bezpieczeństwo.</p>
+<p><img src="Wykresy/Boxploty/G_DEBT.png" class="img-fluid" alt="BOXPLOT_G_DEBT"> Rządowe zadłużenie osiągneło największe wartość dla roku 2020, z powodu trwającej pandemii. Rządy na pokrycie wydatków związanych z COVID-19 misiały podjąć szerg działań aby przeciwdziałać skutkom recesji takim jak.: spadek wpływów budżetowych, zwiększenie wydataków inwestycyjnych, czy programy wsparcia dla obywateli i na słóżbę zdrowia.</p>
+<p><img src="Wykresy/Boxploty/GDP_pc.png" class="img-fluid" alt="BOXPLOT_GDP_pc"> PKB per capita nie wykazuję się duża zmienności na przestrzeni lat. Krajami mającymi wartości odstające jest Luksemburg i Irlandia.</p>
+<p><img src="Wykresy/Boxploty/HICP.png" class="img-fluid" alt="BOXPLOT_HICP"> Wykres inflacji najbardzeij obrazuje skalę, jak lata pandemii i agresja Rosji na Ukrainę, zdestabilizowała rynek Europejski. Co ciekawe w roku 2020 doszło do spadku inflacji, jak wspomniano w przytaczanym raporcie OECD. Głownym powodem takiego stanu rzeczy jest spedek cen energii i ograniczenie popytu na dobra i usługi. Warto tym samym wspomnieć, że dla krajów w strafie EURO zaobserwowano ujemną inflację. Wojna na Ukrainie jednak spowodowała ogromny kryzys, ze względu na rosnące ceny energii i żywności.</p>
+<p><img src="Wykresy/Boxploty/UNEMP.png" class="img-fluid" alt="BOXPLOT_UNEMP"> Na załączonym wykresie widać, że wzrost stopy bezrobocia nastąpił w roku 2020. Głownym tego powodem były wprowadzone oraniczenia, zamknięcie firm i przedsiębiorst, co doprowadziło do zwiększenia liczby zwolnień. Co ciekawe Polska w roku 2020, była druga pod względem najniższej wartości tego wskaźnika. Po roku 2021 sytuacja zaczeła się stablilizować.</p>
 </section>
 <section id="testy-statystyczne" class="level3">
 <h3 class="anchored" data-anchor-id="testy-statystyczne">Testy statystyczne</h3>
@@ -1804,302 +1804,328 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_DISP_INC_hh](Wykresy/Gęstość/DISP_INC_hh gestosc.png)</span></span>
 <span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>Odczytując powyższy wykres gęstości (DISP_INC_hh) Skorygowanego dochodu brutto gospodarstw domowych można zauważyć, że na przestrzeni badanego okresu doszło do nieznacznego zmniejszenia się różnic między badanymi krajam. Potwierdzają to także wartości kurtozy i skośności, ktore z roku na rok (oprócz 2022) regularnie nieznacznie malały. Oznacza to, że struktura dyspozycyjnego dochodu gospodarstw domowych między krajami UE uległa powolnej równowadze.</span>
 <span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_EXP](Wykresy/Gęstość/EXP gestosc.png)</span></span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>Rozkład EXP eksportu towarów i usług jest silnie prawostronny co wynikało także ze statystyk opisowych. Warto jednak wspomnieć, że jak wynika z raportu OECD Economic Surveys: European Union 2021; spodziwano się, że w roku 2020 eksport dóbr i towarów zmiejszy się o niemal 8,9% dla krajów Unii Europejskiej. </span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_EXP](Wykresy/Gęstość/EXP gestosc.png)</span></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>Rozkład EXP eksportu towarów i usług jest silnie prawostronny co wynikało także ze statystyk opisowych. Warto jednak wspomnieć, że jak wynika z raportu OECD Economic Surveys: European Union 2021; spodziwano się, że w roku 2020 eksport dóbr i towarów zmiejszy się o niemal 8,9% dla krajów Unii Europejskiej.</span>
 <span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_G_CONS](Wykresy/Gęstość/G_CONS gestosc.png)</span></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>Rozkłady rządowych wydatków na konsumpcję pokazuje, że struktura tych wydatków nie ulegała an przestrzeni lat znaczej zmianie. Tym samym utrzymywał on rokład prawostronny. </span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_G_DEBT](Wykresy/Gęstość/G_DEBT gestosc.png)</span></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>Na podstawie pozyśzego wykresu zadłużenia rządowego, widac wyraźnie że jego rozkłąd jest asymetryczny i prawostronny. Patrząc na wykres, można odnieść wrażenie, że skośność tej zmiennej ulega minimalnym zmianom- co również wynika ze statystyk opisowych. </span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_GDP_pc](Wykresy/Gęstość/GDP_pc gestosc.png)</span></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>Przychód krajowy brutto per capita nie uległ znacznym zmianom. Zwykresów gęstości tej zmiennej można zauważyć, że w badanym okresie nie zaszły znaczące zmiany dla badanych krajów. </span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_HICP](Wykresy/Gęstość/HICP gestosc.png)</span></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>Warto zatrzymać się przy rozkładzie gęstości inflacji, której wartości po rozpoczęciu wojny na ukrainie znacząco wzrosły. Jak podaje rapot OECD Economic Surveys: European Union 2021 - inflacja w roku 2020 w krajach UE spadła, a w strefie krajów Euro nawet przyjmowała wartośći ujemne. Tym samym widac jak ogromnym ciosem dla Europejskiej gospodarki był wybuch wojny na Ukrainie. Wzrosty cen energii i wydatków na obronę jest tylko kilka z skutków Rosyjskiej inwazji.</span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_UNEMP](Wykresy/Gęstość/UNEMP gestosc.png)</span></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>Jak widać nie ma znaczących zmian w struktórze bezrobocia państw UE na przestrzeni lat 2019-2023. Rozkład zmiennej pozostawał prawostronny. </span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_G_CONS](Wykresy/Gęstość/G_CONS gestosc.png)</span></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>Rozkłady rządowych wydatków na konsumpcję pokazuje, że struktura tych wydatków nie ulegała an przestrzeni lat znaczej zmianie. Tym samym utrzymywał on rokład prawostronny. </span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_G_DEBT](Wykresy/Gęstość/G_DEBT gestosc.png)</span></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>Na podstawie pozyśzego wykresu zadłużenia rządowego, widac wyraźnie że jego rozkłąd jest asymetryczny i prawostronny. Patrząc na wykres, można odnieść wrażenie, że skośność tej zmiennej ulega minimalnym zmianom- co również wynika ze statystyk opisowych. </span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_GDP_pc](Wykresy/Gęstość/GDP_pc gestosc.png)</span></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>Przychód krajowy brutto per capita nie uległ znacznym zmianom. Zwykresów gęstości tej zmiennej można zauważyć, że w badanym okresie nie zaszły znaczące zmiany dla badanych krajów. </span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_HICP](Wykresy/Gęstość/HICP gestosc.png)</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>Warto zatrzymać się przy rozkładzie gęstości inflacji, której wartości po rozpoczęciu wojny na ukrainie znacząco wzrosły. Jak podaje rapot OECD Economic Surveys: European Union 2021 - inflacja w roku 2020 w krajach UE spadła, a w strefie krajów Euro nawet przyjmowała wartośći ujemne. Tym samym widac jak ogromnym ciosem dla Europejskiej gospodarki był wybuch wojny na Ukrainie. Wzrosty cen energii i wydatków na obronę jest tylko kilka z skutków Rosyjskiej inwazji.</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="al">![Gęstość_UNEMP](Wykresy/Gęstość/UNEMP gestosc.png)</span></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>Jak widać nie ma znaczących zmian w struktórze bezrobocia państw UE na przestrzeni lat 2019-2023. Rozkład zmiennej pozostawał prawostronny. </span>
 <span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="fu">### Badanie normalności rozkładu</span></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro wilka.</span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/q-q"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat"</span>, <span class="at">width =</span> <span class="dv">50</span>)</span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>q_q_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data=</span>data, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"geo"</span>, <span class="st">"region"</span>), </span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>                 <span class="at">variable.name =</span> <span class="st">"variable"</span>, <span class="at">value.name =</span> <span class="st">"value"</span>)</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Badanie normalności rozkładu</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro wilka.</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/q-q"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat"</span>, <span class="at">width =</span> <span class="dv">50</span>)</span>
 <span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Wykres q-q.png"</span>)</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat"</span>,</span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="dv">50</span>)</span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(q_q_data, <span class="fu">aes</span>(<span class="at">sample =</span> value)) <span class="sc">+</span></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(variable), <span class="at">cols =</span> <span class="fu">vars</span>(time), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Wartości rzeczywste zmiennych"</span>) <span class="sc">+</span></span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teoretyczne wartości rozkładu normalnego"</span>) <span class="sc">+</span></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>  main_plot_theme <span class="sc">+</span></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)))</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">width =</span> <span class="dv">1800</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(p, file_name, q_q_data)</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>q_q_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data=</span>data, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"geo"</span>, <span class="st">"region"</span>), </span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>                 <span class="at">variable.name =</span> <span class="st">"variable"</span>, <span class="at">value.name =</span> <span class="st">"value"</span>)</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Wykres q-q.png"</span>)</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat"</span>,</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="dv">50</span>)</span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(q_q_data, <span class="fu">aes</span>(<span class="at">sample =</span> value)) <span class="sc">+</span></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(variable), <span class="at">cols =</span> <span class="fu">vars</span>(time), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Wartości rzeczywste zmiennych"</span>) <span class="sc">+</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Teoretyczne wartości rozkładu normalnego"</span>) <span class="sc">+</span></span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>  main_plot_theme <span class="sc">+</span></span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)))</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">width =</span> <span class="dv">1800</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
 <span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="al">![Wykres q-q](Wykresy/q-q/Wykres%20q-q.png)</span></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>Wykresy kwartyl-kwartyl porównujące rozkład badanych wskaźników w krajach Unii Europejskiej ze standardowym rozkładem normalnym zdają się wykazywać rozbieżność między nimi. Eksport towarów i usług (EXP), Rządowe wydatki na konsumpcję (G_CONS), Zadłużenie rządowe (G_DEBT), PKB na mieszkańca (GDP-pc) oraz Stopa Bezrobocia (UNEMP) niezależnie do roku charakteryzują się obserwacjami po prawej stronie położonymi zauważalnie powyżej linii symbolizującej rozkład normalny. Zjawisko to jest szczególnie silne w przypadku Eksportu oraz Wydatków na konsumpcję. Wzorzec taki odzwierciedla istnienie krajów plasujących się pod tymi względami znaczącow wyżej od pozostałych, co oznacza niesymetryczny rozkład obserwacji wokół średniej.</span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>W przypadku niektórych wskaźników, np. Dochodów gospodarstw domowych od dyspozycji (DISP_INC_hh) oraz Eksportu towarów i usług (EXP) zauważyć też można analogiczne zjawisko dla niskich wartości wskaźników (reprezentowanych po lewej stronie wykresów) lecz nie jest ono tak zauważalne jak w przyadku wartości wysokich.</span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>Wykrey Indeksu cen towarów i usług konsumenckich (HICP) oraz Stopy bezrobocia (UNEMP) w najbardziej zauważalny sposób zmieniają się w czasie. W przypadku Indeksu cen towarów i usług konsumenckich, zmiana ta wskazuje na wstrząs towarzyszący rozpoczęciu wojny w roku 2022, który doproadził do ogólnego wzrostu iinfalcji, w sposób nierównomierny dla poszczególnych krajów. Stopa bezrobocia natomiast zdaje się maleć wraz z czasem w krajach, które uprzednio charakteryzowały się jej szczególnie wysokimi wartościami.</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający "U" na niektórych z wykresów może być również świadectem leptokurtyczności ich rozkładów.</span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>W celu statystycznej weryfikacji normalnoći rozkładów zmiennych, dla wartości każdego wskaźnika w każdym roku wykonano test normalności Shapiro-Wilka. Wartości p. owych testów przedtsawiono w tabeli poniżej.</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DISP_INC_hh"</span>, <span class="st">"EXP"</span>, <span class="st">"G_CONS"</span>, <span class="st">"G_DEBT"</span>, <span class="st">"GDP_pc"</span>, <span class="st">"HICP"</span>, <span class="st">"UNEMP"</span>)</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>test_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="fu">length</span>(vars), <span class="at">nrow =</span> <span class="fu">length</span>(YEARS))</span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(test_mat) <span class="ot">&lt;-</span> vars</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(test_mat) <span class="ot">&lt;-</span> YEARS</span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>shapiro_mat <span class="ot">&lt;-</span> test_mat</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> vars){</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> YEARS){</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    p_val <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(<span class="fu">unlist</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i]))<span class="sc">$</span>p.value</span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>    shapiro_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>(p_val, <span class="dv">4</span>)</span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, j, p_val)</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="co">#as.data.frame(shapiro_mat)</span></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(shapiro_mat)</span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>Jak widać, na poziomie istotności $\alpha$ = 0.05, jedynie Dochody gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.</span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>Podsumowując, należy uznać, że, z nielicznymi wyjątkami, wartości wskaźników makroekonomicznych w krajach Unii Europejskiej nie pochodzą z rozkładu normalnego. Pomimo, że w kilku konkretnych przypadkach możliwe byłoby zastosowanie parametrycznych testów statystycznych do badania różnic wartości wskaźników, w celu ujednolicenia procesu badawczego wszystkich zmiennych w dalszych etapach badania wykorzystywane będą nieparametryczne testy statystyczne.</span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a><span class="fu">## Badanie nierówności</span></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>W niniejszym rozdziale przeanalizowano nierówności w rozkładzie wybranych wskaźników ekonomicznych oraz społeczno-demograficznych wśród krajów Unii Europejskiej w latach 2019--2023. W analizie pominięto Wskaźnik cen towarów i usług konsumpcyjnych (HICP), ze względu na pojawiające się tam ujemne wartości.</span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>Aby ocenić stopień nierówności w rozkładzie wartości tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini'ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.</span>
-<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a>W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.</span>
-<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wizualna</span></span>
-<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a>W celu wizualnej oceny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.</span>
-<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/Lorenz"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="co">#Zmiana formatu danych dla odpowiedniego rysowania wykresu</span></span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="co">#Inflcja pominięta ze wzglęu na ujemne wartości</span></span>
-<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a>lorenz_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data =</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>HICP), </span>
-<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"geo"</span>, <span class="st">"region"</span>), </span>
-<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a>                 <span class="at">variable.name =</span> <span class="st">"variable"</span>, <span class="at">value.name =</span> <span class="st">"value"</span>)</span>
-<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>lorenz_data <span class="ot">&lt;-</span> lorenz_data <span class="sc">%&gt;%</span></span>
-<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable, time) <span class="sc">%&gt;%</span></span>
-<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lorenz =</span> <span class="fu">list</span>(<span class="fu">Lc</span>(value)<span class="sc">$</span>L),</span>
-<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a>            <span class="at">p =</span> <span class="fu">list</span>(<span class="fu">Lc</span>(value)<span class="sc">$</span>p),</span>
-<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="fu">c</span>(p, lorenz)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">L =</span> lorenz)</span>
-<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Krzywe Lorenza.png"</span>)</span>
-<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Krzywa Lorenza obrazująca dystrybucję lub zróżnicowanie poszczególnych zmiennycw karajch UE w latach 2019-2023"</span>,</span>
-<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="dv">70</span>)</span>
-<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lorenz_data, <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> L)) <span class="sc">+</span></span>
-<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> L, <span class="at">ymax =</span> p), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
-<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(variable), <span class="at">cols =</span> <span class="fu">vars</span>(time), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Kwantyl"</span>) <span class="sc">+</span></span>
-<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Skumulowany odsetek rozpatrywanej zmiennej"</span>) <span class="sc">+</span></span>
-<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(title)<span class="sc">+</span></span>
-<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a>  main_plot_theme <span class="sc">+</span></span>
-<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)),</span>
-<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">width =</span> <span class="dv">1800</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
-<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(file_name, p, lorenz_data, title)</span>
-<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(p, file_name, q_q_data)</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="al">![Wykres q-q](Wykresy/q-q/Wykres%20q-q.png)</span></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>Wykresy kwartyl-kwartyl porównujące rozkład badanych wskaźników w krajach Unii Europejskiej ze standardowym rozkładem normalnym zdają się wykazywać rozbieżność między nimi. Eksport towarów i usług (EXP), Rządowe wydatki na konsumpcję (G_CONS), Zadłużenie rządowe (G_DEBT), PKB na mieszkańca (GDP-pc) oraz Stopa Bezrobocia (UNEMP) niezależnie do roku charakteryzują się obserwacjami po prawej stronie położonymi zauważalnie powyżej linii symbolizującej rozkład normalny. Zjawisko to jest szczególnie silne w przypadku Eksportu oraz Wydatków na konsumpcję. Wzorzec taki odzwierciedla istnienie krajów plasujących się pod tymi względami znaczącow wyżej od pozostałych, co oznacza niesymetryczny rozkład obserwacji wokół średniej.</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>W przypadku niektórych wskaźników, np. Dochodów gospodarstw domowych od dyspozycji (DISP_INC_hh) oraz Eksportu towarów i usług (EXP) zauważyć też można analogiczne zjawisko dla niskich wartości wskaźników (reprezentowanych po lewej stronie wykresów) lecz nie jest ono tak zauważalne jak w przyadku wartości wysokich.</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>Wykrey Indeksu cen towarów i usług konsumenckich (HICP) oraz Stopy bezrobocia (UNEMP) w najbardziej zauważalny sposób zmieniają się w czasie. W przypadku Indeksu cen towarów i usług konsumenckich, zmiana ta wskazuje na wstrząs towarzyszący rozpoczęciu wojny w roku 2022, który doproadził do ogólnego wzrostu iinfalcji, w sposób nierównomierny dla poszczególnych krajów. Stopa bezrobocia natomiast zdaje się maleć wraz z czasem w krajach, które uprzednio charakteryzowały się jej szczególnie wysokimi wartościami.</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>Wykresy kwantyl-kwantyl dają podstawy by twierdzić, że wartości wielu z badanych wskaźników nie pochodzą z rozkładu normalnego. Wiele z nich jest prawo-skośnych, czego świadectwem są odsatjące od poszaostałych obserwacje o wysokich wartościcach. Układanie się obserwacji w kształt przypominający "U" na niektórych z wykresów może być również świadectem leptokurtyczności ich rozkładów.</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>W celu statystycznej weryfikacji normalnoći rozkładów zmiennych, dla wartości każdego wskaźnika w każdym roku wykonano test normalności Shapiro-Wilka. Wartości p. owych testów przedtsawiono w tabeli poniżej.</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DISP_INC_hh"</span>, <span class="st">"EXP"</span>, <span class="st">"G_CONS"</span>, <span class="st">"G_DEBT"</span>, <span class="st">"GDP_pc"</span>, <span class="st">"HICP"</span>, <span class="st">"UNEMP"</span>)</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>test_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="fu">length</span>(vars), <span class="at">nrow =</span> <span class="fu">length</span>(YEARS))</span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(test_mat) <span class="ot">&lt;-</span> vars</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(test_mat) <span class="ot">&lt;-</span> YEARS</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>shapiro_mat <span class="ot">&lt;-</span> test_mat</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> vars){</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> YEARS){</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>    p_val <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(<span class="fu">unlist</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i]))<span class="sc">$</span>p.value</span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>    shapiro_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>(p_val, <span class="dv">4</span>)</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, j, p_val)</span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a><span class="co">#as.data.frame(shapiro_mat)</span></span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(shapiro_mat)</span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>Jak widać, na poziomie istotności $\alpha$ = 0.05, jedynie Dochody gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>Podsumowując, należy uznać, że, z nielicznymi wyjątkami, wartości wskaźników makroekonomicznych w krajach Unii Europejskiej nie pochodzą z rozkładu normalnego. Pomimo, że w kilku konkretnych przypadkach możliwe byłoby zastosowanie parametrycznych testów statystycznych do badania różnic wartości wskaźników, w celu ujednolicenia procesu badawczego wszystkich zmiennych w dalszych etapach badania wykorzystywane będą nieparametryczne testy statystyczne.</span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a><span class="fu">## Badanie nierówności</span></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>W niniejszym rozdziale przeanalizowano nierówności w rozkładzie wybranych wskaźników ekonomicznych oraz społeczno-demograficznych wśród krajów Unii Europejskiej w latach 2019--2023. W analizie pominięto Wskaźnik cen towarów i usług konsumpcyjnych (HICP), ze względu na pojawiające się tam ujemne wartości.</span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>Aby ocenić stopień nierówności w rozkładzie wartości tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini'ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.</span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a>W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.</span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wizualna</span></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>W celu wizualnej oceny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.</span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/Lorenz"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a><span class="co">#Zmiana formatu danych dla odpowiedniego rysowania wykresu</span></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a><span class="co">#Inflcja pominięta ze wzglęu na ujemne wartości</span></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>lorenz_data <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data =</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>HICP), </span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>                    <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"time"</span>, <span class="st">"geo"</span>, <span class="st">"region"</span>), </span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a>                 <span class="at">variable.name =</span> <span class="st">"variable"</span>, <span class="at">value.name =</span> <span class="st">"value"</span>)</span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a>lorenz_data <span class="ot">&lt;-</span> lorenz_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable, time) <span class="sc">%&gt;%</span></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">lorenz =</span> <span class="fu">list</span>(<span class="fu">Lc</span>(value)<span class="sc">$</span>L),</span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a>            <span class="at">p =</span> <span class="fu">list</span>(<span class="fu">Lc</span>(value)<span class="sc">$</span>p),</span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="fu">c</span>(p, lorenz)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">L =</span> lorenz)</span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Krzywe Lorenza.png"</span>)</span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="st">"Krzywa Lorenza obrazująca dystrybucję lub zróżnicowanie poszczególnych zmiennycw karajch UE w latach 2019-2023"</span>,</span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="dv">70</span>)</span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(lorenz_data, <span class="fu">aes</span>(<span class="at">x =</span> p, <span class="at">y =</span> L)) <span class="sc">+</span></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> L, <span class="at">ymax =</span> p), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)<span class="sc">+</span></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(variable), <span class="at">cols =</span> <span class="fu">vars</span>(time), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Kwantyl"</span>) <span class="sc">+</span></span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Skumulowany odsetek rozpatrywanej zmiennej"</span>) <span class="sc">+</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(title)<span class="sc">+</span></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a>  main_plot_theme <span class="sc">+</span></span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="fu">alpha</span>(<span class="st">"gray"</span>, <span class="fl">0.4</span>)),</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">width =</span> <span class="dv">1800</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
 <span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a><span class="al">![Krzywa Lorenz'a](Wykresy/Lorenz/Krzywe%20Lorenza.png)</span> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</span>
-<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a>Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.</span>
-<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a>Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.</span>
-<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a><span class="fu">### Indeksy nierówności</span></span>
-<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a>W tabelach poniżej przedstawiono wartości indeksy nierówności Gini'ego oraz Kukuły. Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.</span>
-<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a>W tabelach poniżej przedstawiono wartości Indeksów nierówności:</span>
-<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>Indeks nierówności Gini'ego</span>
-<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DISP_INC_hh"</span>, <span class="st">"EXP"</span>, <span class="st">"G_CONS"</span>, <span class="st">"G_DEBT"</span>, <span class="st">"GDP_pc"</span>, <span class="st">"UNEMP"</span>)</span>
-<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a><span class="co">#Kolumny to zmienne, rzędy to lata</span></span>
-<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>wsk_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="fu">length</span>(vars), <span class="at">nrow =</span> <span class="fu">length</span>(YEARS))</span>
-<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(wsk_mat) <span class="ot">&lt;-</span> vars</span>
-<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(wsk_mat) <span class="ot">&lt;-</span> YEARS</span>
-<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="co"># MACIERZ WARTOŚCI GINIEGO </span></span>
-<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>gini_mat<span class="ot">&lt;-</span>wsk_mat</span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(file_name, p, lorenz_data, title)</span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a><span class="al">![Krzywa Lorenz'a](Wykresy/Lorenz/Krzywe%20Lorenza.png)</span> Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.</span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.</span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a><span class="fu">### Indeksy nierówności</span></span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>W tabelach poniżej przedstawiono wartości indeksy nierówności Gini'ego oraz Kukuły. Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.</span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a>W tabelach poniżej przedstawiono wartości Indeksów nierówności:</span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a>Indeks nierówności Gini'ego</span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"DISP_INC_hh"</span>, <span class="st">"EXP"</span>, <span class="st">"G_CONS"</span>, <span class="st">"G_DEBT"</span>, <span class="st">"GDP_pc"</span>, <span class="st">"UNEMP"</span>)</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a><span class="co">#Kolumny to zmienne, rzędy to lata</span></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>wsk_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="fu">length</span>(vars), <span class="at">nrow =</span> <span class="fu">length</span>(YEARS))</span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(wsk_mat) <span class="ot">&lt;-</span> vars</span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(wsk_mat) <span class="ot">&lt;-</span> YEARS</span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
-<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
-<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a>    gini <span class="ot">&lt;-</span> <span class="fu">ineq</span>(<span class="fu">unlist</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i]), <span class="at">type =</span> <span class="st">"Gini"</span>)</span>
-<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>    gini_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>(gini, <span class="dv">4</span>)</span>
-<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, j, gini)</span>
-<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a><span class="co">#as.data.frame(gini_mat)</span></span>
-<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(gini_mat)</span>
-<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a>Indeks nierówności Kukuły:</span>
-<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a>kuk_mat<span class="ot">&lt;-</span>wsk_mat</span>
-<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> (<span class="dv">27</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">27</span>))<span class="sc">/</span>(<span class="dv">27-1</span>)</span>
-<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
-<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
-<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>    f<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="fu">apply</span>(<span class="at">X=</span>data[data<span class="sc">$</span>time<span class="sc">==</span>j, i], <span class="at">MARGIN =</span> <span class="dv">1</span>,</span>
-<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>             <span class="at">FUN =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span>(<span class="fu">sum</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i])<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a>    kuk_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>((a<span class="sc">*</span>(f<span class="dv">-1</span>)) <span class="sc">+</span> <span class="dv">1</span> ,<span class="dv">4</span>)</span>
-<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a, i, j, f)</span>
-<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a><span class="co">#as.data.frame(kuk_mat)</span></span>
-<span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(kuk_mat)</span>
-<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.58-0.59 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.14-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.</span>
-<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini'ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.</span>
-<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini'ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianęk szczególnie przy niewielkich co do modułów wartościch wskaźników.</span>
-<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a>Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini'ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej. Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka.</span>
-<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wnioski</span></span>
-<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.</span>
-<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a>Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.</span>
-<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a>Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.</span>
-<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analiza zmian wskaźników w czasie</span></span>
-<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a>Jak zostało ustalone, na podstawie wizualnych rozkładów gęstości i testu Shapiro-Wilka, badanych zmiennych nie charakteryzuje rozkład normalny. Dlatego w celu dalszego badania zostaną zastosowane testy nieparametryczne jak: Test Wilcoxona i Friedmana. Są to nieparametryczne testy statystyczne pozwalające określić, czy różnice między u nas badanymi okresami są istotne.</span>
-<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wizualna</span></span>
-<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-609"><a href="#cb1-609" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-610"><a href="#cb1-610" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/Boxploty"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
-<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> vars){</span>
-<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(var_names[[i]], <span class="at">width =</span> <span class="dv">70</span>)</span>
-<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(i, <span class="st">".png"</span>, <span class="at">sep=</span><span class="st">""</span>)</span>
-<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> <span class="fu">unlist</span>(data[i]))) <span class="sc">+</span></span>
-<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">fill =</span> <span class="fu">alpha</span>(<span class="st">"blue"</span>, <span class="fl">0.1</span>)) <span class="sc">+</span> </span>
-<span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">position =</span> jitter, <span class="at">size=</span><span class="dv">2</span>, </span>
-<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> <span class="fu">unlist</span>(data[i]), <span class="at">color =</span> geo)) <span class="sc">+</span> </span>
-<span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text_repel</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label=</span>  geo), <span class="at">color =</span> <span class="st">"black"</span>,  <span class="at">size =</span> <span class="dv">2</span>, </span>
-<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>                    <span class="at">max.overlaps =</span> <span class="dv">20</span>, <span class="at">position =</span> jitter, <span class="at">min.segment.length =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">8</span>) <span class="sc">+</span> </span>
-<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Rok"</span>) <span class="sc">+</span></span>
-<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
-<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a>    main_plot_theme</span>
-<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">1600</span>, <span class="at">width =</span> <span class="dv">2400</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
-<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, p, file_name, title)</span>
-<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a>W celu lepszego zapoznania ze strukturą wybranych  wskaźników makroekonomicznych, stworzono wykresy pudełkowe. </span>
-<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_DISP_INC_hh](Wykresy/Boxploty/DISP_INC_hh.png)</span></span>
-<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_EXP](Wykresy/Boxploty/EXP.png)</span></span>
-<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_G_CONS](Wykresy/Boxploty/G_CONS.png)</span></span>
-<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_G_DEBT](Wykresy/Boxploty/G_DEBT.png)</span></span>
-<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_GDP_pc](Wykresy/Boxploty/GDP_pc.png)</span></span>
-<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_HICP](Wykresy/Boxploty/HICP.png)</span></span>
-<span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_UNEMP](Wykresy/Boxploty/UNEMP.png)</span></span>
-<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a><span class="co"># MACIERZ WARTOŚCI GINIEGO </span></span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a>gini_mat<span class="ot">&lt;-</span>wsk_mat</span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a>    gini <span class="ot">&lt;-</span> <span class="fu">ineq</span>(<span class="fu">unlist</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i]), <span class="at">type =</span> <span class="st">"Gini"</span>)</span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>    gini_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>(gini, <span class="dv">4</span>)</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, j, gini)</span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a><span class="co">#as.data.frame(gini_mat)</span></span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(gini_mat)</span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>Indeks nierówności Kukuły:</span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>kuk_mat<span class="ot">&lt;-</span>wsk_mat</span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> (<span class="dv">27</span> <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="dv">27</span>))<span class="sc">/</span>(<span class="dv">27-1</span>)</span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> vars){</span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> YEARS){</span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>    f<span class="ot">&lt;-</span><span class="fu">sqrt</span>(<span class="fu">sum</span>(<span class="fu">apply</span>(<span class="at">X=</span>data[data<span class="sc">$</span>time<span class="sc">==</span>j, i], <span class="at">MARGIN =</span> <span class="dv">1</span>,</span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>             <span class="at">FUN =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span>(<span class="fu">sum</span>(data[data<span class="sc">$</span>time<span class="sc">==</span>j, i])<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>    kuk_mat[<span class="fu">as.character</span>(j),i] <span class="ot">&lt;-</span> <span class="fu">round</span>((a<span class="sc">*</span>(f<span class="dv">-1</span>)) <span class="sc">+</span> <span class="dv">1</span> ,<span class="dv">4</span>)</span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a, i, j, f)</span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a><span class="co">#as.data.frame(kuk_mat)</span></span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(kuk_mat)</span>
+<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a>Analiza wartości indeksów nieróności w czasie potwierdza wnioski wysnute z analizy krzywych Lorenza. Eksport towarów i usług (EXP) oraz Rządowe wydatki na konsumpcję (G_CONS) charakteryzują się najwyższymi wartościami obydwu indeksów nierówności: odpowiednio ok 0.58-0.59 i 0.66-0.67 indeksu Gini'ego oraz ok. 0.14-0.15 i 0.20 - 0.21 indeksu Kukuły. Wartości zdają się wykazywać trend spadkowy, jednak zmiany są stosunkowo niewielkie i ciężko na ich podstawie wysnuć wnioski o istotnych zmianach w dystrybucji wartości tych wskaźników pośród krajów Unii Europejskiej.</span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>Najmniejszą nierówność można obserwować w przypadku Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh) - wartości indeksów Gini'ego i Kukuły wartości nie przekraczają odpowiedno 0.14 i 0.007. W przypadku indeksu nierówności Kukuły jest to ażo jden rząd wielkości mniej niż w przypadku drugiego najmniej zróżnicowanego wskaźnika - Stopy bezrobocia (UNEMP). Sugeruje to, że w ujęciu średnim moc nabywcza dochodów przypadających na jedną osobę jest bardzo podobna w całej Unii Europejskiej. Co więcej można uznać, że w badanym okresie nie stiwierdzono występowania wzmożonych nierówności na tym tle, a wręcz przeciwnie - zostały one w nieznacznym stopniu zmitygowane.</span>
+<span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini'ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianęk szczególnie przy niewielkich co do modułów wartościch wskaźników.</span>
+<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini'ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej. Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka.</span>
+<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wnioski</span></span>
+<span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a>Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.</span>
+<span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-600"><a href="#cb1-600" aria-hidden="true" tabindex="-1"></a>Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.</span>
+<span id="cb1-601"><a href="#cb1-601" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-602"><a href="#cb1-602" aria-hidden="true" tabindex="-1"></a>Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.</span>
+<span id="cb1-603"><a href="#cb1-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-604"><a href="#cb1-604" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analiza zmian wskaźników w czasie</span></span>
+<span id="cb1-605"><a href="#cb1-605" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-606"><a href="#cb1-606" aria-hidden="true" tabindex="-1"></a>Jak zostało ustalone, na podstawie wizualnych rozkładów gęstości i testu Shapiro-Wilka, badanych zmiennych nie charakteryzuje rozkład normalny. Dlatego w celu dalszego badania zostaną zastosowane testy nieparametryczne jak: Test Wilcoxona i Friedmana. Są to nieparametryczne testy statystyczne pozwalające określić, czy różnice między u nas badanymi okresami są istotne.</span>
+<span id="cb1-607"><a href="#cb1-607" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-608"><a href="#cb1-608" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wizualna</span></span>
+<span id="cb1-611"><a href="#cb1-611" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-612"><a href="#cb1-612" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-613"><a href="#cb1-613" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-614"><a href="#cb1-614" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-615"><a href="#cb1-615" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">paste</span>(project_path, <span class="st">"/Wykresy/Boxploty"</span>, <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb1-616"><a href="#cb1-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-617"><a href="#cb1-617" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> vars){</span>
+<span id="cb1-618"><a href="#cb1-618" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(var_names[[i]], <span class="at">width =</span> <span class="dv">70</span>)</span>
+<span id="cb1-619"><a href="#cb1-619" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-620"><a href="#cb1-620" aria-hidden="true" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(i, <span class="st">".png"</span>, <span class="at">sep=</span><span class="st">""</span>)</span>
+<span id="cb1-621"><a href="#cb1-621" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-622"><a href="#cb1-622" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> <span class="fu">unlist</span>(data[i]))) <span class="sc">+</span></span>
+<span id="cb1-623"><a href="#cb1-623" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">fill =</span> <span class="fu">alpha</span>(<span class="st">"blue"</span>, <span class="fl">0.1</span>)) <span class="sc">+</span> </span>
+<span id="cb1-624"><a href="#cb1-624" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">position =</span> jitter, <span class="at">size=</span><span class="dv">2</span>, </span>
+<span id="cb1-625"><a href="#cb1-625" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> <span class="fu">unlist</span>(data[i]), <span class="at">color =</span> geo)) <span class="sc">+</span> </span>
+<span id="cb1-626"><a href="#cb1-626" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text_repel</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label=</span>  geo), <span class="at">color =</span> <span class="st">"black"</span>,  <span class="at">size =</span> <span class="dv">2</span>, </span>
+<span id="cb1-627"><a href="#cb1-627" aria-hidden="true" tabindex="-1"></a>                    <span class="at">max.overlaps =</span> <span class="dv">20</span>, <span class="at">position =</span> jitter, <span class="at">min.segment.length =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb1-628"><a href="#cb1-628" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">8</span>) <span class="sc">+</span> </span>
+<span id="cb1-629"><a href="#cb1-629" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Rok"</span>) <span class="sc">+</span></span>
+<span id="cb1-630"><a href="#cb1-630" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb1-631"><a href="#cb1-631" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(title) <span class="sc">+</span></span>
+<span id="cb1-632"><a href="#cb1-632" aria-hidden="true" tabindex="-1"></a>    main_plot_theme</span>
+<span id="cb1-633"><a href="#cb1-633" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-634"><a href="#cb1-634" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggsave</span>(<span class="at">filename =</span> file_name, <span class="at">plot =</span> p, <span class="at">height =</span> <span class="dv">1600</span>, <span class="at">width =</span> <span class="dv">2400</span>, <span class="at">units =</span> <span class="st">"px"</span>)</span>
+<span id="cb1-635"><a href="#cb1-635" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-636"><a href="#cb1-636" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(i, p, file_name, title)</span>
+<span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>W celu lepszego zapoznania ze strukturą wybranych  wskaźników makroekonomicznych, stworzono wykresy pudełkowe. </span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_DISP_INC_hh](Wykresy/Boxploty/DISP_INC_hh.png)</span></span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>Jak można zauważyć z wykresu, w badanym okresie skorygowany dochód gospodarstw domowych do dyspozycji wzrsatał od 2020. Jest to pewna anomalia, biorąc pod uwagę analizy OECD z roku 2022 Europa była trakcie recesji. Jest to niespodziwane, ze względu na wysoką inflację w okresach 2022 i 2023. Są to lata gdy znacząco wzrosły ceny energii co nie mogło odbyć się bez zmniejszenia dochodów gospodarstw domowych.</span>
+<span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-646"><a href="#cb1-646" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_EXP](Wykresy/Boxploty/EXP.png)</span></span>
+<span id="cb1-647"><a href="#cb1-647" aria-hidden="true" tabindex="-1"></a>Wykres pudełkowy pozwala poznać, powód wysokiej wartośc skośności i kurtozy. Niemcy znacząco odbiegają od reszty krajów UE pod względem eksportowanych dóbr. Mimo dużej skali wykresy udaje się zauważyć, spadek zmiennej w roku 2020. Powodem takiego stanu rzeczy najpewniej jest wybuch pandemii COVID-19, podczas którego na przedsiębiorstwa były nakładne liczne obostrzenia. W tym samym okresie ze względu na panujący izolację panował znaczący zastój w usługach i tym samym upadek wielu przedsiębiorstw. </span>
 <span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a><span class="fu">### Testy statystyczne</span></span>
+<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_G_CONS](Wykresy/Boxploty/G_CONS.png)</span></span>
+<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a>Na przestrzeni badanego okresu, rządowe wydatki na konsumpcję znacząco wzrosły. Może to wynikać z zapomóg dla przedsiębiorców, zwiąkszonych wydatków na słuźbę zdrowaia podczas pandemii, a kolejno zwiększenia wydatkó na zbrojenia. Ponownie wśród wartości odstających znajdują się Niemcy, a także Francja i Włochy. Państwa w obliczu dwóch kryzysów musiały zwiększyć odpowiedno wydatki, aby wspomóc obywateli, czy zapewnić im bezpieczeństwo.</span>
 <span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wnioski</span></span>
+<span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_G_DEBT](Wykresy/Boxploty/G_DEBT.png)</span></span>
+<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>Rządowe zadłużenie osiągneło największe wartość dla roku 2020, z powodu trwającej pandemii. Rządy na pokrycie wydatków związanych z COVID-19 misiały podjąć szerg działań aby przeciwdziałać skutkom recesji takim jak.: spadek wpływów budżetowych, zwiększenie wydataków inwestycyjnych, czy programy wsparcia dla obywateli i na słóżbę zdrowia.</span>
+<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_GDP_pc](Wykresy/Boxploty/GDP_pc.png)</span></span>
+<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a>PKB per capita nie wykazuję się duża zmienności na przestrzeni lat. Krajami mającymi wartości odstające jest Luksemburg i Irlandia. </span>
+<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_HICP](Wykresy/Boxploty/HICP.png)</span></span>
+<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>Wykres inflacji najbardzeij obrazuje skalę, jak lata pandemii i agresja Rosji na Ukrainę, zdestabilizowała rynek Europejski. Co ciekawe w roku 2020 doszło do spadku inflacji, jak wspomniano w przytaczanym raporcie OECD. Głownym powodem takiego stanu rzeczy jest spedek cen energii i ograniczenie popytu na dobra i usługi. Warto tym samym wspomnieć, że dla krajów w strafie EURO zaobserwowano ujemną inflację. Wojna na Ukrainie jednak spowodowała ogromny kryzys, ze względu na rosnące ceny energii i żywności. </span>
+<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-671"><a href="#cb1-671" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-672"><a href="#cb1-672" aria-hidden="true" tabindex="-1"></a><span class="al">![BOXPLOT_UNEMP](Wykresy/Boxploty/UNEMP.png)</span></span>
+<span id="cb1-673"><a href="#cb1-673" aria-hidden="true" tabindex="-1"></a>Na załączonym wykresie widać, że wzrost stopy bezrobocia nastąpił w roku 2020. Głownym tego powodem były wprowadzone oraniczenia, zamknięcie firm i przedsiębiorst, co doprowadziło do zwiększenia liczby zwolnień. Co ciekawe Polska w roku 2020, była druga pod względem najniższej wartości tego wskaźnika. Po roku 2021 sytuacja zaczeła się stablilizować. </span>
+<span id="cb1-674"><a href="#cb1-674" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-675"><a href="#cb1-675" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-676"><a href="#cb1-676" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a><span class="fu">### Testy statystyczne</span></span>
+<span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-682"><a href="#cb1-682" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wnioski</span></span>
+<span id="cb1-683"><a href="#cb1-683" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-684"><a href="#cb1-684" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
