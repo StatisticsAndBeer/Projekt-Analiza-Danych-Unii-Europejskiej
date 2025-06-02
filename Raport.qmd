@@ -8,7 +8,7 @@ editor: visual
 # Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025
 
 Dagmara Łyś, s211011\@sggw.edu.pl\
-Dominik Mieszkowski s211015\@sggw.edu.pl\
+Dominik Mieszkowski, s211015\@sggw.edu.pl\
 
 ## Wprowadzenie
 
@@ -306,6 +306,30 @@ W niniejszym rozdziale przeanalizowano nierówności w rozkładzie wybranych wsk
 
 Aby ocenić stopień nierówności w rozkładzie wartości tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini'ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.
 
+Wskaźnik nierówności G Giniego jest zdeycydowanie częściej używanym w analizach ekonomicznych. Wskaźnik został wprowadzony przez C. Giniego w pracy pt. "Variabilità e mutabilità \[Zmienność i zmienialność\]" z 1912 roku. Przyjmuje wartości z przedziału 0 do 1 jest zależny od krzywej Lorenza odpowiadającej dystrybucji badanego zjawiska. Można go opisać wzorem:
+
+$$
+G = \frac{A}{A + B}
+$$ gdzie:\
+$A$ - pole pomiędzy linią idealnej równości a krzywą Lorenza\
+$B$ - pole pod krzwyą Lorzenza\
+
+Wpółczynnik ten stanowi zatem miarę całościowego odstępstwa dystrybucji danej wartości od stanu idealnej rónowagi.
+
+W "Statystyczne metody analizy struktur ekonomicznych" z 1996 roku, K. Kukuła proponuje inne podejście i konstruuje współczynnik nierówności oparty o różnice między rzeczywistym udziałem poszczególnych obiektów w dystrybucji badanej cechy a a teoretycznym udziałem w przypadku idealnej równości. Wskaźnik nierówności Kukuły opisany jest wzorem:
+
+$$
+K_t = \frac{(k + \sqrt{k}) \sqrt{\left(\sum_{i=1}^k f_{i,t}^2\right)} 
+- \sqrt{k} -1}{k-1}
+$$ gdzie:\
+$K_t$ - wartość indesu nierówności kukuły w momencie t\
+$k$ - liczba badanych obiektów\
+$f_{i,t}$ - udział wartości badanej cechy dla i-tego obiektu w skumulowanej wartości cechy dla wszytskich obiektów w momencie t \
+
+Podobnie jak w przypadku wskaźnika nieróności Gini'ego, maiara zaproponowana pzrez K. Kukułę przyjmuje wartości z przedziału 0-1.
+
+Należy zatem zauważyć, że wskaźniki mierzą nieróność w inny sposób, a rozbieżność w ich wskazaniach może oznaczać skoplikowane zmiany w dystrybucji wartości badanej zmiennej.
+
 W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.
 
 ### Analiza wizualna
@@ -356,7 +380,7 @@ ggsave(filename = file_name, plot = p, height = 2400, width = 1800, units = "px"
 rm(file_name, p, lorenz_data, title)
 ```
 
-![Krzywa Lorenz'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
+![Krzywa Lorenz\'a](Wykresy/Lorenz/Krzywe%20Lorenza.png) Analizując powyższy wykres zauważyć można duży stopień nierówności dystrypucji rocznych kwot Eksportu towarów i usług (EXP) oraz Rządowych wydatków na konsumpcję (G_CONS). Należy się tego spodziewać, gdzyż są to kwoty całkowite, zależne w dużej części od wielkości i liczby ludności w badanych krajach.
 
 Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.
 
@@ -431,7 +455,7 @@ Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy
 
 ### Wnioski
 
-Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że różnice te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.
+Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że nierówności te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie nierówność ich dystrybucji ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.
 
 Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów gospodarstw domowych do dyspozycji na osobę (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do momentu ostatnigo okresu, czyli roku 2023.
 
