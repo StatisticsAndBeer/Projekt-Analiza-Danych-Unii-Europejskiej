@@ -38,6 +38,9 @@ Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukr
 
 ### Przegląd literatury
 
+Organisation for Economic Cooperation and Development (OECD) jest jedną z najbardziej prestiżowych i wiarygodnych organizacji badających ekonomiczne zmiany zachodzące w różnych częściach świata, w tym także w Unii Europejskiej. W OECD (2021), OECD Economic Surveys: European Union 2021, OECD Publishing, Paris (https://doi.org/10.1787/a77ab220-en) organizacja opisuje wpływ pandemii COVID-19 na sytuację gospodarczą Unii Europejskiej. Okres następujący bezpośrednio po pandemii określa jako „największą recesję jej historii”. Jako kluczowy problem wyróżnia spadek PKB w niemal wszystkich krajach europejskich (a zatem także globalnie w Unii Europejskiej, o estymowanej wartości -6,3% w sakli roku). Wiodącą przyczyną tego zjawiska jest spadek prywatnych wydatków ludności na konsumpcję spowodowany restrykcjami nałożonymi na biznesy, w szczególności z sektora usług. Zauważalny spadek można też odnotować w innych składowych PKB, szczególnie inwestycjach oraz eksporcie. Skutkiem ubocznych tych zmian jest jednak spadek inflacji, która po raz pierwszy od wielu lat spadła w wielu krajach Unii Europejskiej do ujemnego poziomu, powodując tym samym chwilową aprecjację euro. Wydarzenia z roku 2020 przyniosły ze sobą również przyrost długu publicznego w Unii Europejskiej o ok. 14 pkt. % jej PKB (z 80,6 % w 2019 r. do 94,3 % w 2020) z przewidywanym dalszym wzrostem w roku 2021.  Oprócz tego wstrząs odczuł również rynek pracy, co poskutkowało wzrostem stopy bezrobocia, szczególnie wśród zawodów niskiej kwalifikacji. OECD przewiduje jednak możliwość ożywienia gospodarczego i zniwelowania skutków kryzysu w przyszłości, pod warunkiem utrzymania polityki fiskalnej wspierającej ponowny wzrost konsumpcji oraz regionalnego wsparcia dla obszarów najbardziej dotkniętych pandemią. W swoim raporcie podkreśla jednak również, że nawet wówczas kryzys z 2020 roku będzie miał długofalowe skutki, widoczne szczególnie w postaci rosnących nierówności ekonomicznych zarówno na poziomie lokalnym jak i krajowym. 
+OECD (2023), OECD Economic Surveys: European Union and Euro Area 2023, OECD Publishing, Paris (https://doi.org/10.1787/7ebe8cc3-en) podejmuje temat zbadania ekonomicznych skutków Rosyjskiej agresji na Ukrainie i trwającej w jej pokłosiu wojny. W przeciwieństwie 2020 roku, tym razem względnie odporny na kryzys okazał się stabilny w tym okresie rynek pracy. Nie odnotowano ponownie spadku PKB w Unii Europejskiej, jednak tempo jego wzrostu zmalało znacząco, a tendencja ta utrzymała się kilka kwartałów po wybuchu wojny.  Ten kryzys rozegrał się Unii Europejskiej głównie na tle energetycznym – gwałtowny wzrost cen energii przełożył się na wzrost cen innych dóbr, przede wszystkim żywności, a tym samym na rekordowo wysoki indeks cen towarów i usług konsumenckich, czyli inflację.  Koniecznym zatem stało się wprowadzenie i utrzymanie restrykcyjnej polityki fiskalnej i monetarnej. Wysokie stopy procentowe kładą nacisk na ludność zadłużoną oraz spłacającą kredyty hipoteczne o zmiennym oprocentowaniu. Przy braku ostrożności może to spowodować pogorszenie sytuacji ekonomicznej ludności, a także sektora finansowego.
+
 ## Dane
 
 ```{r}
@@ -46,7 +49,7 @@ Celem badania jest wykazanie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukr
 #| message: false
 p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
      "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq", "knitr", 
-     "moments")
+     "moments", "ggrepel")
 
 for (i in p){
   #if(!require(i, character.only = TRUE)){install.packages(i)}
@@ -337,12 +340,14 @@ setwd(project_path)
 ![Gęstość_DISP_INC_hh](Wykresy/Gęstość/DISP_INC_hh gestosc.png)
 Odczytując powyższy wykres gęstości (DISP_INC_hh) Skorygowanego dochodu brutto gospodarstw domowych można zauważyć, że na przestrzeni badanego okresu doszło do nieznacznego zmniejszenia się różnic między badanymi krajam. Potwierdzają to także wartości kurtozy i skośności, ktore z roku na rok (oprócz 2022) regularnie nieznacznie malały. Oznacza to, że struktura dyspozycyjnego dochodu gospodarstw domowych między krajami UE uległa powolnej równowadze.
 
+
 ![Gęstość_EXP](Wykresy/Gęstość/EXP gestosc.png)
-Rozkład EXP eksportu towarów i usług jest silnie prawostronny co wynikało także ze statystyk opisowych. Warto jednak wspomnieć, że jak wynika z raportu OECD Economic Surveys: European Union 2021; spodziwano się, że w roku 2020 eksport dóbr i towarów zmiejszy się o niemal 8,9% dla krajów Unii Europejskiej. 
+Rozkład EXP eksportu towarów i usług jest silnie prawostronny co wynikało także ze statystyk opisowych. Warto jednak wspomnieć, że jak wynika z raportu OECD Economic Surveys: European Union 2021; spodziwano się, że w roku 2020 eksport dóbr i towarów zmiejszy się o niemal 8,9% dla krajów Unii Europejskiej.
 
 
 ![Gęstość_G_CONS](Wykresy/Gęstość/G_CONS gestosc.png)
 Rozkłady rządowych wydatków na konsumpcję pokazuje, że struktura tych wydatków nie ulegała an przestrzeni lat znaczej zmianie. Tym samym utrzymywał on rokład prawostronny. 
+
 
 ![Gęstość_G_DEBT](Wykresy/Gęstość/G_DEBT gestosc.png)
 Na podstawie pozyśzego wykresu zadłużenia rządowego, widac wyraźnie że jego rozkłąd jest asymetryczny i prawostronny. Patrząc na wykres, można odnieść wrażenie, że skośność tej zmiennej ulega minimalnym zmianom- co również wynika ze statystyk opisowych. 
@@ -350,6 +355,7 @@ Na podstawie pozyśzego wykresu zadłużenia rządowego, widac wyraźnie że jeg
 
 ![Gęstość_GDP_pc](Wykresy/Gęstość/GDP_pc gestosc.png)
 Przychód krajowy brutto per capita nie uległ znacznym zmianom. Zwykresów gęstości tej zmiennej można zauważyć, że w badanym okresie nie zaszły znaczące zmiany dla badanych krajów. 
+
 
 ![Gęstość_HICP](Wykresy/Gęstość/HICP gestosc.png)
 Warto zatrzymać się przy rozkładzie gęstości inflacji, której wartości po rozpoczęciu wojny na ukrainie znacząco wzrosły. Jak podaje rapot OECD Economic Surveys: European Union 2021 - inflacja w roku 2020 w krajach UE spadła, a w strefie krajów Euro nawet przyjmowała wartośći ujemne. Tym samym widac jak ogromnym ciosem dla Europejskiej gospodarki był wybuch wojny na Ukrainie. Wzrosty cen energii i wydatków na obronę jest tylko kilka z skutków Rosyjskiej inwazji.
@@ -579,8 +585,7 @@ Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w 
 
 ## Analiza zmian wskaźników w czasie
 
-Jak zostało ustalone, na podstawie wizualnych rozkładów gęstości i testu Shapiro-Wilka, badane zmienne nie charakteryzuje rzokład normalny. Dlatego w celu dalszego badania zostana zastosowane testy nieparametryczne jak: Test Wilcoxona i Friedmana. Są to nieparametryczne testy statystyczne pozwalające określić, czy różnice między badanymi np.okresami są statystycznie istotne. 
-
+Jak zostało ustalone, na podstawie wizualnych rozkładów gęstości i testu Shapiro-Wilka, badanych zmiennych nie charakteryzuje rozkład normalny. Dlatego w celu dalszego badania zostaną zastosowane testy nieparametryczne jak: Test Wilcoxona i Friedmana. Są to nieparametryczne testy statystyczne pozwalające określić, czy różnice między u nas badanymi okresami są istotne.
 
 ### Analiza wizualna
 ```{r}
@@ -611,6 +616,44 @@ for(i in vars){
 
 rm(i, p, file_name, title)
 ```
+W celu lepszego zapoznania ze strukturą wybranych  wskaźników makroekonomicznych, stworzono wykresy pudełkowe. 
+
+![BOXPLOT_DISP_INC_hh](Wykresy/Boxploty/DISP_INC_hh.png)
+Jak można zauważyć z wykresu, w badanym okresie skorygowany dochód gospodarstw domowych do dyspozycji wzrsatał od 2020. Jest to pewna anomalia, biorąc pod uwagę analizy OECD z roku 2022 Europa była trakcie recesji. Jest to niespodziwane, ze względu na wysoką inflację w okresach 2022 i 2023. Są to lata gdy znacząco wzrosły ceny energii co nie mogło odbyć się bez zmniejszenia dochodów gospodarstw domowych.
+
+
+
+![BOXPLOT_EXP](Wykresy/Boxploty/EXP.png)
+Wykres pudełkowy pozwala poznać, powód wysokiej wartośc skośności i kurtozy. Niemcy znacząco odbiegają od reszty krajów UE pod względem eksportowanych dóbr. Mimo dużej skali wykresy udaje się zauważyć, spadek zmiennej w roku 2020. Powodem takiego stanu rzeczy najpewniej jest wybuch pandemii COVID-19, podczas którego na przedsiębiorstwa były nakładne liczne obostrzenia. W tym samym okresie ze względu na panujący izolację panował znaczący zastój w usługach i tym samym upadek wielu przedsiębiorstw. 
+
+
+
+
+ 
+![BOXPLOT_G_CONS](Wykresy/Boxploty/G_CONS.png)
+Na przestrzeni badanego okresu, rządowe wydatki na konsumpcję znacząco wzrosły. Może to wynikać z zapomóg dla przedsiębiorców, zwiąkszonych wydatków na słuźbę zdrowaia podczas pandemii, a kolejno zwiększenia wydatkó na zbrojenia. Ponownie wśród wartości odstających znajdują się Niemcy, a także Francja i Włochy. Państwa w obliczu dwóch kryzysów musiały zwiększyć odpowiedno wydatki, aby wspomóc obywateli, czy zapewnić im bezpieczeństwo.
+
+
+
+![BOXPLOT_G_DEBT](Wykresy/Boxploty/G_DEBT.png)
+Rządowe zadłużenie osiągneło największe wartość dla roku 2020, z powodu trwającej pandemii. Rządy na pokrycie wydatków związanych z COVID-19 misiały podjąć szerg działań aby przeciwdziałać skutkom recesji takim jak.: spadek wpływów budżetowych, zwiększenie wydataków inwestycyjnych, czy programy wsparcia dla obywateli i na słóżbę zdrowia.
+
+
+
+
+![BOXPLOT_GDP_pc](Wykresy/Boxploty/GDP_pc.png)
+PKB per capita nie wykazuję się duża zmienności na przestrzeni lat. Krajami mającymi wartości odstające jest Luksemburg i Irlandia. 
+
+
+![BOXPLOT_HICP](Wykresy/Boxploty/HICP.png)
+Wykres inflacji najbardzeij obrazuje skalę, jak lata pandemii i agresja Rosji na Ukrainę, zdestabilizowała rynek Europejski. Co ciekawe w roku 2020 doszło do spadku inflacji, jak wspomniano w przytaczanym raporcie OECD. Głownym powodem takiego stanu rzeczy jest spedek cen energii i ograniczenie popytu na dobra i usługi. Warto tym samym wspomnieć, że dla krajów w strafie EURO zaobserwowano ujemną inflację. Wojna na Ukrainie jednak spowodowała ogromny kryzys, ze względu na rosnące ceny energii i żywności. 
+
+
+![BOXPLOT_UNEMP](Wykresy/Boxploty/UNEMP.png)
+Na załączonym wykresie widać, że wzrost stopy bezrobocia nastąpił w roku 2020. Głownym tego powodem były wprowadzone oraniczenia, zamknięcie firm i przedsiębiorst, co doprowadziło do zwiększenia liczby zwolnień. Co ciekawe Polska w roku 2020, była druga pod względem najniższej wartości tego wskaźnika. Po roku 2021 sytuacja zaczeła się stablilizować. 
+
+
+
 
 
 
