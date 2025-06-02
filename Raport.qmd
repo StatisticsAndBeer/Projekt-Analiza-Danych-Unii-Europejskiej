@@ -324,7 +324,7 @@ K_t = \frac{(k + \sqrt{k}) \sqrt{\left(\sum_{i=1}^k f_{i,t}^2\right)}
 $$ gdzie:\
 $K_t$ - wartość indesu nierówności kukuły w momencie t\
 $k$ - liczba badanych obiektów\
-$f_{i,t}$ - udział wartości badanej cechy dla i-tego obiektu w skumulowanej wartości cechy dla wszytskich obiektów w momencie t \
+$f_{i,t}$ - udział wartości badanej cechy dla i-tego obiektu w skumulowanej wartości cechy dla wszytskich obiektówów momencie t \
 
 Podobnie jak w przypadku wskaźnika nieróności Gini'ego, maiara zaproponowana pzrez K. Kukułę przyjmuje wartości z przedziału 0-1.
 
