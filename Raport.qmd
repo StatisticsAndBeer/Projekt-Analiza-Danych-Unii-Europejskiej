@@ -14,20 +14,26 @@ format:
 editor: visual
 ---
 
-# Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025
+
+<h1> Analiza wybranych wzkaźników makroekonomicznych w krajach Unii Europejskiej w latach 2019-2025 </h1>
 
 Dagmara Łyś, s211011\@sggw.edu.pl\
-Dominik Mieszkowski s211015\@sggw.edu.pl\
+Dominik Mieszkowski, s211015\@sggw.edu.pl\
+
 
 ## Wprowadzenie
 
+<div style="text-align: justify;">
 Wskaźniki makroekonomiczne pełnią kluczową rolę w opisywaniu i ocenie sytuacji gospodarczej kraju. Ich wartości odzwierciedlają sytuację finasową rządu państwa, a także warunki ekonomiczne w jakich funkcjonują przdesiębiorstwa i gospodartwa domowe na jego terenie. W ostatnich latach wybuch pandemii wirusa COVID-19 w 2020 r., a także rozpoczęcie przez Rosję wojny na Ukrainie w lutym 2022 r. wstrząsnęły Europą, wpływając na handel, rynek pracy i ludność. Aby ocenić rodzaj i zakres zmian społeczno-ekonomicznych w tym okresie, koniecznym jest przyjrzenie się zmianom w wartościach wspomnainych wskaźników, które towarzyszyly tym wydarzeniom. Temat ten jest podjęty w tej pracy, uwzględniając 27 pańśtw obecnie wchodzących w skład Unii Europejskiej w latach 2019-2023.
+</div>
 
 ### Streszczenie
 
+<div style="text-align: justify;">
 W pracy zbadane zostało 7 wybranych wskaźników makroekonomicznych: PKB na mieszkańca, Rządowe wydatki na konsumpcję, Rządowe zadłużenie, Eksport dóbr i uług, Stopa bezrobocia, Indeks cen towarów i usług konsumenckich oraz Skorygowany dochód do dyspozycji gospodarstw domowych. Analiza ich wartości w 27 krajach Unii Europejskiej w latach 2019-2023 ukazała szeroko zakrojone zmiany ekonomiczne wywołane rozpoczętom na początku roku 2020 pandemią COVID-19, a także wojną wybuchłą w roku 2022 na Ukrainie w wyniku Rosyjskiej agresji. Analiza wykresów oraz testy statystyczne potwierdzają zjawiska ekonomiczne opisane w publikacjach Eurostatu oraz OECD, w szczególności wzrost bezrobocia, globalne obniżenie wartości PKB oraz zauważalny spadek inflacji w początkowym roku pandemii, a także fenonemy towarzyszące następującej dwa lata później wojnie - w szczególności gwałtowny wzrost cen dóbr i usług konsumenckich spowodowany kryzysem energetycznym i zachamowanie rozwoju świeżo ożywionych gospodarek krajów Unii Europejskiej.
 
 Dodatkowo zbadano nierówność badanych krajów pod względem tych samych wskaźników w rozpatryanym okresie. W tym celu posłużono się wizualną reprezntacją koncentracji w postaci krzywej Lorenz'a oraz indeksami nierówności Gini'ego i Kukuły. Analiza wykazała tendencję do powolnej redukcji różnic wkaźników makroekonomicznych w krajach Unii Europejskiej. Zmiany we wskaźnikach były jednak zbyt małe aby uznacz je za znaczące dla badanych zjawisk.
+</div>
 
 ### Słowa kluczowe
 
@@ -35,13 +41,16 @@ wskaźnk makroekonomiczny, Unia Europejska, COVID-19, wojna, nierówność, anal
 
 ### Cele i hipotezy
 
+<div style="text-align: justify;">
 Celem badania jest wykazanie i określenie wpływu pandemii COVID-19 oraz wybuchu wojny na Ukrainie na sytuację gospodarczą krajów Unii Europejskiej. Zmiana taka powinna być odzwierciedlona zauważalną różnicą w wartościch wybranych wskaźników makroekonomicznych w czasie, dotyczącą całokształtu Unii Europejskiej. Dodatkowo może ona dotyczyć wszytskich państw w jednakowy sposób lub mieć wpływać na państwa w różnym stopniu, redukując lub amplifikując występujące między nimi nierówności na danym tle. Cel ów jest rónoznaczny z potwierdzeniem dwóch hipotez badawczych:
 
 -   Pandemia COVID-19 miały negatywny wpływ na sytuację ekonomiczną krajów Unii Europejskiej oraz jej ludności.
 -   Zmiany wywołane tymi wydarzeniami nie dotykały krajów jednakowo, powodując zmiany w występujących między nimi nierównościach makroekonomicznych.
+</div>
 
 ### Przegląd literatury
 
+<div style="text-align: justify;">
 Organisation for Economic Cooperation and Development (OECD) jest jedną z najbardziej prestiżowych i wiarygodnych organizacji badających ekonomiczne zmiany zachodzące w różnych częściach świata, w tym także w Unii Europejskiej.
 
 W OECD (2021), *OECD Economic Surveys: European Union 2021*, OECD Publishing, Paris [(link)](https://doi.org/10.1787/a77ab220-en) organizacja opisuje wpływ pandemii COVID-19 na sytuację gospodarczą Unii Europejskiej. Okres następujący bezpośrednio po pandemii określa jako „największą recesję jej historii". Jako kluczowy problem wyróżnia spadek PKB w niemal wszystkich krajach europejskich (a zatem także globalnie w Unii Europejskiej, o estymowanej wartości -6,3% w sakli roku). Wiodącą przyczyną tego zjawiska jest spadek prywatnych wydatków ludności na konsumpcję spowodowany restrykcjami nałożonymi na biznesy, w szczególności z sektora usług. Zauważalny spadek można też odnotować w innych składowych PKB, szczególnie inwestycjach oraz eksporcie. Skutkiem ubocznych tych zmian jest jednak spadek inflacji, która po raz pierwszy od wielu lat spadła w wielu krajach Unii Europejskiej do ujemnego poziomu, powodując tym samym chwilową aprecjację euro. Wydarzenia z roku 2020 przyniosły ze sobą również przyrost długu publicznego w Unii Europejskiej o ok. 14 pkt. % jej PKB (z 80,6 % w 2019 r. do 94,3 % w 2020) z przewidywanym dalszym wzrostem w roku 2021. Oprócz tego wstrząs odczuł również rynek pracy, co poskutkowało wzrostem stopy bezrobocia, szczególnie wśród zawodów niskiej kwalifikacji. OECD przewiduje jednak możliwość ożywienia gospodarczego i zniwelowania skutków kryzysu w przyszłości, pod warunkiem utrzymania polityki fiskalnej wspierającej ponowny wzrost konsumpcji oraz regionalnego wsparcia dla obszarów najbardziej dotkniętych pandemią. W swoim raporcie podkreśla jednak również, że nawet wówczas kryzys z 2020 roku będzie miał długofalowe skutki, widoczne szczególnie w postaci rosnących nierówności ekonomicznych zarówno na poziomie lokalnym jak i krajowym.
@@ -57,6 +66,7 @@ Eurostat. (2023). *Key figures on Europe -- 2023 edition*. Publications Office o
 Eurostat. (2024). *Key figures on Europe -- 2024 edition*. Publications Office of the European Union [(link)](https://ec.europa.eu/eurostat/web/products-key-figures/w/KS-EI-23-001) ukazuje stabilność rynku pracy Unii Europejskiej. Zmiay w stopie bezrobocia były względnie niewielkie w krajach członkowskich, wahając się od -1.4 pkt. % w Grecjii do + 0.9 pkt % na Litwie. Wzrost unijnego PKB wyniósł zaledwie 0,4%, potwierdzając obawy OECD związane z zahamowaniem rozwoju gospodarczego przez wywołaną Rosyjską agresją wojnę. W drugiej połowie roku inflacja zaczęła znacząco spadać z miesiąca na miesiąc i w skali roku spadła o niemal 1/3 wartości z roku 2022 do poziomu 6,4%. Efekt ten ponownie okazał się nierównomierny w państwach członkowskich. Kilka krajów dalej odnotowało wzrost cen dóbr i usług konsumenckich na poziomie ponad 10% z rekordową wartością na Węgrzech -- 17%. Pomimo zahamowania wzrostu eksportu towarów do krajów spoza Unii, w 2023 odnotowano niewielki dodany bilans Unii Europejskiej. Eksport usług dalej rósł.
 
 Podsumowując, z analiz OECD i Eurostatu wynika, że zarówno wybuch pandemii COVID-19 w 2020 roku jak i rozpoczęcie przez Rosję wojny na Ukrainie w 2022 okazały się wydarzeniami mającymi rozległy negatywny wpływ na sytuację ekonomiczną Unii Europejskiej i zasłużyły na miano kryzysów. Pierwsze z nich uderzyło przede wszystkim w rządy krajów zmuszone do kosztownych działań w obronie zdrowia publicznego. Restrykcyjne dla biznesów polityki izolacji negatywnie wpłynęły na rynek pracy oraz wielkość wytwarzanego PKB, szczególnie w sektorze usług. Z kolei kryzys energetyczny będący pokłosiem rozpoczętej przez Rosję w 2022 roku wojny na Ukrainie spowodował gwałtowny wzrost cen towarów i usług konsumenckich, w szczególności żywności i energii. Przy zachowaniu odpowiedniej polityki fiskalnej i monetarnej, a także przygotowaniu wsparcia dla regionów najbardziej dotkniętych tymi wydarzeniami, można się jednak spodziewać stopniowej poprawy sytuacji gospodarczej w Unii Europejskiej, obarczonej niestety wzrostem różnic ekonomicznych na tle regionalnym i krajowym.
+</div>
 
 ## Dane
 
@@ -218,10 +228,13 @@ rm(danee, missing_rows, model, model_data, predicted)
 
 ### Źródło i zakres danych
 
+<div style="text-align: justify;">
 Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegóły dotyczącze baz danych, z których pochodzą poszczególne wskaźniki podane są w sekcji poświęconej opisowi zmiennych. Zbiór danych obejmuje wartości 7 wskażników makroekonometrycznych, podawanych z roczną częstotliwością na przestrzeni lat 2019-2023. Zostały one szczegółowo opisane w sekcji poniżej. W badaniu uwzględnione zostało 27 państw wchodzących w skład Unii Europejskiej z roku 2020. W badaniu nie zostały uwzględnione kraje nienależące do Unii Europejskiej, ale wpółpracujące z Eurostatem w zakresie statystyki publicznej.
+</div>
 
 ### Opis zmiennych
 
+<div style="text-align: justify;">
 Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomicznych: Przychód krajowy brutto na mieszkańca, Stopa bezrobocia, Wskaźnik cen towarów i usług koncumpcyjnych, Wydatki rządowe na konsumpcję,Rządowe zadłużenie brutto, Skorygowany dochód brutto do dyspozycji gospodarstw domowych na mieszkańca oraz Eksport towarów i usług. Szczagóły dotyczące zmiennych przedstawiono w tabeli:
 
 | Nazwa w badaniu | Opis                                                                      | Jednostka                                                | Baza Danych |
@@ -233,9 +246,11 @@ Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomiczny
 | G_DEBT          | Zadłużenie rządowe brutto                                                 | \% PKB                                                   | sdg_17_40   |
 | DISP_INC_hh     | Skorygowany dochód brutto do sypozycji gospodarstw domowych na mieszkańca | standard siły nabywczej (PPS 2020)                       | tec00113    |
 | EXP             | Eksport towarów i usług                                                   | wolumeny łańcuchowo powiązane (2015), milion euro        | nama_10_gdp |
+</div>
 
 ### Statystyki opisowe
 
+<div style="text-align: justify;">
 Poznanie podstawowaych statystyk opisowych pozwli na lepsze zrozumienie struktury badanych zmiennych makroekonomicznych.
 
 ```{r}
@@ -284,9 +299,11 @@ Warto zauważyć, że dla wszystkich uwzględnionych w badaniu okresach współc
 Kurtoza większości zmiennych we wszytkich badanych latach ma wartość bliską, lub powyżej 3 co sugeruje duże wartości obserwacji odstających. Podobnie jak w przypadku skośności zmiennymi, które mają rozkład leptokurtyczny są EXP i G_CONS, można zatem sądzić, że między krajami Unii Europejskiej, to zmienne najbardziej poróżniające.
 
 Dla wszystkich badanych okresów, współczynnik zmienności wyrażony jako iloczyn odchylenia standardowego i średniej wynosi powyżej wartości krytycznej przyjmowanej najczęściej na poziomie 0,1.
+</div>
 
 ### Wykresy gęstości zmiennych
 
+<div style="text-align: justify;">
 ```{r}
 #| echo: false
 #| warning: false
@@ -366,9 +383,11 @@ setwd(project_path)
 ![Gęstość_HICP](Wykresy/Gęstość/HICP%20gestosc.png) Warto zatrzymać się przy rozkładzie gęstości inflacji (HICP), której wartości po rozpoczęciu wojny na ukrainie znacząco wzrosły. Jak podaje rapot OECD Economic Surveys: European Union 2021 - inflacja w roku 2020 w krajach UE spadła, a w strefie krajów Euro nawet przyjmowała wartośći ujemne. Tym samym widac jak ogromnym ciosem dla Europejskiej gospodarki był wybuch wojny na Ukrainie. Wzrosty cen energii i wydatków na obronę jest tylko kilka z skutków Rosyjskiej inwazji.
 
 ![Gęstość_UNEMP](Wykresy/Gęstość/UNEMP%20gestosc.png) Wykresy gęstości zmiennej opisującej Stopę bezrobocia (UNEMP) w kolejnych latach wykazują wzrost jego zróżnicowaniapomiędzy krajami po roku 2019, a także rdukcję nawyższych wartości tym zestawieniu.
+</div>
 
 ### Badanie normalności rozkładu
 
+<div style="text-align: justify;">
 W celu określenia czy należy uznać, że badane obserwacje pochodzą z rozkładu normalnego wykonano wykresy kwantyl-kwantyl oraz przeprowadzono testy statystyczne Shapiro-Wilka.
 
 ```{r}
@@ -442,9 +461,11 @@ kable(shapiro_mat)
 Jak widać, na poziomie istotności $\alpha$ = 0.05, jedynie Dochody do dyspozycji gospodarstw domowych na mieskzańca (DISP_INC_hh) należy uznać za zmienną o rozkładzie normalnym. W przypadku pozostałych wskaźników należy z dużą pewnością odrzucić hipotezę o normalności rozkładu. Swego rodzaju wyjątek stanowi Indeks cen towarów i usług konsumenckich (HICP), gdzie test Shapiro-Wilka odrzuca hipotezę normalności rozkładu jedynie w latach 2020 i 2022, czyli odpowiednio w roku wybuchu pandemii COVID-19 i roku rozpoczęcia przez Rosję działań wojennych na Ukrainie.
 
 Podsumowując, należy uznać, że, z nielicznymi wyjątkami, wartości wskaźników makroekonomicznych w krajach Unii Europejskiej nie pochodzą z rozkładu normalnego. Pomimo, że w kilku konkretnych przypadkach możliwe byłoby zastosowanie parametrycznych testów statystycznych do badania różnic wartości wskaźników, w celu ujednolicenia procesu badawczego wszystkich zmiennych w dalszych etapach badania wykorzystywane będą nieparametryczne testy statystyczne.
+</div>
 
 ## Badanie nierówności
 
+<div style="text-align: justify;">
 W niniejszym rozdziale przeanalizowano nierówności w dystrybucji wartości wybranych wskaźników ekonomicznych oraz społeczno-demograficznych wśród krajów Unii Europejskiej w latach 2019--2023. W analizie pominięto Wskaźnik cen towarów i usług konsumpcyjnych (HICP), ze względu na pojawiające się tam ujemne wartości, uniemożlwiających skorzystanie z przyjętych metod badawczych.
 
 Aby ocenić stopień nierówności tych wskaźników pomiędzy poszczególnymi krajami, zastosowano wykresy krzywej Lorenza oraz obliczono współczynniki nierówności Gini'ego i Kukuły. Metody te pozwoliły na ukazanie zróżnicowania społeczno-ekonomicznego oraz wskazanie obszarów o szczególnie wysokiej koncentracji lub rozproszeniu badanego zjawiska.
@@ -476,9 +497,11 @@ Dla dowolnego z dwóch wskaźników wartości bliskie 0 oznaczają mały stopie�
 Należy jednak zauważyć, że wskaźniki mierzą nieróność w inny sposób, a rozbieżność w ich wskazaniach może oznaczać skoplikowane zmiany w dystrybucji wartości badanej zmiennej.
 
 W przypadku wielu z wskaźników, takich jak Stopa bezrobocia czy Przychód krajowy brutto na mieszkańca nie można interpretować owych metod w zwyczajowy sposób opisujący podział pewnej całkowitej puli zasobu pomiędzy jednostki. Jednak w tych przypadkach badanie nierówności dostarcza informacji o tym jak zróżnicowane są wartośi wskaźnika na przestrzeni krajów.
+</div>
 
 ### Analiza wizualna
 
+<div style="text-align: justify;">
 W celu wizualnej oceny nierówności w badanych wskaźnikach makroekonometrycznych pośród krajów Unii Europejskiej przedstawiono na wykresach krzywą Lorenz'a dla poszczególnych zmiennych w poszczecgólnych latach.
 
 ```{r}
@@ -530,9 +553,11 @@ rm(file_name, p, lorenz_data, title)
 Co ciekawe współczynniki relatywne względem wielkości populacjii krajów, jak np. Stopa bezrobocia (UNEMP) czy Dochody gospodarstw domowych do dyspozycji na mieszkańca (DISP_INC_hh) wykazują się stosunkowo małym zróżnicowaniem pomimo wydarzeń z analizowanego okresu.
 
 Analizując wykresy nie można stwierdzić zauważalnego wpływu czasu na nierówność w poszczególnych wskaźnikach makroekonometrycznych na przestrzeni krajów Unii Europejskiej. Można zatem wnioskować, że wpływy wydarzeń z badanych 5 lat na gospodarki poszczególnych krajów nie różniły się między sobą na tyle aby w znaczący sposób pogłębć albo zniwelować różnice ekonomiczne między krajami Unii Europejskiej.
+</div>
 
 ### Indeksy nierówności
 
+<div style="text-align: justify;">
 W tabelach poniżej przedstawiono wartości indeksy nierówności Gini'ego oraz Kukuły. Analiza ich wasrtości w czasie pozwala na ocenienie potencjalnych zmian zachodzących z roku na rok z większą dokładnością niż użycie narzędzi wizualnych. W obydwu przypadkach stosunkowo duże wartości indeksu nierówności (bliskie 1) oznaczają dużą nierówność na tle badanego wskaźnika. Wartośco dążące do zera oznaczają z kolei brak istotnych różnic w wartościach badanej zmiennej.
 
 W tabelach poniżej przedstawiono wartości Indeksów nierówności:
@@ -599,21 +624,27 @@ Najmniejszą nierówność można obserwować w przypadku Dochodów do dyspozycj
 W tym zestawieniu za wskaźniki o średnim poziomie zróżnicowania można uznać Rządowe zadłużenie (G_DEBT) oraz Przychód krajowy brutto na mieszkańca (GDP_pc). O ile w przypadku pierwszego z tych wskaźników oba indeksy nierówności wskazują na jej stopniową redukcję (w latach 2019 - 2023 wartość Indeksu nierówności Gini'ego spada o ok. 10%, a wartość indeksu Kukuły - o ok. 20%), o tyle w przpyadku PKB per capita (GDP_pc) wskaźniki nie są zgodne co dynamiki zmian. Indeks Giniego wskazuje na nieznaczny wzrost nierówności w roku 2020 względem 2019, po którym następuje jej stosunkowo niewielki, acz nieprzerwany spadek. Natomiast indeks Kukuły wskazuje na wzrost nieróności w latach 2019-2021 i spadek w późniejszych okresach. Różnica ta wynika z odmiennych sposobów liczenia wskaźników. Końcowo można uznać, że pandemia COVID-19 wywołała pewne zmiany w różnicach Przychodu krajowego brutto na mieszkańca (GDP_pc) w krajach Unii Europejskiej widoczne w latach 2020 i 2021. Nie były one jednak duże - zmiany wskaźnika z roku na rok nigdy nie osiągnęły nawet 10% - co ciężko interpretować jako znaczącą zmianę szczególnie przy niewielkich co do modułów wartościch wskaźników.
 
 Największu spadek nierówności w czasie zaobserwować można w przypadku Stopy bezrobocia (UNEMP). W latach 2019 - 2023 wyniósł on nieco ponad 17% w przypadku indekus Gini'ego oraz niemal 45% dla indeksu Kukuły. Końcowym efektem jest wartość indeksów, która wskazuje na małe lub bardzo małe zróżnicowanie stopy bezrobocia w krajach Unii Europejskiej (ok. 0,2 w przypadku indeksu Gini'ego i 0,017 dla indeksu KUkuły). Biorąc pod uwagę kształt wykresów kwatyl-kwantyl dla tego wskaźnika można wnioskować, że jest to w dużej mierze kwestia spadku stopy bezrobocia w kilku krajach, gdzie początkowo była ona ponadprzeciętnie wysoka.
+</div>
 
 ### Wnioski
 
+<div style="text-align: justify;">
 Podsumowując, kraje Unii Europejskiej wysoce różnią się wartościami zagregowanych wskaźników, w tym przypadku: Eksportem towarów i usług (EXP) oraz Rządowymi wydatkami na konsumpcję (G_CONS). Należy jednak pamiętać, że nierówności te wywołane są w dużej części różnicami w licbie ludności i wielkości badanych krajów - analizując jedynie ich dystrybucję ciężko stwierdzić na ile wynika ona z innych względów związanych z sytuacją ekonomiczną kraju. Zmiany wartości indeksów nieróności w czasie zdają się wskazywać na redukcję zróżnicowania na bardzo nieznacznym poziomie. Niemożliwym jest wyodrębnić wpływ wydarzeń z 2020 i 2022 roku na badane zjawisko.
 
 Wartości wskaźników relatywnych do wielkości populacji lub PKB, czyli Dochodów do dyspozycji gospodarstw domowych na mieszkańca (DISP_INC_hh), Długu rządowego (G_DEBT) wyrażonego jako % PKB kraju, Przychodu krajowego brutto na mieszkańca (PKB_pc) oraz stopy bezrobocia (UNEMP) stwierdzić można średnie lub niewielkie zróżnicowanie. Dynamika zmian nierówności zdaje się wskazywać na ich nienzaczny spadek, którego nie zakłócił w znacznym stopniu wybuch pandemii ani wojny. Wyjątek stanowi Przychód krajowy brutto na mieszkańca (GDP_pc), gdzie w okresie trwania pandemii COVID-19 nierówność pomiędzy krajami wzrosła nieznacznie. Wpływ tego okresu został jednak całkowicie zniwelowany do ostatnigo badanego okresu, czyli roku 2023.
 
 Odnosząc się do postawionej we wstępie hipotezy: analizując nierówności w badanych wskaźnikach makroekonomicznych krajów Unii Europejskiej nie można stwierdzić jasnego powiązania między poziomem ich zróżnicowania a pandemią COVID-19 czy wojną na terenie Ukrainy. W związku z tym należy uznać, że wpływ tych wydarzeń na sytuację gospodarczą krajów był raczej podobny lub losowy w sposób, który nie zaburzał występujących uprzednio na terenie Unii Europejskiej różnic makroekonomicznych.
+</div>
 
 ## Analiza zmian wskaźników w czasie
 
+<div style="text-align: justify;">
 Jak zostało ustalone, na podstawie wizualnych rozkładów gęstości i testu Shapiro-Wilka, badanych zmiennych nie charakteryzuje rozkład normalny. Dlatego w celu dalszego badania zostaną zastosowane testy nieparametryczne jak: Test Wilcoxona i Friedmana. Są to nieparametryczne testy statystyczne pozwalające określić, czy różnice między u nas badanymi okresami są istotne.
+</div>
 
 ### Analiza wizualna
 
+<div style="text-align: justify;">
 ```{r}
 #| echo: false
 #| warning: false
@@ -658,9 +689,11 @@ W celu lepszego zapoznania ze strukturą wybranych wskaźników makroekonomiczny
 ![BOXPLOT_HICP](Wykresy/Boxploty/HICP.png)Wykres pudełkowy inflacji (HICP) w państwach Unii Europejskiej najbardzeij obrazuje skalę, z jaką lata pandemii i skutkująca wybuchem wojny agresja Rosji na Ukrainie, zdestabilizowały rynek Europejski. Zgodnie z tym co wykazano w raportach EUrostatu i OECD w roku 2020 doszło do globalnego spadku cen towarów i uług konsumenckich w Unii Europejskiej. Głównym powodem takiego stanu rzeczy jest spedek cen energii i ograniczenie popytu na dobra i usługi. Warto tym samym wspomnieć, że dla krajów w strafie EURO zaobserwowano ujemną inflację. Wojna na Ukrainie jednak spowodowała kryzys, ze względu na rosnące ceny energii i żywności.
 
 ![BOXPLOT_UNEMP](Wykresy/Boxploty/UNEMP.png)Na załączonym wykresie widać, że w roku 2020 nastąpił wzrost stopy bezrobocia. Głownym tego powodem były wprowadzone ograniczenia, zamknięcie firm i przedsiębiorst, co doprowadziło do zwiększenia liczby zwolnień. Co ciekawe Polska w roku 2020, była druga pod względem najniższej wartości tego wskaźnika. Po roku 2021 rynek pracu w Unii Europejskiej zaczął się stablilizować.
+</div>
 
 ### Testy statystyczne
 
+<div style="text-align: justify;">
 Dalsza analiza skupia się na wykonaniu nieparametrycznych testów statystycznych wykazujących istotne zmiany w badanej poplacji na przeszztreni lat. Testy Friedmana i Wicoxona pozwalają na ocenę istotności różnic między badanymi próbami.
 
 #### Test Friedmana
@@ -709,17 +742,17 @@ rm(i, result, test_formula)
 kable(friedman_res, caption = "Wartość p")
 ```
 
-Wartości p testu dla wszystkich badanych zmiennych są bliskie zera, a tym samym mniejsze od zadanego poziomu istotności $\alpha$ = 0,05. Oznacza to odrzucenie hipotzey zerowej na rzecz, alternatywej o występowaniu róźnic w badanych okresach. Należy z dużą pewnością uznać, że wartości zmiennych makroekonomicznych zmieniły się znacząco pzryanjmniej raz na przestrzeni badanego okresu.
+Wartości p testu dla wszystkich badanych zmiennych są bliskie zera, a tym samym mniejsze od zadanego poziomu istotności $\alpha$ = 0,05. Oznacza to odrzucenie hipotzey zerowej na rzecz, alternatywej o występowaniu róźnic w badanych okresach. Należy z dużą pewnością uznać, że wartości zmiennych makroekonomicznych zmieniły się w znaczący sposób pzryanjmniej raz na przestrzeni badanego okresu.
 
 #### Test Wicoxon'a
 
-Zgodnie z procedurą zapropononowaną w *Nonparametric Statistical Methods* po odrzuceniu hipotezy zerowej testem Friedmana warto przeprowadzić test Wilcoxona, aby wykazać kierunek i istotność zmian pomiędzy poszczególnymi latami.
+Zgodnie z procedurą zapropononowaną w *Nonparametric Statistical Methods* po odrzuceniu hipotezy zerowej testem Friedmana warto przeprowadzić test Wilcoxona, aby wykazać kierunek i istotność zmian pomiędzy poszczególnymi okresami.
 
 Hollander M., Wolfe D.A., Chicken E. (2015) *Nonparametric Statistical Methods* [(link)](https://doi.org/10.1002/9781119196037)
 
-Hipoteza zerowa zakłada, że różnica między medianami w badanych okresach wynosi 0, a alternatywna - że różnica ta jest istotnie różna od 0. Gdy medina okresu poprzedzającego jest większa od następującego, to hipoteza alternatywna ma postać: różnica miedian jest mniejsza od 0. Odwrotnie w gdy mediana roku następującego jest większa od poprzedniego.
+Hipoteza zerowa zakłada, że różnica między medianami w badanych okresach wynosi 0, a alternatywna - że różnica ta jest istotnie różna od 0. Gdy medina zmienne z okresu poprzedzającego jest większa od następującego, to hipoteza alternatywna ma postać: różnica miedian jest większa 0. Odwrotnie w gdy mediana roku następującego jest większa od poprzedniego.
 
-Sporządzono testy porównujące różnice między populacjami z roku na rok, a także sprawdzający zmianę między początkiem i końcem badanego okresu, czyli rokiem 2019 i 2023.
+Wykonano testy Wilcoxona badające istrotność różnic zachodzących w wartościach badanych wskaźników w krajach Unii Europejskiej z roku na rok, a także weryfikujący istnienie zmiany między początkiem i końcem badanego okresu, czyli rokiem 2019 i 2023.
 
 ```{r}
 #| echo: false
@@ -798,22 +831,39 @@ kable(wilcoxon_mat, caption = "Tabela wartości p")
 kable(wilcoxon_conf_int, caption = "Tabela przedziałów ufności dla mediany różnic pomiędzy latami")
 ```
 
-Skorygowany rozporządzany dochód gospodarstw domowych na jednego mieszkańca (DISP_INC_hh) to jedyny rok, gdy test nie wykrywa istotnej róźnicy w wartości mediany. Na podstawie przedziału ufności można także stwierdzić, że od 2020 z roku na rok rozporządalny dochód był coraz większy. Co jak było już wymienione w raporcie jest pewną anomalią, ze względu na wzrost inflacji od roku 2020 spowodowany pandemią.
+Skorygowany dochód do dyspozycji gospodarstw domowych na mieszkańca (DISP_INC_hh) doznał statystycznie istotnego wzrostu w krajach Unii Europejskiej w każdym okresie po roku 2020. Bardzo bliskie 0 p-value testów oraz skonstruowane przedziały ufności jasno wskazują, że różnice mediany wskaźnika między rokiem poprzednim a następującym były ujemne. Jak wspomniano we wcześniejszym rozdziale, jest to pewną anomalią, ze względu na wzrost inflacji od roku 2020 spowodowany pandemią.
 
-Medianowa różnica w eksporcie ulega zmianie na przestrzeni lat, a po roku 2019 w relacji do następnego, doszło do znacznego spadku, co wyniakało także, ze wcześniejszych wizuzalizacji. W różnicach między latami wiadać, że po roku pandemii 2020, dochodziło do stopniowego wzrostu eksportu towarów i usług. Warto jednak zauważyć, że dla lat 2022, a 2023 różnica we zzroście nie była statystycznie istotna. może to sugerować, że agresja Rosji na Ukrainę miała negatywny wpływ na stabilizację tego wskaźnika.
+Medianowa różnica w Eksporcie dóbr i usług (EXP) ulegała zmianie na przestrzeni lat. Poiędzy rokiem 2019 i 2020 doszło do znacznego spadku eksportu pośród krajów Unii Europejskiej. Zmiana ta widoczna na wykresach potwierdzona została bliską 0 wartością p testu Wilcoxona oraz dodatnim przedziałem ufności zmiany medianowej. W różnicach między latami wiadać, że po roku pandemii 2020, dochodziło do stopniowego wzrostu eksportu towarów i usług. Warto jednak zauważyć, że różnica pomiędzy rokiem 2022 i 2023 nie była statystycznie istotna. Jest to zgodne z wysnutą we wstępie myślą, że wybuch spowodowanej rosyjską agresją wojny zahamował rozwój gospodarczy Unii Europejskiej.
 
-Rządowe wydatki na konsumpcję we wszytkich latach rosły, i były statsytycznie istotne. Oznacza to, że w badnym okresie obejmującym pandemie COVID-19 i wojnę na Ukrainie, rządy musiały zwiększyć swoje wydatki, w celu budżetowania słóżby zdrowia, czy pomocy militarnej Ukrainie.
+Rządowe wydatki na konsumpcję (G_CONS) rosły z roku na rok w krajach Unii Europejskiej. Wykoane testy Wilcoxona wykonane dla każdej pary okresów zwracają wartości p bliskie 0 i tym samym potwierdzają, że zmiany te były statystycznie istotne. Oznacza to, że w badanym okresie obejmującym pandemię COVID-19 i wojnę na Ukrainie, rządy musiały zwiększyć swoje wydatki, w celu budżetowania służby zdrowia, czy pomocy wysyłanej na Ukrainę.
 
-Różnica zmiennej G_DEBT (Zadłużenie rządowe brutto jako % PKB) dla lat 2019,2020 było najwyższe w śród obserwowanych różnic. Istotną przyczyną jest pandemia COVID-19, która doprowadziła do istotnego wzrostu wydatków budżetowych związanych z ograniczeniem negatywnych sktuków kryzysu. Należy zauważyć, że dla lat 2020-2021, nie ma istotnej zmiany w wartościach mediany dla tego okresu. Może to sugerować, że rządy miały problem z ustablizowaniem wydatków w czasie pandemii.
+Wzrost Rządowego zadłużenia (G_DEBT) w krajach Unii Europejskiej dla lat 2019-2020 okazał się satstystycznie istotny (wartość p testu Wilcoxona bliska 0). Byłą to również największ roczna zmiana obserwowana w tym okresie. Przyzcyn takiego stanu rzeczy należy ponownie doszukiwać się w pandemii COVID-19 z 2020 roku. Należy również zauważyć, że w natępującym potem okresie nie donotowano statystycznie znaczącej zmiany w zadłużeniu państw Unii Europejskiej. Zmiany między latami 2021 i 2023 przyniosły niewielką, acz statystycznie istotną i stabilną redukcję rządowego zadłużenia w Unii Europejskiej. Test Wilcoxona wykazał również brak statystycznie istotnej różniczy w zadłużeniu państw między okresem początkowym i końcowym. Oznacza to, że Unia Europejska oraz jej państwa członkowskie w ujęciu ogólnym zareagowały odpowiednio na zastniałe kryzysy prowadząc politykę, która pozwiła na zmitygowanie ich skutków.
 
-Przychód krajowy brutto na miszkańca nie przyjął istotnej różnicy dla lat 2022 i 2023. Natomiast wczytując się w tabele, przedziałów widać, że różnica median $\ mediana_{2022}-mediana_{2023}$ wynosiła 195 milionów euro (w cenach bieżących), czyli w roku 2023 PKB per capita spadł w porówaniu do roku poprzedniego.\
+Przychód krajowy brutto na mieszkańca (PKB_pc) odnotował w krajach Unii Europejskiej zauważalny i istotny statystycznie spadek w latach 2019 - 2020. Najważniejszą przyczyną tego zjawiska była reakcja przedsiębiorstw (w szczególności usługowych) na liczne nałożone podczas pandemii restrykcje. W kolejnych okresach następował istotny statystycznie wzrost PKB per capita na terenie Unii Europejskiej, wstrzymany dopiero w roku 2023, w którym nie wykazano statystycznie istotnej różnicy względem poprzedniego roku. Stanowi to odzwiercedlenie spowodowanego wojną zahamowania rozwoju gospodarzcego. Eurostat w publikacji *Key figures - 2024 edition* podaje, że w roku 2023 PKB Unii Europejskiej wzrósł o zaledwie 0,5%.
 
-Wartości p-value dla stopy bezrobocia pozwalają zauważyć, że po roku 2023 dosło do stablizacji na rynku pracy. Wybuch pandemii w roku 2020 spowodował spadek zatrudienia. Ze względu na panujące restrykcje, wiele przedsiębiorstw nie utrzymało się, tym samym zamykając miejsa pracy, bazujące głównie na usługach. Po wybuchu wojny na Ukrainie, sytuacja się ustabilizwała, przez napływ uchodzców wojennych z Ukrainy i koniec pandemii.
+Test statystyczny Wilcoxona potwierdza omawiane wcześniej zmiany Wskaźnika cen towarów i usług konsumenckich (HICP) w krajach Unii Europejskiej. Analiza skonstruowanych przedziałów ufności wkazuje spadek cen w roku 2020, następujący po nim w roku 2021 wzrost, a następnie gwałtowny skok inflacji w roku 2022 i jej ponowny spadek w roku 2023 - każdy istotny statystycznie z wartością p bliską 0. Potwierdza to, że z punktu widzenia rynku konsumenta bardzo odczuwalny był wybuch wojny w roku 2022. Pomimo wprowadzenia restrykcyjnej polityki monetarnej przez Unię Europejską i państwa członkowskie należy się spodziewać, że stabilizacja cen długo potrwa.
+
+Wartości p testó dla zmian Stopy bezrobocia (UNEMP) w posczególnych okresach pozwalają zauważyć, że po roku 2022 nie doszło do istotych statystyczne zmian na rynku pracy w krajach Unii Europejskiej. Wybuch pandemii w roku 2020 spowodował wzrost bezrobocia. Ze względu na panujące restrykcje, wiele przedsiębiorstw nie utrzymało się, tym samym zamykając miejsa pracy, bazujące głównie na usługach. Pomimo wybuchu wojny na Ukrainie w roku 2022, można z dużą pewnością stwierdzić, że rynek pracy ustabilizował się na poziomie przypominającym ten zprzed pandemii - test Wilcoxona wykazał brak istotnych zmian w stopie bezrobocia na tle krajów Unii Europejskiej między rokiem 2019 i 2023.
+</div>
 
 ### Wnioski
 
-Ze wzglęu na brak normalności rozkładów badanych zmiennych zdecydowano się na anzalizę testami nieparametrycznymi, bazującymi na analizaie wartości środkowej. Wyniki testów Friedmana i Wilcoxona, umożliwiają przyjżenie się jak warunki na świecie wpłyneły na kształtowanie się wskaźników makroekonomicznych państw Unii Europejskiej.
+<div style="text-align: justify;">
+Ze wzglęu na brak normalności rozkładów badanych zmiennych zdecydowano się na anzalizę statystyczną z użyciem testów nieparametrycznych bazujących na analizaie wartości środkowej oraz różnic w rankingach wartości zmiennej. Wyniki testów Friedmana i Wilcoxona umożliwiają przyjżenie się jak warunki na świecie wpłyneły na kształtowanie się wskaźników makroekonomicznych państw Unii Europejskiej.
 
-Test Friedmana, jako początkowy etap analizy rozkładów zmian w czasie, potwierdził istotną zmienność badanych wskaźników między okresami. Kolejnym etapem okazało się wykorzystanie sparowanego testu rang Wilcoxon'a, aby pozanać szczegółowe relację między wartościami median badanych okresów. Zgodnie z intuicją, do największych zmian zachodziło dla różnic z latam 2020 i 2022. Czyli odpowiedno rok wybuchu pandemii COVID-19 i wojny na Ukrainie. Wydatki rządowe na konsumpcję (G_CONS) wykazały wyraźny i istotny wzrost w całym analizowanym okresie. Eksport dóbr i usług (EXP) początkowo spadł między rokiem 2019, a 2020. Jak podawał raport OECD, spodziwano się, że wskaźnik ten zmienjszy się o niemal 8,9%. W kolejnych latach natomiast jego wartości ulegały wzrostowi. Zaobserowwano jednak brak istotności tej zmiany między rokiem 2022, a 2023 prawdopodobnie przez wybuch wojny Rosyjsko-Ukraińskiej. Ciekawym wydaje się regularny wzrost wskaźnika DISP_INC_hh, czyli korygowany rozporządzany dochód gospodarstw domowych na jednego mieszkańca, który w badanym okresie ulegał regularnemu wzrostowi, pomimo panujących kryzysów. Reakcję jednak można zauważyć w rządowych wydatkach na konsumpcję. Ze względu na finansowanie służby zdrowia, pomoc przedsiębiorcom, czy zbrojenia, wydatki te sukcesywnie z roku na rok istotnie rosły. Sugeruje to, że 2 ogromne kryzysy wiązały się z ogromnymi kosztami finansującymi utrzymanie gospodarki i obywateli w równowadze.
+Test Friedmana, jako początkowy etap analizy rozkładów zmian w czasie, potwierdził występowanie przynajmniej jednej statystycznie istotnej zmiany w wartościach każdego ze wskaźników w latach 2019-2023. Wykonene następnie testy Wilcoxona potwierdziły istotność statystyczną zachądzych między okresami zmian w wybranych wskaźnikach makroekonomicznych Unii Europejskiej. Największ z nich przypadały często na lata 2020 i 2022 - czyli odpowiedno rok wybuchu pandemii COVID-19 rozpoczynjącej wojnę rosyjskiej agresji na Ukrainie. Wydatki rządowe na konsumpcję (G_CONS) wykazały wyraźny i istotny wzrost w całym analizowanym okresie. Eksport dóbr i usług (EXP) początkowo spadł między rokiem 2019, a 2020, potem jednka ponownie zaczął odnotowywać wzrost, któryz został zahamowany w roku 2023. Ciekawym wydaje się regularny wzrost Skorygowanego dochodu do dyspozycji gospodarstw domowych (DISP_INC_hh) podanego w standardzie mocy nabywczej, który w badanym okresie ulegał regularnemu wzrostowi, pomimo nastałych kryzysów. Reakcje rządów na wydarzenia z lat 2020 i 2022 odziwerciedlane są w Rządowych wydatkach na konsumpcję (G_CONS). Ze względu na konieczność dofinansowania służby zdrowia, pomocy przedsiębiorcom, czy zbrojenia się, wydatki te rosły istotnie z roku na rok. Test Wilcoxona pomógł również wykazać omawiane w raportach OECD i Eurostau spadek PKB per capita (GDP_pc) oraz wzsrost Stopy bezrobocia (UNEMP) w roku 2020, a także skok inflacji odnotownay po wybuchu wojny w roku 2022.
+
+Mając na uwadze wszytskie omawiane i statystycznie potwierdzone w tym rozdziale zmiany wskaźników makroekonomicznych w badanych krajach, można zdecydowanie potwierdzić postawioną we wstępie hipotezę badawczą -  rozpoczęta roku pandemia COVID-19 oraz wykonywane pzrez Rosję działania wojenne na Ukarainie w znaczący sposób pogorszyły sytuację ekonomiczną Unii Europejskiej.
+</div>
 
 ## Podsumowanie
+
+<div style="text-align: justify;">
+Zgodnie zarówno z powszechną opinią jak i ocenami ekspertów, wydarzenia z lat 2020 i 2022 okazły się brzemienne w skutkach dla Unii Europejskiej i jej państw członkowskich. Kryzys wywołany przez pandemię COVID-19 odbił się echem po Europie, powodując destabilizcję rynku pracy, wzrost bezrobocia, a także klęskę wielu biznesów w sektorze usług, skutkującą odnotowanym pierwszy raz od wielu lat, ponad 6-procentowym, spadkiem w PKB Unii Europejskiej. OECD nie pomyliło się nazywjąc ten okres "największą recesją w historii" Unii Europejskiej w opublikowaym zaledwie rok później *OECD Economic Surveys: European Union 2021*.
+
+Z kolei zerwanie stosunków handlowych z Rosją po rozpoczęciu przez nią działań wojennych obnażyło wady polityki i infrastruktury energetycznej w Unii Europejskiej. Gwałtowny wzrost cen energii spowodował rekordową inflację w państwach członkowskich i zachamował rozwój świeżo ożywianej po pandemii gospodarki.
+
+Nie udało się wykazać zmian w nierównośicach makroekonomicznych na poziomie poszczególnych państw Unii Europejskiej, co nieoznacza jednak, że nie miał on miejsca na poiomie regionalnym.
+
+Pomimo oznak stabilizacji gospodarki takich jak sukcesywny wzrost eksportu po 2020 roku, czy stabilizacja bezrobocia i jego powrót do stanu podobnego do tego sprzed pandemii, należy spodziewać się że skutki minionych kryzysów odczuwalne będą w Unii Europejskiej jescze przez długi czas.
+</div>
