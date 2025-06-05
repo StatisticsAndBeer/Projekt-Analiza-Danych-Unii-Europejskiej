@@ -68,14 +68,37 @@ Eurostat. (2024). *Key figures on Europe -- 2024 edition*. Publications Office o
 Podsumowując, z analiz OECD i Eurostatu wynika, że zarówno wybuch pandemii COVID-19 w 2020 roku jak i rozpoczęcie przez Rosję wojny na Ukrainie w 2022 okazały się wydarzeniami mającymi rozległy negatywny wpływ na sytuację ekonomiczną Unii Europejskiej i zasłużyły na miano kryzysów. Pierwsze z nich uderzyło przede wszystkim w rządy krajów zmuszone do kosztownych działań w obronie zdrowia publicznego. Restrykcyjne dla biznesów polityki izolacji negatywnie wpłynęły na rynek pracy oraz wielkość wytwarzanego PKB, szczególnie w sektorze usług. Z kolei kryzys energetyczny będący pokłosiem rozpoczętej przez Rosję w 2022 roku wojny na Ukrainie spowodował gwałtowny wzrost cen towarów i usług konsumenckich, w szczególności żywności i energii. Przy zachowaniu odpowiedniej polityki fiskalnej i monetarnej, a także przygotowaniu wsparcia dla regionów najbardziej dotkniętych tymi wydarzeniami, można się jednak spodziewać stopniowej poprawy sytuacji gospodarczej w Unii Europejskiej, obarczonej niestety wzrostem różnic ekonomicznych na tle regionalnym i krajowym.
 </div>
 
+### Wykorzystane narzędzia
+
+<div style="text-align: justify;">  
+
+Poszczególne elemety analizy (wykresy, statystyki, testysty statystczne) wykonane zostały przy użyciu języka R w edytorze RStudio. Oprócz wbudowanych funkcji do niektórych zadań zasotowane zostały paczki rozszerzające funkcjonalność R. Ich spis znajduje się w tabeli poniżej:  
+
+| Nazwa | Użyta wersja | Funkcjonalność |
+|:-----|:-----|:---------------|
+| eurostat | 4.0.0 | Pobieranie danych bezpośrednio z baz danych Eurostatu. |
+| tidyr | 1.3.0 | Usprawnienie formatowania i prezentacji danych. |
+| dplyr | 1.1.4 | Syntax usprawniający przetwarzanie danych w R. |
+| stringr | 1.5.0 | Formatowanie zmiennych tekstowych (w tej pracy: formatowanie tekstu na wykresach.) |
+| purrr | 1.0.2 | Programowanie funkcyjne (w tej pracy: szybkie łączenie ramek danych). |
+| ggplt2 | 3.5.1 | Tworzenie zaawansowanych wizualizacji danych. |
+| reshape2 | 1.4.4 | Manipulowanie strukturą ramek danych. |
+| ineq | 0.2-13 | Metody badania nierówności (w szczególności konstruowanie Krzwej Lorenza oraz obliczanie wskaźnika Gini'ego) |
+| knitr | 1.44 | Dynamiczne generowanie dokumentów (raportów). |
+| kableExtra | 1.4.0 | Tworzenie i wizualizowanie zaawansownych tabel. |
+| moments | 0.14.1 | Obliczanie statystyk zmiennych opartych o momenty, w tym skośności i kurtozy. |
+| ggrepel | 0.9.5 | Rozszerzenie paczki ggplot2 - dodawanie etykiet tekstowych na wykresach. |  
+
+</div>
+
 ## Dane
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-p<-c("eurostat", "tidyr", "tmap", "sf", "dplyr", "stringr", "purrr",
-     "ggplot2", "tidyr", "reshape2", "dplyr", "stringr", "ineq", "knitr",
+p<-c("eurostat", "tidyr", "dplyr", "stringr", "purrr",
+     "ggplot2", "reshape2", "ineq", "knitr",
      "kableExtra","moments", "ggrepel")
 
 for (i in p){
@@ -179,20 +202,6 @@ rm(DISP_INC_hh, EXP, G_CONS, G_DEBT, GDP_pc,
 rm(dfs)
 
 
-eu_north <- c("DK", "EE", "FI", "IE", "LV", "LT", "SE")
-eu_south <- c("HR", "CY", "EL", "IT", "MT", "PT", "SI", "ES")
-eu_east  <- c("BG", "CZ", "HU", "PL", "RO", "SK")
-eu_west  <- c("AT", "BE", "FR", "DE", "LU", "NL")
-
-data <- data %>%
-  mutate(region = case_when(
-    geo %in% eu_north ~ "North",
-    geo %in% eu_south ~ "South",
-    geo %in% eu_east  ~ "East",
-    geo %in% eu_west  ~ "West"))
-
-rm(eu_east, eu_south, eu_north, eu_west)
-
 data$time <- as.factor(data$time)
 data$geo <- as.factor(data$geo)
 
@@ -230,6 +239,8 @@ rm(danee, missing_rows, model, model_data, predicted)
 
 <div style="text-align: justify;">
 Dane pochodzą w całości ze zbiorów udostępnionych przez Eurostat. Szczegóły dotyczącze baz danych, z których pochodzą poszczególne wskaźniki podane są w sekcji poświęconej opisowi zmiennych. Zbiór danych obejmuje wartości 7 wskażników makroekonometrycznych, podawanych z roczną częstotliwością na przestrzeni lat 2019-2023. Zostały one szczegółowo opisane w sekcji poniżej. W badaniu uwzględnione zostało 27 państw wchodzących w skład Unii Europejskiej z roku 2020. W badaniu nie zostały uwzględnione kraje nienależące do Unii Europejskiej, ale wpółpracujące z Eurostatem w zakresie statystyki publicznej.
+
+Ostania aktualizacja pobieranych danych nastąpiła 5 czerwca 2025r.
 </div>
 
 ### Opis zmiennych
@@ -286,11 +297,11 @@ podstawowe_statystyki <- function(df) {
 }
 
 
-kable(podstawowe_statystyki(select(data[data$time==2019,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2019")
-kable(podstawowe_statystyki(select(data[data$time==2020,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2020")
-kable(podstawowe_statystyki(select(data[data$time==2021,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2021")
-kable(podstawowe_statystyki(select(data[data$time==2022,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2022")
-kable(podstawowe_statystyki(select(data[data$time==2023,], c(-time, -geo, -region))), caption = "Statystyki dla roku 2023")
+kable(podstawowe_statystyki(select(data[data$time==2019,], c(-time, -geo))), caption = "Statystyki dla roku 2019")
+kable(podstawowe_statystyki(select(data[data$time==2020,], c(-time, -geo))), caption = "Statystyki dla roku 2020")
+kable(podstawowe_statystyki(select(data[data$time==2021,], c(-time, -geo))), caption = "Statystyki dla roku 2021")
+kable(podstawowe_statystyki(select(data[data$time==2022,], c(-time, -geo))), caption = "Statystyki dla roku 2022")
+kable(podstawowe_statystyki(select(data[data$time==2023,], c(-time, -geo))), caption = "Statystyki dla roku 2023")
 
 ```
 
@@ -303,7 +314,8 @@ Dla wszystkich badanych okresów, współczynnik zmienności wyrażony jako iloc
 
 ### Wykresy gęstości zmiennych
 
-<div style="text-align: justify;">
+<div style="text-align: justify;">  
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -399,7 +411,7 @@ setwd(paste(project_path, "/Wykresy/q-q", sep=""))
 
 title <- str_wrap("Wykresy kwantyl-kwantyl dla poszczególnych zmiennych na przestrzeni lat", width = 50)
 
-q_q_data <- melt(data=data, id.vars = c("time", "geo", "region"), 
+q_q_data <- melt(data=data, id.vars = c("time", "geo"), 
                  variable.name = "variable", value.name = "value")
 
 file_name <- paste("Wykres q-q.png")
@@ -514,7 +526,7 @@ setwd(paste(project_path, "/Wykresy/Lorenz", sep=""))
 #Zmiana formatu danych dla odpowiedniego rysowania wykresu
 #Inflcja pominięta ze wzglęu na ujemne wartości
 lorenz_data <- melt(data = data %>% select(-HICP), 
-                    id.vars = c("time", "geo", "region"), 
+                    id.vars = c("time", "geo"), 
                  variable.name = "variable", value.name = "value")
 
 lorenz_data <- lorenz_data %>%
@@ -867,3 +879,18 @@ Nie udało się wykazać zmian w nierównośicach makroekonomicznych na poziomie
 
 Pomimo oznak stabilizacji gospodarki takich jak sukcesywny wzrost eksportu po 2020 roku, czy stabilizacja bezrobocia i jego powrót do stanu podobnego do tego sprzed pandemii, należy spodziewać się że skutki minionych kryzysów odczuwalne będą w Unii Europejskiej jescze przez długi czas.
 </div>
+
+## Bibliografia
+1. OECD (2021), *OECD Economic Surveys: European Union 2021*, OECD Publishing, Paris (https://doi.org/10.1787/a77ab220-en)
+2. OECD (2023), *OECD Economic Surveys: European Union and Euro Area 2023*, OECD Publishing, Paris (https://doi.org/10.1787/7ebe8cc3-en)
+3. Eurostat. (2021). *Key figures on Europe -- 2021 edition*. Publications Office of the European Union (https://ec.europa.eu/eurostat/web/products-key-figures/-/KS-EI-21-001
+4. Eurostat. (2022). *Key figures on Europe -- 2022 edition*. Publications Office of the European Union (https://ec.europa.eu/eurostat/web/products-key-figures/-/KS-EI-22-001)
+5. Eurostat. (2023). *Key figures on Europe -- 2023 edition*. Publications Office of the European Union (https://ec.europa.eu/eurostat/web/products-key-figures/w/KS-EI-23-001)
+6. Eurostat. (2024). *Key figures on Europe -- 2024 edition*. Publications Office of the European Union (https://ec.europa.eu/eurostat/web/products-key-figures/w/KS-EI-23-001)
+7. Cameron, A. C., & Trivedi, P. K. (2005). Missing data and imputation. In *Microeconometrics: Methods and applications*. Cambridge University Press.
+8. Gini C. (1912) *Variabilità e mutabilità \[Zmienność i zmienialność\]*
+9. Kukuła K. (1996) *Statystyczne metody analizy struktur ekonomicznych*
+10. Sheskin D.J. (2011). *Handbook of Parametric and Nonparametric Statistical (5th Edition)* (https://doi.org/10.1201/9781420036268)
+11. Hollander M., Wolfe D.A., Chicken E. (2015) *Nonparametric Statistical Methods*
+(https://doi.org/10.1002/9781119196037)
+
