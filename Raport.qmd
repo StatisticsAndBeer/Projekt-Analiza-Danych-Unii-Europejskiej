@@ -259,6 +259,13 @@ Tak jak wspomnaino wyżej badane zmienne stanowi 7 wskaźników makroekonomiczny
 | EXP             | Eksport towarów i usług                                                   | wolumeny łańcuchowo powiązane (2015), milion euro        | nama_10_gdp |
 </div>
 
+### Braki danych
+
+<div style="text-align: justify;">
+W badanym zbiorze danych zaobserwowano jedą brakującą obserwację. Występuje ona dla Bułgarii dla zmiennej DISP_INC_hh czyli Skorygowanego dochodu brutto do dyspozycji gospodarstw domowych na mieszkańca, w roku 2023. Obserwacja w czasie tej zmiennej dla Bułgarii i jej sąsiadów z UE (Grecja i Rumunia), pozwala zauważyć stabilną tendencję wzrostową w czasie. Biorąc pod uwagę, że ten brak danych jest jedynym w zbiorze zdecydowano się wykorzystać metodę podstawienia wartości wyliczonej z użcyeiem regresji liniowej. W (2005 )*Microeconometrics: Methods and applications* Cameron, A. C., & Trivedi, P. K. w rozdziale *Missing data and imputation* proponują użycie model regresji $y=Xβ+u$. Rozwiązanie takie zakłada, że wartości $y$ można oszacować na podstawie macierzy $X$ (np. czasu lub innych zmiennych). Tym bardziej jeżeli w zmienna z brakującymi danymi wykazuje trend, wykorzystanie metody opartej na modelu jest lepsze niż proste średnie lub interpolacja, gdyż bierze pod uwagę strukturę danych. 
+Zdecydowano się na model jedynie z czasem dla lat bez braku danych czyli 2019-2022. Powodem jest prostota. Na podstawie modelu w miejsce braku danych wpisano wartość 15845,63.
+</div>
+
 ### Statystyki opisowe
 
 <div style="text-align: justify;">
