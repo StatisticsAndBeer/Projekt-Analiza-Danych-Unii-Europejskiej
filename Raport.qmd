@@ -114,13 +114,7 @@ CNTR_eu<-unlist(eu_countries %>%
   select(geo))
 YEARS=2019:2023
 
-# if(!"rstudioapi" %in% installed.packages()){install.packages("rstudioapi")}
-# project_path <- dirname(rstudioapi::getSourceEditorContext()$path)
-# 
-# project_path
-# #project_path <- "C:/Users/miesz/Desktop/Studia/Projekt-Analiza-Danych-Unii-Europejskiej"
-# 
-# 
+
 # WCZYTANIE DANYCH Z EUROSTATU ####
 # Real GDP per capita ####
 #ewentualnie "sdg_08_10" bo jako base year używa 2020, a nie 2015
